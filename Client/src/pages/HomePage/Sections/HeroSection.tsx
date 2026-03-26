@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Bot, Zap } from "lucide-react";
 
-const ORANGE = "#FF6B2C";
-const ORANGE_DARK = "#E8590C";
+const CYAN = "#06B6D4";
+const CYAN_DARK = "#0E7490";
 
 /* ── stagger helpers ── */
 const stagger = (i: number, base = 0) => base + i * 0.12;
@@ -17,7 +17,7 @@ const HeroSection = () => {
     <section
       id="hero"
       className="relative min-h-dvh flex items-center overflow-hidden"
-      style={{ background: "linear-gradient(170deg, #FDF8F2 0%, #F8F0E6 40%, #FBF5EE 100%)" }}
+      style={{ background: "linear-gradient(170deg, #F9FAFB 0%, #F3F4F6 40%, #F9FAFB 100%)" }}
     >
       {/* ── Diagonal lines + subtle glow ── */}
       <div className="hero-glow-light" />
@@ -26,28 +26,28 @@ const HeroSection = () => {
 
       {/* Diamond — top-left corner */}
       <motion.div
-        className="absolute top-[6%] left-[3%] w-6 h-6 border-2 border-[#FF6B2C]/50 rotate-45"
+        className="absolute top-[6%] left-[3%] w-6 h-6 border-2 border-[#06B6D4]/50 rotate-45"
         animate={{ y: [0, -18, 0], rotate: [45, 50, 45] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
       {/* Solid circle — top-right corner */}
       <motion.div
-        className="absolute top-[5%] right-[4%] w-4 h-4 rounded-full bg-[#FF6B2C]/40"
+        className="absolute top-[5%] right-[4%] w-4 h-4 rounded-full bg-[#06B6D4]/40"
         animate={{ y: [0, 14, 0], scale: [1, 1.3, 1] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
 
       {/* Ring — bottom-right corner */}
       <motion.div
-        className="absolute bottom-[6%] right-[2%] w-8 h-8 rounded-full border-2 border-[#FF6B2C]/35"
+        className="absolute bottom-[6%] right-[2%] w-8 h-8 rounded-full border-2 border-[#06B6D4]/35"
         animate={{ scale: [1, 1.15, 1], opacity: [0.35, 0.7, 0.35] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
 
       {/* Horizontal line — far left edge */}
       <motion.div
-        className="absolute top-[50%] left-[1%] w-10 h-[2px] bg-[#FF6B2C]/40"
+        className="absolute top-[50%] left-[1%] w-10 h-[2px] bg-[#06B6D4]/40"
         animate={{ scaleX: [1, 1.8, 1], opacity: [0.4, 0.8, 0.4] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 3 }}
       />
@@ -58,20 +58,20 @@ const HeroSection = () => {
         animate={{ rotate: [0, 90, 0], opacity: [0.4, 0.8, 0.4] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
       >
-        <div className="absolute top-1/2 left-0 w-full h-[2px] bg-[#FF6B2C] -translate-y-1/2" />
-        <div className="absolute left-1/2 top-0 w-[2px] h-full bg-[#FF6B2C] -translate-x-1/2" />
+        <div className="absolute top-1/2 left-0 w-full h-[2px] bg-[#06B6D4] -translate-y-1/2" />
+        <div className="absolute left-1/2 top-0 w-[2px] h-full bg-[#06B6D4] -translate-x-1/2" />
       </motion.div>
 
       {/* Hollow square — top-right edge */}
       <motion.div
-        className="absolute top-[12%] right-[2%] w-5 h-5 border-2 border-[#FF6B2C]/45"
+        className="absolute top-[12%] right-[2%] w-5 h-5 border-2 border-[#06B6D4]/45"
         animate={{ y: [0, 12, 0], rotate: [0, 15, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
       />
 
       {/* Small diamond — top center */}
       <motion.div
-        className="absolute top-[3%] left-[45%] w-4 h-4 border border-[#FF6B2C]/50 rotate-45"
+        className="absolute top-[3%] left-[45%] w-4 h-4 border border-[#06B6D4]/50 rotate-45"
         animate={{ y: [0, -8, 0], opacity: [0.5, 0.9, 0.5] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 4 }}
       />
@@ -82,28 +82,28 @@ const HeroSection = () => {
         animate={{ opacity: [0.3, 0.7, 0.3] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       >
-        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]/60" />
-        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]/40" />
-        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]/20" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]/60" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]/40" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]/20" />
       </motion.div>
 
       {/* Faint ring — center gap upper */}
       <motion.div
-        className="absolute top-[20%] left-[48%] w-7 h-7 rounded-full border border-[#FF6B2C]/25"
+        className="absolute top-[20%] left-[48%] w-7 h-7 rounded-full border border-[#06B6D4]/25"
         animate={{ scale: [1, 1.15, 1], opacity: [0.25, 0.5, 0.25] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
 
       {/* Small dot — center gap lower */}
       <motion.div
-        className="absolute bottom-[18%] left-[50%] w-2.5 h-2.5 rounded-full bg-[#FF6B2C]/35"
+        className="absolute bottom-[18%] left-[50%] w-2.5 h-2.5 rounded-full bg-[#06B6D4]/35"
         animate={{ y: [0, -10, 0], opacity: [0.35, 0.7, 0.35] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 3.5 }}
       />
 
       {/* Tiny diamond — center gap mid */}
       <motion.div
-        className="absolute top-[70%] left-[46%] w-3 h-3 border border-[#FF6B2C]/30 rotate-45"
+        className="absolute top-[70%] left-[46%] w-3 h-3 border border-[#06B6D4]/30 rotate-45"
         animate={{ y: [0, 8, 0], rotate: [45, 50, 45] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
       />
@@ -125,7 +125,7 @@ const HeroSection = () => {
                 delay: stagger(0),
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="inline-block text-[#1A1A1A]"
+              className="inline-block text-[#111827]"
             >
               {t("heroTitle1")}
             </motion.span>{" "}
@@ -139,7 +139,7 @@ const HeroSection = () => {
               }}
               className="inline-block"
               style={{
-                background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})`,
+                background: `linear-gradient(135deg, ${CYAN}, ${CYAN_DARK})`,
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -175,7 +175,7 @@ const HeroSection = () => {
             <button
               type="button"
               onClick={() => navigate("/auth?mode=signup")}
-              className="clix-btn cta-glow-pulse text-lg px-8 py-4 rounded-xl"
+              className="ortam-btn cta-glow-pulse text-lg px-8 py-4 rounded-xl"
             >
               {t("heroBtn")}
             </button>
@@ -218,13 +218,13 @@ const HeroSection = () => {
                 <div
                   className="w-9 h-9 rounded-full flex items-center justify-center"
                   style={{
-                    background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})`,
+                    background: `linear-gradient(135deg, ${CYAN}, ${CYAN_DARK})`,
                   }}
                 >
                   <Bot className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-bold text-gray-800">CLIX Bot</p>
+                  <p className="text-sm font-bold text-gray-800">Ortam Bot</p>
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-green-500" />
                     <span className="text-xs text-gray-500">Online</span>
@@ -262,7 +262,7 @@ const HeroSection = () => {
                   <div
                     className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center mt-1"
                     style={{
-                      background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})`,
+                      background: `linear-gradient(135deg, ${CYAN}, ${CYAN_DARK})`,
                     }}
                   >
                     <Bot className="w-3.5 h-3.5 text-white" />
@@ -303,7 +303,7 @@ const HeroSection = () => {
                   <div
                     className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center mt-1"
                     style={{
-                      background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})`,
+                      background: `linear-gradient(135deg, ${CYAN}, ${CYAN_DARK})`,
                     }}
                   >
                     <Bot className="w-3.5 h-3.5 text-white" />
@@ -334,10 +334,10 @@ const HeroSection = () => {
                 <div
                   className="w-8 h-8 rounded-lg flex items-center justify-center"
                   style={{
-                    background: `linear-gradient(135deg, ${ORANGE}20, ${ORANGE}40)`,
+                    background: `linear-gradient(135deg, ${CYAN}20, ${CYAN}40)`,
                   }}
                 >
-                  <Zap className="w-4 h-4" style={{ color: ORANGE }} />
+                  <Zap className="w-4 h-4" style={{ color: CYAN }} />
                 </div>
                 <div>
                   <p className="text-xs text-gray-500">בוט חכם</p>
@@ -361,7 +361,7 @@ const HeroSection = () => {
                 <div
                   className="w-7 h-7 rounded-full flex items-center justify-center"
                   style={{
-                    background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})`,
+                    background: `linear-gradient(135deg, ${CYAN}, ${CYAN_DARK})`,
                   }}
                 >
                   <Bot className="w-3.5 h-3.5 text-white" />
