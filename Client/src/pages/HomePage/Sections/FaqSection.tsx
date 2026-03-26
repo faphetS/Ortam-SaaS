@@ -19,26 +19,26 @@ const FaqSection = () => {
     <section
       id="faq"
       className="relative min-h-dvh flex flex-col justify-center py-24 px-6 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #FBF5EE 0%, #F8F0E6 60%, #FDF8F2 100%)" }}
+      style={{ background: "linear-gradient(180deg, #F9FAFB 0%, #F3F4F6 60%, #F9FAFB 100%)" }}
     >
       {/* Decorative side shapes — desktop only */}
       <motion.div
-        className="hidden lg:block absolute top-[20%] left-[5%] w-5 h-5 border-2 border-[#FF6B2C]/20 rotate-45"
+        className="hidden lg:block absolute top-[20%] left-[5%] w-5 h-5 border-2 border-[#06B6D4]/20 rotate-45"
         animate={{ y: [0, -12, 0], rotate: [45, 50, 45] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="hidden lg:block absolute top-[40%] left-[4%] w-6 h-6 rounded-full border border-[#FF6B2C]/20"
+        className="hidden lg:block absolute top-[40%] left-[4%] w-6 h-6 rounded-full border border-[#06B6D4]/20"
         animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.45, 0.2] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
       />
       <motion.div
-        className="hidden lg:block absolute top-[60%] left-[6%] w-2 h-2 rounded-full bg-[#FF6B2C]/25"
+        className="hidden lg:block absolute top-[60%] left-[6%] w-2 h-2 rounded-full bg-[#06B6D4]/25"
         animate={{ y: [0, 8, 0], opacity: [0.25, 0.6, 0.25] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 3 }}
       />
       <motion.div
-        className="hidden lg:block absolute bottom-[25%] right-[4%] w-4 h-4 border border-[#FF6B2C]/20 rotate-45"
+        className="hidden lg:block absolute bottom-[25%] right-[4%] w-4 h-4 border border-[#06B6D4]/20 rotate-45"
         animate={{ y: [0, 10, 0], rotate: [45, 48, 45] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
@@ -47,7 +47,7 @@ const FaqSection = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <motion.span
-            className="text-[#FF6B2C] text-sm font-bold tracking-wider uppercase mb-3 block"
+            className="text-[#06B6D4] text-sm font-bold tracking-wider uppercase mb-3 block"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -55,7 +55,7 @@ const FaqSection = () => {
             {t("faqLabel")}
           </motion.span>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A]"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#111827]"
             initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
             animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -78,9 +78,9 @@ const FaqSection = () => {
             >
               <AccordionItem
                 value={`faq-${n}`}
-                className="rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 border-r-2 border-r-transparent shadow-[0_4px_16px_rgba(0,0,0,0.04)] px-4 sm:px-7 py-1 transition-all duration-300 data-[state=open]:border-r-[#FF6B2C] data-[state=open]:shadow-[0_8px_32px_rgba(255,107,44,0.08)]"
+                className="rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 border-r-2 border-r-transparent shadow-[0_4px_16px_rgba(0,0,0,0.04)] px-4 sm:px-7 py-1 transition-all duration-300 data-[state=open]:border-r-[#06B6D4] data-[state=open]:shadow-[0_8px_32px_rgba(6,182,212,0.08)]"
               >
-                <AccordionTrigger className="text-[#1A1A1A] text-base sm:text-lg font-medium hover:no-underline hover:text-[#FF6B2C]/80 transition-colors">
+                <AccordionTrigger className="text-[#111827] text-base sm:text-lg font-medium hover:no-underline hover:text-[#06B6D4]/80 transition-colors">
                   {t(`faqQ${n}`)}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 text-sm sm:text-base leading-relaxed">
