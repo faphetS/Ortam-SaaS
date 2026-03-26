@@ -61,8 +61,8 @@ function groupByMonth(
 }
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-const STATUS_CHART_COLORS = ["#F59E0B", "#10B981", "#EF4444"];
-const BOT_CHART_COLORS = ["#E5E7EB", "#60A5FA", "#D8723C"];
+const STATUS_CHART_COLORS = ["#06B6D4", "#10B981", "#EF4444"];
+const BOT_CHART_COLORS = ["#E5E7EB", "#60A5FA", "#0891B2"];
 
 export default function DashboardSection() {
   const { t } = useTranslation("admin");
@@ -177,7 +177,7 @@ export default function DashboardSection() {
       label: t("statTotalUsers"),
       value: totalUsers,
       icon: Users,
-      color: "text-[#444444]",
+      color: "text-[#374151]",
       bgColor: "bg-[#F2EDE8]",
       link: "/admin/users",
     },
@@ -211,10 +211,10 @@ export default function DashboardSection() {
   ];
 
   const card =
-    "bg-white rounded-2xl border border-[#E8E4DF] shadow-[0_1px_3px_rgba(0,0,0,0.06)]";
+    "bg-white rounded-2xl border border-[#E5E7EB] shadow-[0_1px_3px_rgba(0,0,0,0.06)]";
 
   const tooltipStyle = {
-    background: "#111111",
+    background: "#030712",
     border: "none",
     borderRadius: 12,
     color: "#fff",
@@ -225,7 +225,7 @@ export default function DashboardSection() {
     <div className="h-full flex flex-col p-5 gap-4 overflow-hidden">
       {isLoading ? (
         <div className="flex-1 flex items-center justify-center">
-          <Loader2 className="w-8 h-8 animate-spin text-[#D8723C]" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#0891B2]" />
         </div>
       ) : (
         <>
@@ -236,7 +236,7 @@ export default function DashboardSection() {
             transition={{ duration: 0.35, ease: EASE }}
             className="shrink-0"
           >
-            <h1 className="text-xl font-bold text-[#111111]">
+            <h1 className="text-xl font-bold text-[#030712]">
               {t(getGreetingKey())}
               {user?.full_name ? `, ${user.full_name}` : ""}
             </h1>
@@ -258,13 +258,13 @@ export default function DashboardSection() {
               )}
             >
               <div className="flex items-center justify-between mb-3">
-                <p className="text-sm font-semibold text-[#111111]">
+                <p className="text-sm font-semibold text-[#030712]">
                   {t("approvalsTitle")}
                 </p>
                 <button
                   type="button"
                   onClick={() => navigate("/admin/approvals")}
-                  className="text-[10px] text-[#D8723C] font-medium hover:underline cursor-pointer transition-all"
+                  className="text-[10px] text-[#0891B2] font-medium hover:underline cursor-pointer transition-all"
                 >
                   {t("navApprovals")}
                 </button>
@@ -285,13 +285,13 @@ export default function DashboardSection() {
                         initial={{ opacity: 0, x: 12 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -12, scale: 0.95 }}
-                        className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#F0ECE7] hover:border-[#E0DBD6] transition-colors"
+                        className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-[#F9FAFB] border border-[#E5E7EB] hover:border-[#D1D5DB] transition-colors"
                       >
-                        <div className="w-8 h-8 rounded-full bg-[#D8723C]/10 border border-[#D8723C]/20 flex items-center justify-center shrink-0 text-[#D8723C] font-bold text-xs">
+                        <div className="w-8 h-8 rounded-full bg-[#0891B2]/10 border border-[#0891B2]/20 flex items-center justify-center shrink-0 text-[#0891B2] font-bold text-xs">
                           {u.full_name?.charAt(0) ?? "?"}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-xs font-bold text-[#111111] truncate leading-tight">
+                          <p className="text-xs font-bold text-[#030712] truncate leading-tight">
                             {u.full_name}
                           </p>
                           <p className="text-[10px] text-[#AAAAAA] truncate leading-tight">
@@ -361,7 +361,7 @@ export default function DashboardSection() {
                 "w-[490px] shrink-0 px-5 py-4 flex flex-col min-h-0"
               )}
             >
-              <p className="text-sm font-semibold text-[#111111]">
+              <p className="text-sm font-semibold text-[#030712]">
                 {t("chartUserStatus")}
               </p>
               <p className="text-[11px] text-[#999999] mb-1">
@@ -432,7 +432,7 @@ export default function DashboardSection() {
                     card,
                     "px-5 py-4 flex flex-col justify-between transition-all duration-200",
                     c.link &&
-                      "cursor-pointer hover:bg-[#FDF9F6] hover:border-[#D8723C]/30 hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
+                      "cursor-pointer hover:bg-[#FFFFFF] hover:border-[#0891B2]/30 hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
                   )}
                 >
                   <div className="flex items-center justify-between">
@@ -452,7 +452,7 @@ export default function DashboardSection() {
                     />
                   </div>
                   <div className="mt-auto">
-                    <p className="text-3xl font-bold text-[#111111] leading-none">
+                    <p className="text-3xl font-bold text-[#030712] leading-none">
                       {c.value}
                     </p>
                     <p className="text-xs text-[#999999] font-medium mt-1">
@@ -473,7 +473,7 @@ export default function DashboardSection() {
           >
             {/* User Registrations */}
             <div className={cn(card, "px-5 py-4 flex flex-col min-h-0")}>
-              <p className="text-sm font-semibold text-[#111111]">
+              <p className="text-sm font-semibold text-[#030712]">
                 {t("chartRegistrations")}
               </p>
               <p className="text-[11px] text-[#999999] mb-2">
@@ -495,19 +495,19 @@ export default function DashboardSection() {
                       >
                         <stop
                           offset="0%"
-                          stopColor="#D8723C"
+                          stopColor="#0891B2"
                           stopOpacity={0.15}
                         />
                         <stop
                           offset="100%"
-                          stopColor="#D8723C"
+                          stopColor="#0891B2"
                           stopOpacity={0.02}
                         />
                       </linearGradient>
                     </defs>
                     <CartesianGrid
                       strokeDasharray="3 3"
-                      stroke="#E8E4DF"
+                      stroke="#E5E7EB"
                       vertical={false}
                     />
                     <XAxis
@@ -527,7 +527,7 @@ export default function DashboardSection() {
                     <Area
                       type="monotone"
                       dataKey="count"
-                      stroke="#D8723C"
+                      stroke="#0891B2"
                       strokeWidth={2}
                       fill="url(#regFill)"
                       animationDuration={800}
@@ -539,7 +539,7 @@ export default function DashboardSection() {
 
             {/* Bot Status */}
             <div className={cn(card, "px-5 py-4 flex flex-col min-h-0")}>
-              <p className="text-sm font-semibold text-[#111111]">
+              <p className="text-sm font-semibold text-[#030712]">
                 {t("chartBotStatus")}
               </p>
               <p className="text-[11px] text-[#999999] mb-2">
@@ -554,7 +554,7 @@ export default function DashboardSection() {
                   >
                     <CartesianGrid
                       strokeDasharray="3 3"
-                      stroke="#E8E4DF"
+                      stroke="#E5E7EB"
                       vertical={false}
                     />
                     <XAxis
@@ -587,7 +587,7 @@ export default function DashboardSection() {
 
             {/* Support Tickets */}
             <div className={cn(card, "px-5 py-4 flex flex-col min-h-0")}>
-              <p className="text-sm font-semibold text-[#111111]">
+              <p className="text-sm font-semibold text-[#030712]">
                 {t("chartTickets")}
               </p>
               <p className="text-[11px] text-[#999999] mb-2">
@@ -621,7 +621,7 @@ export default function DashboardSection() {
                     </defs>
                     <CartesianGrid
                       strokeDasharray="3 3"
-                      stroke="#E8E4DF"
+                      stroke="#E5E7EB"
                       vertical={false}
                     />
                     <XAxis
