@@ -18,7 +18,7 @@ function LanguageNode({ data, selected, id }: NodeProps<FlowNode>) {
         document.dispatchEvent(new CustomEvent("flow:delete-node", { detail: id }));
       }}
     >
-      <p className="truncate text-[10px] text-[#7A7267]">
+      <p className="truncate text-[10px] text-[#6B7280]">
         {data.message || t("languagePromptDefault")}
       </p>
       <div className="flex gap-1 mt-1">
