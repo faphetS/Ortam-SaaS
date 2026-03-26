@@ -34,7 +34,7 @@ export default function AdminPage() {
   return (
     <div
       dir="rtl"
-      className="h-screen bg-[#F7F5F2] text-[#111111] font-secular-one flex flex-col overflow-hidden"
+      className="h-screen bg-[#F7F5F2] text-[#030712] font-secular-one flex flex-col overflow-hidden"
     >
       {/* Top Navbar */}
       <header className="shrink-0 border-b border-black/[0.07] bg-white/80 backdrop-blur-xl">
@@ -42,11 +42,11 @@ export default function AdminPage() {
           {/* Logo */}
           <div className="flex items-center gap-2.5">
             <img
-              src="/clix-logo-full.png"
-              alt="CLIX"
+              src="/Ortam-logo.png"
+              alt="Ortam"
               className="h-6 drop-shadow-[0_1px_3px_rgba(216,114,60,0.2)]"
             />
-            <span className="text-[10px] text-[#D8723C]/60 font-bold uppercase tracking-widest">
+            <span className="text-[10px] text-[#0891B2]/60 font-bold uppercase tracking-widest">
               admin
             </span>
           </div>
@@ -61,8 +61,8 @@ export default function AdminPage() {
                   cn(
                     "flex items-center gap-2 px-4 py-2 rounded-lg text-sm whitespace-nowrap transition-all duration-200",
                     isActive
-                      ? "bg-[#D8723C]/10 text-[#D8723C] border border-[#D8723C]/25"
-                      : "text-[#666666] hover:text-[#111111] hover:bg-black/[0.04] border border-transparent"
+                      ? "bg-[#0891B2]/10 text-[#0891B2] border border-[#0891B2]/25"
+                      : "text-[#666666] hover:text-[#030712] hover:bg-black/[0.04] border border-transparent"
                   )
                 }
               >
@@ -82,7 +82,7 @@ export default function AdminPage() {
             <button
               type="button"
               onClick={handleSignOut}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-[#999999] hover:text-[#444444] hover:bg-black/[0.04] transition-all duration-200 cursor-pointer"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-[#999999] hover:text-[#374151] hover:bg-black/[0.04] transition-all duration-200 cursor-pointer"
             >
               <LogOut className="w-4 h-4 shrink-0" />
             </button>
