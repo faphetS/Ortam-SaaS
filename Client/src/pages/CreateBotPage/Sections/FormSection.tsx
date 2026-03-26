@@ -473,7 +473,7 @@ const FormSection = ({ onNext }: FormSectionProps) => {
   if (fieldsLoading || steps.length === 0) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <Loader2 className="animate-spin w-8 h-8 text-[#FF7E47]" />
+        <Loader2 className="animate-spin w-8 h-8 text-[#22D3EE]" />
       </div>
     );
   }
@@ -522,14 +522,14 @@ const FormSection = ({ onNext }: FormSectionProps) => {
                   }}
                   className="inline-block mb-6"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FF7E47] to-[#E86B38] flex items-center justify-center shadow-[0_4px_24px_rgba(255,126,71,0.3)]">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#22D3EE] to-[#0891B2] flex items-center justify-center shadow-[0_4px_24px_rgba(34,211,238,0.3)]">
                     <Bot className="w-8 h-8 text-white" />
                   </div>
                 </motion.div>
 
                 {currentStepData.settings.opening_title && (
                   <div
-                    className={`text-2xl sm:text-3xl font-bold text-[#2D2A26] mb-4 ${RICH_TEXT_CLASS}`}
+                    className={`text-2xl sm:text-3xl font-bold text-[#111827] mb-4 ${RICH_TEXT_CLASS}`}
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(
                         currentStepData.settings.opening_title,
@@ -539,7 +539,7 @@ const FormSection = ({ onNext }: FormSectionProps) => {
                 )}
                 {currentStepData.settings.opening_text && (
                   <div
-                    className={`text-base text-[#7A7267] leading-relaxed max-w-md mx-auto ${RICH_TEXT_CLASS}`}
+                    className={`text-base text-[#6B7280] leading-relaxed max-w-md mx-auto ${RICH_TEXT_CLASS}`}
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(
                         currentStepData.settings.opening_text,
@@ -554,7 +554,7 @@ const FormSection = ({ onNext }: FormSectionProps) => {
             {currentStepData?.type === "field" && (
               <div className="py-4">
                 {/* Step counter */}
-                <p className="text-xs text-[#A39B90] font-semibold mb-6 text-center tracking-wide">
+                <p className="text-xs text-[#9CA3AF] font-semibold mb-6 text-center tracking-wide">
                   {t("stepOf", {
                     current: inputIndex + 1,
                     total: inputSteps.length,
@@ -562,7 +562,7 @@ const FormSection = ({ onNext }: FormSectionProps) => {
                 </p>
 
                 {/* Field card */}
-                <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-[0_2px_24px_rgba(45,42,38,0.05)] border border-[#EDE6DD]/50">
+                <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-[0_2px_24px_rgba(17,24,39,0.05)] border border-[#E5E7EB]/50">
                   <FormFieldRenderer
                     field={currentStepData.field}
                     fileCategoryOptions={fileCategoryOptions}
@@ -609,7 +609,7 @@ const FormSection = ({ onNext }: FormSectionProps) => {
             {currentStepData?.type === "sub_field" && (
               <div className="py-4">
                 {/* Step counter */}
-                <p className="text-xs text-[#A39B90] font-semibold mb-6 text-center tracking-wide">
+                <p className="text-xs text-[#9CA3AF] font-semibold mb-6 text-center tracking-wide">
                   {t("stepOf", {
                     current: inputIndex + 1,
                     total: inputSteps.length,
@@ -617,12 +617,12 @@ const FormSection = ({ onNext }: FormSectionProps) => {
                 </p>
 
                 {/* Sub-field card */}
-                <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-[0_2px_24px_rgba(45,42,38,0.05)] border border-[#EDE6DD]/50">
+                <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-[0_2px_24px_rgba(17,24,39,0.05)] border border-[#E5E7EB]/50">
                   <div className="space-y-2">
-                    <p className="text-xs text-[#A39B90] font-medium">
+                    <p className="text-xs text-[#9CA3AF] font-medium">
                       {currentStepData.parentLabel}
                     </p>
-                    <h2 className="text-lg font-bold text-[#2D2A26]">
+                    <h2 className="text-lg font-bold text-[#111827]">
                       {currentStepData.label}
                     </h2>
                     <input
@@ -644,7 +644,7 @@ const FormSection = ({ onNext }: FormSectionProps) => {
                           e.target.value,
                         )
                       }
-                      className="w-full bg-[#FAF7F3] border border-[#E5DDD3] rounded-xl px-4 py-3 text-sm text-[#2D2A26] placeholder-[#B8AFA4] focus:border-[#FF7E47] focus:ring-2 focus:ring-[#FF7E47]/15 outline-none transition-all duration-200"
+                      className="w-full bg-[#F9FAFB] border border-[#D1D5DB] rounded-xl px-4 py-3 text-sm text-[#111827] placeholder-[#D1D5DB] focus:border-[#22D3EE] focus:ring-2 focus:ring-[#22D3EE]/15 outline-none transition-all duration-200"
                     />
                   </div>
                 </div>
@@ -667,14 +667,14 @@ const FormSection = ({ onNext }: FormSectionProps) => {
             {currentStepData?.type === "closing" && (
               <div className="text-center py-8">
                 <div className="flex items-center justify-center gap-2 mb-3">
-                  <Shield className="w-5 h-5 text-[#A39B90]" />
-                  <span className="text-xs text-[#A39B90] font-semibold uppercase tracking-wider">
+                  <Shield className="w-5 h-5 text-[#9CA3AF]" />
+                  <span className="text-xs text-[#9CA3AF] font-semibold uppercase tracking-wider">
                     Privacy
                   </span>
                 </div>
                 {currentStepData.settings.closing_text && (
                   <div
-                    className={`text-sm text-[#7A7267] leading-relaxed max-w-sm mx-auto mb-6 ${RICH_TEXT_CLASS}`}
+                    className={`text-sm text-[#6B7280] leading-relaxed max-w-sm mx-auto mb-6 ${RICH_TEXT_CLASS}`}
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(
                         currentStepData.settings.closing_text,
@@ -682,7 +682,7 @@ const FormSection = ({ onNext }: FormSectionProps) => {
                     }}
                   />
                 )}
-                <p className="text-xs text-[#A39B90] leading-relaxed max-w-sm mx-auto">
+                <p className="text-xs text-[#9CA3AF] leading-relaxed max-w-sm mx-auto">
                   {t("privacyNotice")}
                 </p>
 
