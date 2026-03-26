@@ -127,7 +127,7 @@ function SortableFieldCard({
       ref={setNodeRef}
       style={style}
       className={cn(
-        "mb-2 rounded-2xl border border-[#E8E4DF] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06)] px-4 py-3 flex items-center gap-3",
+        "mb-2 rounded-2xl border border-[#E5E7EB] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06)] px-4 py-3 flex items-center gap-3",
         isDragging && "opacity-50 z-50"
       )}
     >
@@ -143,9 +143,9 @@ function SortableFieldCard({
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
-          <p className="text-sm font-bold text-[#111111] truncate">{field.label}</p>
+          <p className="text-sm font-bold text-[#030712] truncate">{field.label}</p>
           {field.is_required && (
-            <span className="text-[10px] text-[#D8723C]">*</span>
+            <span className="text-[10px] text-[#0891B2]">*</span>
           )}
         </div>
         <p className="text-xs text-[#AAAAAA] truncate">
@@ -154,7 +154,7 @@ function SortableFieldCard({
         </p>
       </div>
 
-      <span className="px-2 py-1 rounded-lg text-[11px] font-medium border bg-white text-[#999999] border-[#E8E4DF] shrink-0">
+      <span className="px-2 py-1 rounded-lg text-[11px] font-medium border bg-white text-[#999999] border-[#E5E7EB] shrink-0">
         {fieldTypeLabel(field.field_type)}
       </span>
 
@@ -162,7 +162,7 @@ function SortableFieldCard({
         <button
           type="button"
           onClick={onEdit}
-          className="w-8 h-8 rounded-lg flex items-center justify-center text-[#AAAAAA] hover:text-[#444444] hover:bg-[#FDF9F6] transition-all cursor-pointer"
+          className="w-8 h-8 rounded-lg flex items-center justify-center text-[#AAAAAA] hover:text-[#374151] hover:bg-[#FFFFFF] transition-all cursor-pointer"
           aria-label="Edit field"
         >
           <Pencil className="w-3.5 h-3.5" />
@@ -215,15 +215,15 @@ function FieldEditPanel({
       exit={{ opacity: 0, height: 0 }}
       className="overflow-hidden"
     >
-      <div className="mb-4 rounded-2xl border border-[#D8723C]/20 bg-[#D8723C]/[0.03] p-5 space-y-4">
+      <div className="mb-4 rounded-2xl border border-[#0891B2]/20 bg-[#0891B2]/[0.03] p-5 space-y-4">
         <div className="flex items-center justify-between">
-          <h3 className="text-sm font-bold text-[#111111]">
+          <h3 className="text-sm font-bold text-[#030712]">
             {isNew ? t("addNewField") : t("editField")}
           </h3>
           <button
             type="button"
             onClick={onCancel}
-            className="w-7 h-7 rounded-lg flex items-center justify-center text-[#AAAAAA] hover:text-[#444444] hover:bg-[#FDF9F6] transition-all cursor-pointer"
+            className="w-7 h-7 rounded-lg flex items-center justify-center text-[#AAAAAA] hover:text-[#374151] hover:bg-[#FFFFFF] transition-all cursor-pointer"
             aria-label="Close"
           >
             <X className="w-4 h-4" />
@@ -241,7 +241,7 @@ function FieldEditPanel({
               onChange={(e) =>
                 onChange({ ...data, field_type: e.target.value as FieldType })
               }
-              className="w-full bg-white border border-[#E8E4DF] rounded-xl px-3 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#D8723C]/50 transition-colors cursor-pointer"
+              className="w-full bg-white border border-[#E5E7EB] rounded-xl px-3 py-2.5 text-sm text-[#030712] focus:outline-none focus:border-[#0891B2]/50 transition-colors cursor-pointer"
             >
               {FIELD_TYPES.map((ft) => (
                 <option key={ft} value={ft} className="bg-white">
@@ -261,7 +261,7 @@ function FieldEditPanel({
             type="text"
             value={data.label}
             onChange={(e) => onChange({ ...data, label: e.target.value })}
-            className="w-full bg-white border border-[#E8E4DF] rounded-xl px-3 py-2.5 text-sm text-[#111111] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#D8723C]/50 transition-colors"
+            className="w-full bg-white border border-[#E5E7EB] rounded-xl px-3 py-2.5 text-sm text-[#030712] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#0891B2]/50 transition-colors"
           />
         </div>
 
@@ -274,7 +274,7 @@ function FieldEditPanel({
             type="text"
             value={data.placeholder}
             onChange={(e) => onChange({ ...data, placeholder: e.target.value })}
-            className="w-full bg-white border border-[#E8E4DF] rounded-xl px-3 py-2.5 text-sm text-[#111111] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#D8723C]/50 transition-colors"
+            className="w-full bg-white border border-[#E5E7EB] rounded-xl px-3 py-2.5 text-sm text-[#030712] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#0891B2]/50 transition-colors"
           />
         </div>
 
@@ -287,7 +287,7 @@ function FieldEditPanel({
             type="text"
             value={data.description}
             onChange={(e) => onChange({ ...data, description: e.target.value })}
-            className="w-full bg-white border border-[#E8E4DF] rounded-xl px-3 py-2.5 text-sm text-[#111111] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#D8723C]/50 transition-colors"
+            className="w-full bg-white border border-[#E5E7EB] rounded-xl px-3 py-2.5 text-sm text-[#030712] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#0891B2]/50 transition-colors"
           />
         </div>
 
@@ -299,8 +299,8 @@ function FieldEditPanel({
             className={cn(
               "w-10 h-6 rounded-full transition-all duration-200 relative cursor-pointer",
               data.is_required
-                ? "bg-[#D8723C]"
-                : "bg-[#E8E4DF]"
+                ? "bg-[#0891B2]"
+                : "bg-[#E5E7EB]"
             )}
           >
             <span
@@ -310,7 +310,7 @@ function FieldEditPanel({
               )}
             />
           </button>
-          <span className="text-sm text-[#444444]">{t("fieldRequired")}</span>
+          <span className="text-sm text-[#374151]">{t("fieldRequired")}</span>
         </label>
 
         {/* Options — for select/radio/checkbox */}
@@ -330,7 +330,7 @@ function FieldEditPanel({
                       newOpts[i] = e.target.value;
                       onChange({ ...data, options: newOpts });
                     }}
-                    className="flex-1 bg-white border border-[#E8E4DF] rounded-xl px-3 py-2 text-sm text-[#111111] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#D8723C]/50 transition-colors"
+                    className="flex-1 bg-white border border-[#E5E7EB] rounded-xl px-3 py-2 text-sm text-[#030712] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#0891B2]/50 transition-colors"
                   />
                   {data.options.length > 1 && (
                     <button
@@ -351,7 +351,7 @@ function FieldEditPanel({
                 onClick={() =>
                   onChange({ ...data, options: [...data.options, ""] })
                 }
-                className="text-xs text-[#D8723C]/70 hover:text-[#D8723C] transition-colors cursor-pointer"
+                className="text-xs text-[#0891B2]/70 hover:text-[#0891B2] transition-colors cursor-pointer"
               >
                 + {t("addOption")}
               </button>
@@ -367,8 +367,8 @@ function FieldEditPanel({
                 className={cn(
                   "w-10 h-6 rounded-full transition-all duration-200 relative cursor-pointer",
                   data.allow_other
-                    ? "bg-[#D8723C]"
-                    : "bg-[#E8E4DF]"
+                    ? "bg-[#0891B2]"
+                    : "bg-[#E5E7EB]"
                 )}
               >
                 <span
@@ -378,7 +378,7 @@ function FieldEditPanel({
                   )}
                 />
               </button>
-              <span className="text-sm text-[#444444]">{t("allowOther")}</span>
+              <span className="text-sm text-[#374151]">{t("allowOther")}</span>
             </label>
           </div>
         )}
@@ -391,7 +391,7 @@ function FieldEditPanel({
             disabled={isSaving || !data.label.trim()}
             className={cn(
               "flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer",
-              "bg-[#D8723C] text-white hover:bg-[#C4662F]",
+              "bg-[#0891B2] text-white hover:bg-[#C4662F]",
               (isSaving || !data.label.trim()) && "opacity-40 pointer-events-none"
             )}
           >
@@ -405,7 +405,7 @@ function FieldEditPanel({
           <button
             type="button"
             onClick={onCancel}
-            className="px-4 py-2 rounded-xl text-sm text-[#999999] hover:text-[#444444] hover:bg-[#FDF9F6] transition-all cursor-pointer"
+            className="px-4 py-2 rounded-xl text-sm text-[#999999] hover:text-[#374151] hover:bg-[#FFFFFF] transition-all cursor-pointer"
           >
             {t("cancel")}
           </button>
@@ -673,7 +673,7 @@ export default function FormBuilderSection() {
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <h1 className="text-2xl font-bold text-[#111111]">
+        <h1 className="text-2xl font-bold text-[#030712]">
           {t("formBuilderTitle")}
         </h1>
         <p className="text-[#999999] text-sm mt-1">
@@ -683,7 +683,7 @@ export default function FormBuilderSection() {
 
       {isLoading && (
         <div className="flex justify-center py-20">
-          <Loader2 className="w-8 h-8 animate-spin text-[#D8723C]" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#0891B2]" />
         </div>
       )}
 
@@ -695,10 +695,10 @@ export default function FormBuilderSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 }}
           >
-            <h2 className="text-lg font-bold text-[#111111] mb-4">
+            <h2 className="text-lg font-bold text-[#030712] mb-4">
               {t("formSettingsTitle")}
             </h2>
-            <div className="rounded-2xl border border-[#E8E4DF] bg-[#FAFAF8] p-5 space-y-5">
+            <div className="rounded-2xl border border-[#E5E7EB] bg-[#F9FAFB] p-5 space-y-5">
               {/* Opening title */}
               <div>
                 <label className="block text-xs text-[#999999] mb-1.5">
@@ -710,7 +710,7 @@ export default function FormBuilderSection() {
                   onChange={(e) =>
                     updateSetting("opening_title", e.target.value)
                   }
-                  className="w-full bg-white border border-[#E8E4DF] rounded-xl px-3 py-2.5 text-sm text-[#111111] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#D8723C]/50 transition-colors"
+                  className="w-full bg-white border border-[#E5E7EB] rounded-xl px-3 py-2.5 text-sm text-[#030712] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#0891B2]/50 transition-colors"
                 />
               </div>
 
@@ -736,7 +736,7 @@ export default function FormBuilderSection() {
                   onChange={(e) =>
                     updateSetting("closing_title", e.target.value)
                   }
-                  className="w-full bg-white border border-[#E8E4DF] rounded-xl px-3 py-2.5 text-sm text-[#111111] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#D8723C]/50 transition-colors"
+                  className="w-full bg-white border border-[#E5E7EB] rounded-xl px-3 py-2.5 text-sm text-[#030712] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#0891B2]/50 transition-colors"
                 />
               </div>
 
@@ -761,7 +761,7 @@ export default function FormBuilderSection() {
                   }
                   className={cn(
                     "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer",
-                    "bg-[#D8723C] text-white hover:bg-[#C4662F]",
+                    "bg-[#0891B2] text-white hover:bg-[#C4662F]",
                     (!settingsDirty || saveSettingsMutation.isPending) &&
                       "opacity-40 pointer-events-none"
                   )}
@@ -798,7 +798,7 @@ export default function FormBuilderSection() {
             transition={{ delay: 0.1 }}
           >
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-bold text-[#111111]">
+              <h2 className="text-lg font-bold text-[#030712]">
                 {t("formFieldsTitle")}
               </h2>
               <button
@@ -807,7 +807,7 @@ export default function FormBuilderSection() {
                 disabled={editingField === "new"}
                 className={cn(
                   "flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium transition-all duration-200 cursor-pointer",
-                  "bg-[#D8723C]/15 text-[#D8723C] border border-[#D8723C]/20 hover:bg-[#D8723C]/25",
+                  "bg-[#0891B2]/15 text-[#0891B2] border border-[#0891B2]/20 hover:bg-[#0891B2]/25",
                   editingField === "new" && "opacity-40 pointer-events-none"
                 )}
               >
@@ -904,7 +904,7 @@ export default function FormBuilderSection() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.97 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-6 left-6 z-50 flex items-center gap-3 px-4 py-3 rounded-2xl border border-emerald-200 bg-[#111111] shadow-[0_0_0_1px_rgba(16,185,129,0.08),0_8px_32px_rgba(0,0,0,0.1)]"
+            className="fixed bottom-6 left-6 z-50 flex items-center gap-3 px-4 py-3 rounded-2xl border border-emerald-200 bg-[#030712] shadow-[0_0_0_1px_rgba(16,185,129,0.08),0_8px_32px_rgba(0,0,0,0.1)]"
           >
             <div className="w-7 h-7 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
               <Check className="w-3.5 h-3.5 text-emerald-700" />
