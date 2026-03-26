@@ -75,17 +75,17 @@ export default function UserLayout() {
     <div
       dir="rtl"
       className="min-h-screen font-secular-one"
-      style={{ background: "linear-gradient(170deg, #FDF8F2 0%, #F8F0E6 40%, #FBF5EE 100%)" }}
+      style={{ background: "linear-gradient(170deg, #F9FAFB 0%, #F3F4F6 40%, #F9FAFB 100%)" }}
     >
       {/* Top Bar */}
-      <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-[#EDE6DD]/60 shadow-[0_1px_12px_rgba(45,42,38,0.04)]">
+      <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-[#E5E7EB]/60 shadow-[0_1px_12px_rgba(17,24,39,0.04)]">
         <div className="max-w-full mx-auto px-3 sm:px-5 md:px-8 flex items-center justify-between h-14">
           {/* Logo */}
           <div className="flex items-center gap-3">
             <img
-              src="/clix-logo-full.png"
-              alt="CLIX"
-              className="h-6 drop-shadow-[0_0_8px_rgba(255,107,44,0.3)]"
+              src="/Ortam-logo.png"
+              alt="Ortam"
+              className="h-6 drop-shadow-[0_0_8px_rgba(6,182,212,0.3)]"
             />
           </div>
 
@@ -101,8 +101,8 @@ export default function UserLayout() {
                   cn(
                     "flex items-center gap-2 px-4 py-2 rounded-lg text-sm whitespace-nowrap transition-all duration-200",
                     isActive
-                      ? "bg-[#FF7E47]/10 text-[#FF7E47] border border-[#FF7E47]/20"
-                      : "text-[#7A7267] hover:text-[#2D2A26] hover:bg-[#EDE6DD]/40 border border-transparent",
+                      ? "bg-[#22D3EE]/10 text-[#22D3EE] border border-[#22D3EE]/20"
+                      : "text-[#6B7280] hover:text-[#111827] hover:bg-[#E5E7EB]/40 border border-transparent",
                   )
                 }
               >
@@ -121,12 +121,12 @@ export default function UserLayout() {
               className="flex items-center gap-2 rounded-full transition-all duration-200 hover:opacity-80 active:scale-95"
               aria-label="User menu"
             >
-              <span className="w-9 h-9 rounded-full bg-[#FF7E47] text-white text-xs font-bold flex items-center justify-center shadow-sm">
+              <span className="w-9 h-9 rounded-full bg-[#22D3EE] text-white text-xs font-bold flex items-center justify-center shadow-sm">
                 {user ? getInitials(user.full_name) : "?"}
               </span>
               <ChevronDown
                 className={cn(
-                  "w-3.5 h-3.5 text-[#7A7267] transition-transform duration-200 hidden sm:block",
+                  "w-3.5 h-3.5 text-[#6B7280] transition-transform duration-200 hidden sm:block",
                   menuOpen && "rotate-180",
                 )}
               />
@@ -140,15 +140,15 @@ export default function UserLayout() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -8, scale: 0.95 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute end-0 top-full mt-2 z-50 bg-white rounded-xl shadow-[0_8px_32px_rgba(45,42,38,0.12)] border border-[#EDE6DD]/50 overflow-hidden min-w-[220px]"
+                  className="absolute end-0 top-full mt-2 z-50 bg-white rounded-xl shadow-[0_8px_32px_rgba(17,24,39,0.12)] border border-[#E5E7EB]/50 overflow-hidden min-w-[220px]"
                 >
                   {/* User info header */}
                   {user && (
-                    <div className="px-4 py-3 border-b border-[#EDE6DD]/50">
-                      <p className="text-sm font-bold text-[#2D2A26] truncate">
+                    <div className="px-4 py-3 border-b border-[#E5E7EB]/50">
+                      <p className="text-sm font-bold text-[#111827] truncate">
                         {user.full_name}
                       </p>
-                      <p className="text-xs text-[#A39B90] truncate" dir="ltr">
+                      <p className="text-xs text-[#9CA3AF] truncate" dir="ltr">
                         {user.email}
                       </p>
                     </div>
@@ -161,14 +161,14 @@ export default function UserLayout() {
                       setMenuOpen(false);
                       navigate("/dashboard/profile");
                     }}
-                    className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#2D2A26] hover:bg-[#FAF7F3] transition-colors"
+                    className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#111827] hover:bg-[#F9FAFB] transition-colors"
                   >
-                    <UserCircle className="w-4 h-4 text-[#7A7267]" />
+                    <UserCircle className="w-4 h-4 text-[#6B7280]" />
                     {t("profile")}
                   </button>
 
                   {/* Divider */}
-                  <div className="border-t border-[#EDE6DD]/50" />
+                  <div className="border-t border-[#E5E7EB]/50" />
 
                   {/* Logout */}
                   <button
@@ -196,7 +196,7 @@ export default function UserLayout() {
         <button
           type="button"
           onClick={() => setSupportModalOpen(true)}
-          className="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full bg-[#FF7E47] text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center"
+          className="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full bg-[#22D3EE] text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center"
           aria-label={t("support")}
           title={t("support")}
         >
