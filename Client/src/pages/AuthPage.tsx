@@ -19,8 +19,8 @@ import { useAuth } from "@/hooks/useAuth";
 type AuthMode = "login" | "signup" | "forgot";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-const ORANGE = "#FF6B2C";
-const ORANGE_DARK = "#E8590C";
+const CYAN = "#06B6D4";
+const CYAN_DARK = "#0E7490";
 
 const formVariants = {
   enter: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -55,9 +55,9 @@ function InputField({
 }) {
   return (
     <div>
-      <label className="block text-[#2D2A26]/60 text-sm mb-1">{label}</label>
+      <label className="block text-[#111827]/60 text-sm mb-1">{label}</label>
       <div className="relative group">
-        <Icon className="absolute right-3 top-1/2 -translate-y-1/2 w-[17px] h-[17px] text-[#A39B90] transition-colors group-focus-within:text-[#FF6B2C]/70" />
+        <Icon className="absolute right-3 top-1/2 -translate-y-1/2 w-[17px] h-[17px] text-[#9CA3AF] transition-colors group-focus-within:text-[#06B6D4]/70" />
         <input
           type={showToggle ? (isVisible ? "text" : "password") : type}
           value={value}
@@ -65,10 +65,10 @@ function InputField({
           placeholder={placeholder}
           dir={dir}
           className={cn(
-            "w-full bg-white border border-[#EDE6DD] rounded-xl text-[#2D2A26] text-sm",
-            "placeholder:text-[#A39B90]/60 transition-all duration-200",
-            "focus:outline-none focus:border-[#FF6B2C]/50 focus:shadow-[0_0_0_3px_rgba(255,107,44,0.08)]",
-            "hover:border-[#D5CEC5]",
+            "w-full bg-white border border-[#E5E7EB] rounded-xl text-[#111827] text-sm",
+            "placeholder:text-[#9CA3AF]/60 transition-all duration-200",
+            "focus:outline-none focus:border-[#06B6D4]/50 focus:shadow-[0_0_0_3px_rgba(6,182,212,0.08)]",
+            "hover:border-[#D1D5DB]",
             "py-2.5 pr-10",
             showToggle ? "pl-10" : "pl-3.5",
           )}
@@ -77,7 +77,7 @@ function InputField({
           <button
             type="button"
             onClick={onToggle}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-[#A39B90] hover:text-[#7A7267] transition-colors"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9CA3AF] hover:text-[#6B7280] transition-colors"
           >
             {isVisible ? (
               <EyeOff className="w-[17px] h-[17px]" />
@@ -108,7 +108,7 @@ function SubmitBtn({
       whileTap={isSubmitting ? {} : { scale: 0.985 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
       className={cn(
-        "clix-btn w-full text-[15px] py-3 rounded-xl flex items-center justify-center gap-2",
+        "ortam-btn w-full text-[15px] py-3 rounded-xl flex items-center justify-center gap-2",
         isSubmitting && "opacity-60 pointer-events-none",
       )}
     >
@@ -139,33 +139,33 @@ function IllustrationPanel() {
       <div
         className="absolute inset-0 opacity-30"
         style={{
-          background: `radial-gradient(ellipse at 50% 40%, ${ORANGE}15, transparent 70%)`,
+          background: `radial-gradient(ellipse at 50% 40%, ${CYAN}15, transparent 70%)`,
         }}
       />
 
       {/* Floating accents */}
       <motion.div
-        className="absolute top-[8%] right-[8%] w-5 h-5 border-2 border-[#FF6B2C]/40 rotate-45"
+        className="absolute top-[8%] right-[8%] w-5 h-5 border-2 border-[#06B6D4]/40 rotate-45"
         animate={{ y: [0, -14, 0], rotate: [45, 52, 45] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute top-[15%] left-[6%] w-3 h-3 rounded-full bg-[#FF6B2C]/30"
+        className="absolute top-[15%] left-[6%] w-3 h-3 rounded-full bg-[#06B6D4]/30"
         animate={{ y: [0, 12, 0], scale: [1, 1.4, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
       />
       <motion.div
-        className="absolute bottom-[12%] right-[10%] w-7 h-7 rounded-full border-2 border-[#FF6B2C]/25"
+        className="absolute bottom-[12%] right-[10%] w-7 h-7 rounded-full border-2 border-[#06B6D4]/25"
         animate={{ scale: [1, 1.2, 1], opacity: [0.25, 0.5, 0.25] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
       <motion.div
-        className="absolute bottom-[25%] left-[8%] w-4 h-4 border-2 border-[#FF6B2C]/30"
+        className="absolute bottom-[25%] left-[8%] w-4 h-4 border-2 border-[#06B6D4]/30"
         animate={{ y: [0, 10, 0], rotate: [0, 12, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 3 }}
       />
       <motion.div
-        className="absolute top-[50%] left-[4%] w-9 h-[2px] bg-[#FF6B2C]/25"
+        className="absolute top-[50%] left-[4%] w-9 h-[2px] bg-[#06B6D4]/25"
         animate={{ scaleX: [1, 1.6, 1], opacity: [0.25, 0.5, 0.25] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 4 }}
       />
@@ -202,12 +202,12 @@ function IllustrationPanel() {
             <div className="flex items-center gap-3 px-4 py-2.5 border-b border-white/10 bg-white/[0.03]">
               <div
                 className="w-8 h-8 rounded-full flex items-center justify-center"
-                style={{ background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})` }}
+                style={{ background: `linear-gradient(135deg, ${CYAN}, ${CYAN_DARK})` }}
               >
                 <Bot className="w-4 h-4 text-white" />
               </div>
               <div className="flex-1">
-                <p className="text-sm font-bold text-white/90">CLIX Bot</p>
+                <p className="text-sm font-bold text-white/90">Ortam Bot</p>
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
                   <span className="text-[11px] text-white/40">Online</span>
@@ -239,7 +239,7 @@ function IllustrationPanel() {
               >
                 <div
                   className="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-1"
-                  style={{ background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})` }}
+                  style={{ background: `linear-gradient(135deg, ${CYAN}, ${CYAN_DARK})` }}
                 >
                   <Bot className="w-3 h-3 text-white" />
                 </div>
@@ -271,7 +271,7 @@ function IllustrationPanel() {
               >
                 <div
                   className="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-1"
-                  style={{ background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})` }}
+                  style={{ background: `linear-gradient(135deg, ${CYAN}, ${CYAN_DARK})` }}
                 >
                   <Bot className="w-3 h-3 text-white" />
                 </div>
@@ -352,9 +352,9 @@ export default function AuthPage() {
   // Loading gate
   if (!initialLoadDone.current) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "linear-gradient(170deg, #FDF8F2 0%, #F8F0E6 40%, #FBF5EE 100%)" }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "linear-gradient(170deg, #F9FAFB 0%, #F3F4F6 40%, #F9FAFB 100%)" }}>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <Loader2 className="w-8 h-8 animate-spin text-[#FF6B2C]" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#06B6D4]" />
         </motion.div>
       </div>
     );
@@ -456,7 +456,7 @@ export default function AuthPage() {
       <div
         className="flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 relative overflow-y-auto"
         style={{
-          background: "linear-gradient(170deg, #FDF8F2 0%, #F8F0E6 40%, #FBF5EE 100%)",
+          background: "linear-gradient(170deg, #F9FAFB 0%, #F3F4F6 40%, #F9FAFB 100%)",
         }}
       >
         {/* Logo */}
@@ -469,8 +469,8 @@ export default function AuthPage() {
           onClick={() => navigate("/")}
         >
           <img
-            src="/clix-logo-full.png"
-            alt="CLIX"
+            src="/Ortam-logo.png"
+            alt="Ortam"
             className="h-7"
           />
         </motion.div>
@@ -495,10 +495,10 @@ export default function AuthPage() {
               {mode === "login" && (
                 <form onSubmit={handleLogin} className="space-y-4">
                   <div className="text-center mb-5">
-                    <h1 className="text-[22px] font-bold text-[#2D2A26] mb-1">
+                    <h1 className="text-[22px] font-bold text-[#111827] mb-1">
                       {t("loginTitle")}
                     </h1>
-                    <p className="text-[#7A7267] text-sm">
+                    <p className="text-[#6B7280] text-sm">
                       {t("loginSubtitle")}
                     </p>
                   </div>
@@ -528,7 +528,7 @@ export default function AuthPage() {
                     <button
                       type="button"
                       onClick={() => switchMode("forgot")}
-                      className="text-[#A39B90] hover:text-[#FF6B2C] text-xs transition-colors"
+                      className="text-[#9CA3AF] hover:text-[#06B6D4] text-xs transition-colors"
                     >
                       {t("forgotPassword")}
                     </button>
@@ -536,12 +536,12 @@ export default function AuthPage() {
 
                   <SubmitBtn label={t("loginBtn")} isSubmitting={isSubmitting} />
 
-                  <p className="text-center text-[#7A7267] text-sm pt-1">
+                  <p className="text-center text-[#6B7280] text-sm pt-1">
                     {t("noAccount")}{" "}
                     <button
                       type="button"
                       onClick={() => switchMode("signup")}
-                      className="text-[#FF6B2C] hover:text-[#FF8F5C] transition-colors font-bold"
+                      className="text-[#06B6D4] hover:text-[#67E8F9] transition-colors font-bold"
                     >
                       {t("signupLink")}
                     </button>
@@ -553,10 +553,10 @@ export default function AuthPage() {
               {mode === "signup" && (
                 <form onSubmit={handleSignup} className="space-y-3">
                   <div className="text-center mb-4">
-                    <h1 className="text-[22px] font-bold text-[#2D2A26] mb-1">
+                    <h1 className="text-[22px] font-bold text-[#111827] mb-1">
                       {t("signupTitle")}
                     </h1>
-                    <p className="text-[#7A7267] text-sm">
+                    <p className="text-[#6B7280] text-sm">
                       {t("signupSubtitle")}
                     </p>
                   </div>
@@ -612,12 +612,12 @@ export default function AuthPage() {
                     <SubmitBtn label={t("signupBtn")} isSubmitting={isSubmitting} />
                   </div>
 
-                  <p className="text-center text-[#7A7267] text-sm">
+                  <p className="text-center text-[#6B7280] text-sm">
                     {t("hasAccount")}{" "}
                     <button
                       type="button"
                       onClick={() => switchMode("login")}
-                      className="text-[#FF6B2C] hover:text-[#FF8F5C] transition-colors font-bold"
+                      className="text-[#06B6D4] hover:text-[#67E8F9] transition-colors font-bold"
                     >
                       {t("loginLink")}
                     </button>
@@ -629,10 +629,10 @@ export default function AuthPage() {
               {mode === "forgot" && (
                 <form onSubmit={handleForgot} className="space-y-4">
                   <div className="text-center mb-5">
-                    <h1 className="text-[22px] font-bold text-[#2D2A26] mb-1">
+                    <h1 className="text-[22px] font-bold text-[#111827] mb-1">
                       {t("forgotTitle")}
                     </h1>
-                    <p className="text-[#7A7267] text-sm">
+                    <p className="text-[#6B7280] text-sm">
                       {t("forgotSubtitle")}
                     </p>
                   </div>
@@ -654,7 +654,7 @@ export default function AuthPage() {
                     <button
                       type="button"
                       onClick={() => switchMode("login")}
-                      className="inline-flex items-center gap-1.5 text-[#FF6B2C] hover:text-[#FF8F5C] transition-colors text-sm font-bold"
+                      className="inline-flex items-center gap-1.5 text-[#06B6D4] hover:text-[#67E8F9] transition-colors text-sm font-bold"
                     >
                       <ArrowRight className="w-3.5 h-3.5" />
                       {t("backToLogin")}
@@ -671,7 +671,7 @@ export default function AuthPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="text-[#A39B90] text-xs mt-6 tracking-wide"
+          className="text-[#9CA3AF] text-xs mt-6 tracking-wide"
         >
           {t("tagline")}
         </motion.p>
