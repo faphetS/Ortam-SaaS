@@ -260,7 +260,7 @@ function BotStatusPill({ userId }: { userId: string }) {
         className={`flex items-center gap-2.5 px-4 py-2.5 rounded-2xl border ${config.border} ${config.bg} shadow-sm cursor-pointer transition-all hover:shadow-md active:scale-[0.98] disabled:opacity-60`}
       >
         {loading ? (
-          <Loader2 className="w-4 h-4 animate-spin text-[#7A7267]" />
+          <Loader2 className="w-4 h-4 animate-spin text-[#6B7280]" />
         ) : (
           <span className="relative flex h-2.5 w-2.5">
             {status === "connected" && (
@@ -283,14 +283,14 @@ function BotStatusPill({ userId }: { userId: string }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.95 }}
             transition={{ duration: 0.15 }}
-            className="absolute end-0 top-full mt-2 z-50 bg-white rounded-xl shadow-[0_8px_32px_rgba(45,42,38,0.12)] border border-[#EDE6DD]/50 overflow-hidden min-w-[180px]"
+            className="absolute end-0 top-full mt-2 z-50 bg-white rounded-xl shadow-[0_8px_32px_rgba(17,24,39,0.12)] border border-[#E5E7EB]/50 overflow-hidden min-w-[180px]"
           >
             {status === "connected" && (
               <>
                 {connectedPhone && (
-                  <div className="flex items-center gap-3 px-4 py-3 border-b border-[#EDE6DD]/50">
+                  <div className="flex items-center gap-3 px-4 py-3 border-b border-[#E5E7EB]/50">
                     <Phone className="w-4 h-4 text-emerald-500" />
-                    <span className="text-sm font-medium text-[#2D2A26] direction-ltr" dir="ltr">
+                    <span className="text-sm font-medium text-[#111827] direction-ltr" dir="ltr">
                       +{connectedPhone}
                     </span>
                   </div>
@@ -298,7 +298,7 @@ function BotStatusPill({ userId }: { userId: string }) {
                 <button
                   type="button"
                   onClick={(e) => { e.stopPropagation(); handlePause(); }}
-                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#4A4640] hover:bg-amber-50 transition-colors cursor-pointer"
+                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#374151] hover:bg-amber-50 transition-colors cursor-pointer"
                 >
                   <Pause className="w-4 h-4 text-amber-500" />
                   {t("pauseBot")}
@@ -319,7 +319,7 @@ function BotStatusPill({ userId }: { userId: string }) {
                 <button
                   type="button"
                   onClick={(e) => { e.stopPropagation(); handleResume(); }}
-                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#4A4640] hover:bg-emerald-50 transition-colors cursor-pointer"
+                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#374151] hover:bg-emerald-50 transition-colors cursor-pointer"
                 >
                   <Play className="w-4 h-4 text-emerald-500" />
                   {t("resumeBot")}
@@ -340,7 +340,7 @@ function BotStatusPill({ userId }: { userId: string }) {
                 <button
                   type="button"
                   onClick={(e) => { e.stopPropagation(); handleReconnect(); }}
-                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#4A4640] hover:bg-emerald-50 transition-colors cursor-pointer"
+                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#374151] hover:bg-emerald-50 transition-colors cursor-pointer"
                 >
                   <Wifi className="w-4 h-4 text-emerald-500" />
                   {t("reconnectBot")}
@@ -348,7 +348,7 @@ function BotStatusPill({ userId }: { userId: string }) {
                 <button
                   type="button"
                   onClick={(e) => { e.stopPropagation(); setMenuOpen(false); setConnectModalOpen(true); }}
-                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#4A4640] hover:bg-blue-50 transition-colors cursor-pointer"
+                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-[#374151] hover:bg-blue-50 transition-colors cursor-pointer"
                 >
                   <BookOpen className="w-4 h-4 text-blue-500" />
                   {t("connectTutorial")}
@@ -380,14 +380,14 @@ function BotStatusPill({ userId }: { userId: string }) {
                 <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center">
                   <WifiOff className="w-5 h-5 text-red-500" />
                 </div>
-                <h3 className="text-lg font-bold text-[#2D2A26]">{t("disconnectBot")}</h3>
+                <h3 className="text-lg font-bold text-[#111827]">{t("disconnectBot")}</h3>
               </div>
-              <p className="text-sm text-[#7A7267]">{t("disconnectConfirm")}</p>
+              <p className="text-sm text-[#6B7280]">{t("disconnectConfirm")}</p>
               <div className="flex gap-3">
                 <button
                   type="button"
                   onClick={() => setShowConfirmDisconnect(false)}
-                  className="flex-1 py-2.5 rounded-xl border border-[#EDE6DD] text-sm font-medium text-[#7A7267] hover:bg-[#FAF7F3] transition-colors cursor-pointer"
+                  className="flex-1 py-2.5 rounded-xl border border-[#E5E7EB] text-sm font-medium text-[#6B7280] hover:bg-[#F9FAFB] transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>
@@ -471,10 +471,10 @@ export default function DashboardPage() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         {/* Welcome */}
         <motion.div variants={fadeUp}>
-          <h1 className="text-2xl sm:text-3xl font-bold text-[#2D2A26] tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#111827] tracking-tight">
             {t("welcome", { name: user?.full_name ?? "" })}
           </h1>
-          <p className="text-sm text-[#7A7267] mt-0.5">{t("subtitle")}</p>
+          <p className="text-sm text-[#6B7280] mt-0.5">{t("subtitle")}</p>
         </motion.div>
 
         {/* Bot Status + Blocked Numbers */}
@@ -483,10 +483,10 @@ export default function DashboardPage() {
             <button
               type="button"
               onClick={() => setBlockedModalOpen(true)}
-              className="flex items-center gap-2 px-3.5 py-2.5 rounded-2xl border border-[#EDE6DD] bg-white shadow-sm cursor-pointer transition-all hover:shadow-md hover:border-[#D5CEC5]"
+              className="flex items-center gap-2 px-3.5 py-2.5 rounded-2xl border border-[#E5E7EB] bg-white shadow-sm cursor-pointer transition-all hover:shadow-md hover:border-[#D1D5DB]"
             >
-              <ShieldBan className="w-4 h-4 text-[#7A7267]" />
-              <span className="text-xs font-bold uppercase tracking-wider text-[#7A7267]">
+              <ShieldBan className="w-4 h-4 text-[#6B7280]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#6B7280]">
                 {t("blockedNumbers")}
               </span>
               {blockedCount > 0 && (
