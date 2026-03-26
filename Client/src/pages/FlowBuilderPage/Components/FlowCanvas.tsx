@@ -151,11 +151,11 @@ export default function FlowCanvas({
           position="bottom-right"
           pannable
           zoomable
-          className="!bg-white/80 !border-[#EDE6DD]"
+          className="!bg-white/80 !border-[#E5E7EB]"
         />
         {nodes.length === 0 && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <p className="text-[#A39B90] text-sm">{t("canvasEmpty")}</p>
+            <p className="text-[#9CA3AF] text-sm">{t("canvasEmpty")}</p>
           </div>
         )}
       </ReactFlow>
