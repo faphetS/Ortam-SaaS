@@ -57,18 +57,18 @@ export function SubmissionProgress({
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-        className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FF7E47] to-[#E86B38] flex items-center justify-center shadow-[0_4px_24px_rgba(255,126,71,0.3)] mb-6"
+        className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#22D3EE] to-[#0891B2] flex items-center justify-center shadow-[0_4px_24px_rgba(34,211,238,0.3)] mb-6"
       >
         <Icon className="w-8 h-8 text-white" />
       </motion.div>
 
-      <h3 className="text-xl font-bold text-[#2D2A26] mb-2">
+      <h3 className="text-xl font-bold text-[#111827] mb-2">
         {phase === "prompt" && t(phaseKeys.promptTitle)}
         {phase === "scraping" && t(phaseKeys.scrapingTitle)}
         {phase === "done" && t(phaseKeys.doneTitle)}
       </h3>
 
-      <p className="text-sm text-[#7A7267] max-w-xs">
+      <p className="text-sm text-[#6B7280] max-w-xs">
         {phase === "prompt" && t(phaseKeys.promptDesc)}
         {phase === "scraping" && t(phaseKeys.scrapingDesc)}
         {phase === "done" && t(phaseKeys.doneDesc)}
@@ -76,25 +76,25 @@ export function SubmissionProgress({
 
       {phase === "scraping" &&
         (scrapeProgress.pages > 0 || scrapeProgress.products > 0) && (
-          <div className="mt-4 flex items-center gap-4 text-sm text-[#7A7267]">
+          <div className="mt-4 flex items-center gap-4 text-sm text-[#6B7280]">
             {scrapeProgress.pages > 0 && (
               <span>
                 {t("pagesScraped")}:{" "}
-                <strong className="text-[#FF7E47]">{scrapeProgress.pages}</strong>
+                <strong className="text-[#22D3EE]">{scrapeProgress.pages}</strong>
               </span>
             )}
             {scrapeProgress.products > 0 && (
               <span>
                 {t("productsFound")}:{" "}
-                <strong className="text-[#FF7E47]">{scrapeProgress.products}</strong>
+                <strong className="text-[#22D3EE]">{scrapeProgress.products}</strong>
               </span>
             )}
           </div>
         )}
 
-      <motion.div className="mt-6 h-1 w-48 rounded-full bg-[#EDE6DD] overflow-hidden">
+      <motion.div className="mt-6 h-1 w-48 rounded-full bg-[#E5E7EB] overflow-hidden">
         <motion.div
-          className="h-full bg-[#FF7E47] rounded-full"
+          className="h-full bg-[#22D3EE] rounded-full"
           initial={{ width: "0%" }}
           animate={{ width: phase === "done" ? "100%" : "70%" }}
           transition={{ duration: phase === "done" ? 0.3 : 8, ease: "easeOut" }}
