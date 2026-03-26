@@ -265,7 +265,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
 
   /* ── Field input class ── */
   const fieldCls =
-    "w-full border border-[#EDE6DD] rounded-md px-2.5 py-1.5 text-xs text-[#2D2A26] bg-white focus:outline-none focus:border-[#FF7E47] transition-colors";
+    "w-full border border-[#E5E7EB] rounded-md px-2.5 py-1.5 text-xs text-[#111827] bg-white focus:outline-none focus:border-[#22D3EE] transition-colors";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -273,15 +273,15 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
       <div className="absolute inset-0 bg-black/30" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative bg-white rounded-xl shadow-xl w-[380px] max-h-[80vh] overflow-y-auto border border-[#EDE6DD]/60">
+      <div className="relative bg-white rounded-xl shadow-xl w-[380px] max-h-[80vh] overflow-y-auto border border-[#E5E7EB]/60">
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-[#EDE6DD]/40">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-[#E5E7EB]/40">
           <div className="flex items-center gap-2">
-            <Plug className="w-4 h-4 text-[#FF7E47]" />
-            <span className="text-sm font-bold text-[#2D2A26]">{t("integrationsTitle")}</span>
+            <Plug className="w-4 h-4 text-[#22D3EE]" />
+            <span className="text-sm font-bold text-[#111827]">{t("integrationsTitle")}</span>
           </div>
-          <button type="button" onClick={onClose} className="p-1 rounded hover:bg-[#EDE6DD]/40 cursor-pointer" aria-label="Close">
-            <X className="w-4 h-4 text-[#7A7267]" />
+          <button type="button" onClick={onClose} className="p-1 rounded hover:bg-[#E5E7EB]/40 cursor-pointer" aria-label="Close">
+            <X className="w-4 h-4 text-[#6B7280]" />
           </button>
         </div>
 
@@ -297,7 +297,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
             <button
               type="button"
               onClick={openAdd}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FF7E47] hover:bg-[#E86B38] text-white text-xs font-bold transition-colors cursor-pointer mb-4"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#22D3EE] hover:bg-[#0891B2] text-white text-xs font-bold transition-colors cursor-pointer mb-4"
             >
               <Plus className="w-3.5 h-3.5" />
               {t("addIntegration")}
@@ -306,19 +306,19 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
 
           {/* Form */}
           {showForm && (
-            <div className="mb-4 bg-[#FAF7F3] rounded-lg p-3 border border-[#EDE6DD]">
+            <div className="mb-4 bg-[#F9FAFB] rounded-lg p-3 border border-[#E5E7EB]">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-bold text-[#2D2A26]">
+                <span className="text-xs font-bold text-[#111827]">
                   {editingId ? t("editIntegration") : t("addIntegration")}
                 </span>
                 <button type="button" onClick={closeForm} className="p-0.5 rounded hover:bg-white cursor-pointer" aria-label="Close">
-                  <X className="w-3.5 h-3.5 text-[#7A7267]" />
+                  <X className="w-3.5 h-3.5 text-[#6B7280]" />
                 </button>
               </div>
 
               {/* Type */}
               <div className="mb-2">
-                <label className="text-[10px] font-medium text-[#7A7267] mb-1 block">
+                <label className="text-[10px] font-medium text-[#6B7280] mb-1 block">
                   {t("selectType")}
                 </label>
                 <select
@@ -335,7 +335,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
               {form.type === "cloudbeds" && (
                 <>
                   <div className="mb-2">
-                    <label className="text-[10px] font-medium text-[#7A7267] mb-1 block">
+                    <label className="text-[10px] font-medium text-[#6B7280] mb-1 block">
                       {t("integrationClientId")}
                     </label>
                     <input
@@ -347,7 +347,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                     />
                   </div>
                   <div className="mb-2">
-                    <label className="text-[10px] font-medium text-[#7A7267] mb-1 block">
+                    <label className="text-[10px] font-medium text-[#6B7280] mb-1 block">
                       {t("integrationClientSecret")}
                     </label>
                     <input
@@ -359,7 +359,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                     />
                   </div>
                   <div className="mb-2">
-                    <label className="text-[10px] font-medium text-[#7A7267] mb-1 block">
+                    <label className="text-[10px] font-medium text-[#6B7280] mb-1 block">
                       {t("integrationApiKey")}
                     </label>
                     <input
@@ -371,7 +371,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                     />
                   </div>
                   <div className="mb-2">
-                    <label className="text-[10px] font-medium text-[#7A7267] mb-1 block">
+                    <label className="text-[10px] font-medium text-[#6B7280] mb-1 block">
                       {t("integrationBookingUrl")}
                     </label>
                     <input
@@ -379,7 +379,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                       value={form.bookingUrl}
                       onChange={(e) => updateForm((f) => ({ ...f, bookingUrl: e.target.value }))}
                       placeholder="https://us2.cloudbeds.com/en/reservation/xxxxx"
-                      className={`${fieldCls} placeholder:text-[#C5BDB3]`}
+                      className={`${fieldCls} placeholder:text-[#D1D5DB]`}
                       dir="ltr"
                     />
                     <span className="text-[9px] text-[#A39888] mt-0.5 block">{t("integrationBookingUrlHint")}</span>
@@ -391,7 +391,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
               {form.type === "custom_api" && (
                 <>
                   <div className="mb-2">
-                    <label className="text-[10px] font-medium text-[#7A7267] mb-1 block">
+                    <label className="text-[10px] font-medium text-[#6B7280] mb-1 block">
                       {t("integrationName")}
                     </label>
                     <input
@@ -402,7 +402,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                     />
                   </div>
                   <div className="mb-2">
-                    <label className="text-[10px] font-medium text-[#7A7267] mb-1 block">
+                    <label className="text-[10px] font-medium text-[#6B7280] mb-1 block">
                       {t("integrationBaseUrl")}
                     </label>
                     <input
@@ -410,12 +410,12 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                       value={form.baseUrl}
                       onChange={(e) => updateForm((f) => ({ ...f, baseUrl: e.target.value }))}
                       placeholder="https://api.example.com"
-                      className={`${fieldCls} placeholder:text-[#C5BDB3]`}
+                      className={`${fieldCls} placeholder:text-[#D1D5DB]`}
                       dir="ltr"
                     />
                   </div>
                   <div className="mb-2">
-                    <label className="text-[10px] font-medium text-[#7A7267] mb-1 block">
+                    <label className="text-[10px] font-medium text-[#6B7280] mb-1 block">
                       {t("integrationAuthType")}
                     </label>
                     <select
@@ -430,7 +430,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                     </select>
                   </div>
                   <div className="mb-2">
-                    <label className="text-[10px] font-medium text-[#7A7267] mb-1 block">
+                    <label className="text-[10px] font-medium text-[#6B7280] mb-1 block">
                       {t("integrationAuthValue")}
                     </label>
                     <input
@@ -450,7 +450,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                   type="button"
                   onClick={handleTest}
                   disabled={!isFormValid || testStatus === "testing"}
-                  className="w-full flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#EDE6DD] text-xs font-bold text-[#2D2A26] hover:bg-[#FAF7F3] disabled:opacity-50 transition-colors cursor-pointer disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#E5E7EB] text-xs font-bold text-[#111827] hover:bg-[#F9FAFB] disabled:opacity-50 transition-colors cursor-pointer disabled:cursor-not-allowed"
                 >
                   <span key={testStatus} className="flex items-center justify-center gap-1.5 w-full">
                     {testStatus === "testing" ? (
@@ -483,7 +483,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                   type="button"
                   onClick={handleSave}
                   disabled={!isFormValid || saveMutation.isPending || testStatus !== "success"}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#FF7E47] hover:bg-[#E86B38] disabled:opacity-50 text-white text-xs font-bold transition-colors cursor-pointer disabled:cursor-not-allowed"
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#22D3EE] hover:bg-[#0891B2] disabled:opacity-50 text-white text-xs font-bold transition-colors cursor-pointer disabled:cursor-not-allowed"
                 >
                   {saveMutation.isPending && <Loader2 className="w-3 h-3 animate-spin" />}
                   {editingId ? t("editIntegration") : t("addIntegration")}
@@ -491,7 +491,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                 <button
                   type="button"
                   onClick={closeForm}
-                  className="px-3 py-1.5 rounded-lg border border-[#EDE6DD] text-xs text-[#7A7267] hover:bg-[#FAF7F3] transition-colors cursor-pointer"
+                  className="px-3 py-1.5 rounded-lg border border-[#E5E7EB] text-xs text-[#6B7280] hover:bg-[#F9FAFB] transition-colors cursor-pointer"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
@@ -502,22 +502,22 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
           {/* List */}
           {isLoading ? (
             <div className="flex items-center justify-center py-8">
-              <Loader2 className="w-5 h-5 animate-spin text-[#A39B90]" />
+              <Loader2 className="w-5 h-5 animate-spin text-[#9CA3AF]" />
             </div>
           ) : integrations.length === 0 && !showForm ? (
             <div className="flex flex-col items-center justify-center py-8 text-center">
-              <div className="w-10 h-10 rounded-full bg-[#FAF7F3] flex items-center justify-center mb-2">
-                <Plug className="w-5 h-5 text-[#C5BDB3]" />
+              <div className="w-10 h-10 rounded-full bg-[#F9FAFB] flex items-center justify-center mb-2">
+                <Plug className="w-5 h-5 text-[#D1D5DB]" />
               </div>
-              <p className="text-xs font-medium text-[#7A7267]">{t("integrationsEmpty")}</p>
-              <p className="text-[10px] text-[#A39B90] mt-0.5">{t("integrationsEmptyDesc")}</p>
+              <p className="text-xs font-medium text-[#6B7280]">{t("integrationsEmpty")}</p>
+              <p className="text-[10px] text-[#9CA3AF] mt-0.5">{t("integrationsEmptyDesc")}</p>
             </div>
           ) : (
             <div className="space-y-1.5">
               {integrations.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center justify-between py-2 px-3 rounded-lg border border-[#EDE6DD] bg-white hover:shadow-sm transition-shadow group"
+                  className="flex items-center justify-between py-2 px-3 rounded-lg border border-[#E5E7EB] bg-white hover:shadow-sm transition-shadow group"
                 >
                   <div className="flex items-center gap-2 min-w-0">
                     {/* Status dot */}
@@ -541,7 +541,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                     </button>
 
                     <div className="min-w-0">
-                      <p className="text-xs font-medium text-[#2D2A26] truncate">
+                      <p className="text-xs font-medium text-[#111827] truncate">
                         {item.integration_type === "cloudbeds"
                           ? t("integrationTypeCloudbeds")
                           : t("integrationTypeCustomApi")}
@@ -549,7 +549,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                           (item.config as CustomApiConfig).name &&
                           ` — ${(item.config as CustomApiConfig).name}`}
                       </p>
-                      <p className="text-[10px] text-[#A39B90] truncate" dir="ltr">
+                      <p className="text-[10px] text-[#9CA3AF] truncate" dir="ltr">
                         {item.integration_type === "cloudbeds"
                           ? `${t("integrationApiKey")}: ${mask((item.config as CloudbedsConfig).apiKey)}`
                           : (item.config as CustomApiConfig).baseUrl}
@@ -562,7 +562,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                     <button
                       type="button"
                       onClick={() => openEdit(item)}
-                      className="p-1 rounded text-[#A39B90] hover:text-[#FF7E47] hover:bg-[#FF7E47]/10 transition-colors cursor-pointer"
+                      className="p-1 rounded text-[#9CA3AF] hover:text-[#22D3EE] hover:bg-[#22D3EE]/10 transition-colors cursor-pointer"
                       title={t("editIntegration")}
                       aria-label={t("editIntegration")}
                     >
@@ -581,7 +581,7 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
                       <button
                         type="button"
                         onClick={() => setConfirmDeleteId(item.id)}
-                        className="p-1 rounded text-[#C5BDB3] hover:text-red-500 hover:bg-red-50 transition-colors cursor-pointer"
+                        className="p-1 rounded text-[#D1D5DB] hover:text-red-500 hover:bg-red-50 transition-colors cursor-pointer"
                         title={t("deleteIntegration")}
                       aria-label={t("deleteIntegration")}
                       >
@@ -596,11 +596,11 @@ export default function FlowIntegrationsModal({ onClose }: FlowIntegrationsModal
         </div>
 
         {/* Footer */}
-        <div className="px-5 py-3 border-t border-[#EDE6DD]/40">
+        <div className="px-5 py-3 border-t border-[#E5E7EB]/40">
           <button
             type="button"
             onClick={onClose}
-            className="w-full py-2 rounded-lg bg-[#FF7E47] text-white text-sm font-semibold hover:bg-[#e56e3a] transition-colors cursor-pointer"
+            className="w-full py-2 rounded-lg bg-[#22D3EE] text-white text-sm font-semibold hover:bg-[#e56e3a] transition-colors cursor-pointer"
           >
             {t("integrationDone", "Done")}
           </button>
