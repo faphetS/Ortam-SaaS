@@ -111,7 +111,7 @@ export default function AdminTicketsSection() {
   });
 
   const card =
-    "bg-white rounded-2xl border border-[#E8E4DF] shadow-[0_1px_3px_rgba(0,0,0,0.06)]";
+    "bg-white rounded-2xl border border-[#E5E7EB] shadow-[0_1px_3px_rgba(0,0,0,0.06)]";
 
   const filterKeys: Record<string, string> = {
     all: "ticketFilterAll",
@@ -124,7 +124,7 @@ export default function AdminTicketsSection() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <Loader2 className="w-8 h-8 animate-spin text-[#D8723C]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#0891B2]" />
       </div>
     );
   }
@@ -138,7 +138,7 @@ export default function AdminTicketsSection() {
         transition={{ duration: 0.35, ease: EASE }}
         className="shrink-0"
       >
-        <h1 className="text-xl font-bold text-[#111111]">
+        <h1 className="text-xl font-bold text-[#030712]">
           {t("ticketsTitle")}
         </h1>
         <p className="text-xs text-[#999999] mt-0.5">
@@ -156,8 +156,8 @@ export default function AdminTicketsSection() {
             className={cn(
               "px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer",
               statusFilter === s
-                ? "bg-[#D8723C]/10 text-[#D8723C] border border-[#D8723C]/25"
-                : "text-[#999999] hover:text-[#111111] hover:bg-black/[0.04] border border-transparent"
+                ? "bg-[#0891B2]/10 text-[#0891B2] border border-[#0891B2]/25"
+                : "text-[#999999] hover:text-[#030712] hover:bg-black/[0.04] border border-transparent"
             )}
           >
             {t(filterKeys[s])}
@@ -187,12 +187,12 @@ export default function AdminTicketsSection() {
                   key={ticket.id}
                   onClick={() => setSelectedId(ticket.id)}
                   className={cn(
-                    "w-full text-start px-4 py-3.5 border-b border-[#F0ECE7] hover:bg-[#FAFAF8] transition-colors cursor-pointer",
-                    selectedId === ticket.id && "bg-[#FDF9F6] border-s-2 border-s-[#D8723C]"
+                    "w-full text-start px-4 py-3.5 border-b border-[#E5E7EB] hover:bg-[#F9FAFB] transition-colors cursor-pointer",
+                    selectedId === ticket.id && "bg-[#FFFFFF] border-s-2 border-s-[#0891B2]"
                   )}
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <p className="text-xs font-bold text-[#111111] truncate flex-1">
+                    <p className="text-xs font-bold text-[#030712] truncate flex-1">
                       {ticket.subject}
                     </p>
                     <span
@@ -218,15 +218,15 @@ export default function AdminTicketsSection() {
           {selected ? (
             <>
               {/* Detail header */}
-              <div className="px-5 py-4 border-b border-[#F0ECE7] shrink-0">
+              <div className="px-5 py-4 border-b border-[#E5E7EB] shrink-0">
                 <div className="flex items-center justify-between mb-1">
-                  <h2 className="text-sm font-bold text-[#111111] truncate flex-1">
+                  <h2 className="text-sm font-bold text-[#030712] truncate flex-1">
                     {selected.subject}
                   </h2>
                   <select
                     value={selected.status}
                     onChange={(e) => statusMutation.mutate(e.target.value)}
-                    className="text-xs font-bold px-2 py-1 rounded-lg border border-[#E8E4DF] bg-white text-[#111111] cursor-pointer focus:outline-none focus:border-[#D8723C]"
+                    className="text-xs font-bold px-2 py-1 rounded-lg border border-[#E5E7EB] bg-white text-[#030712] cursor-pointer focus:outline-none focus:border-[#0891B2]"
                   >
                     {STATUS_VALUES.map((s) => (
                       <option key={s} value={s}>
@@ -246,21 +246,21 @@ export default function AdminTicketsSection() {
                 {messages.map((msg, i) => (
                   <div key={i} className="space-y-2">
                     {msg.user_message && (
-                      <div className="bg-[#FAFAF8] border border-[#F0ECE7] rounded-xl px-4 py-3">
+                      <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl px-4 py-3">
                         <p className="text-[10px] font-bold text-[#AAAAAA] mb-1">
                           {selected.profiles?.full_name}
                         </p>
-                        <p className="text-sm text-[#111111] whitespace-pre-wrap">
+                        <p className="text-sm text-[#030712] whitespace-pre-wrap">
                           {msg.user_message}
                         </p>
                       </div>
                     )}
                     {msg.bot_response && (
-                      <div className="bg-[#D8723C]/5 border border-[#D8723C]/10 rounded-xl px-4 py-3">
-                        <p className="text-[10px] font-bold text-[#D8723C] mb-1">
+                      <div className="bg-[#0891B2]/5 border border-[#0891B2]/10 rounded-xl px-4 py-3">
+                        <p className="text-[10px] font-bold text-[#0891B2] mb-1">
                           Admin
                         </p>
-                        <p className="text-sm text-[#111111] whitespace-pre-wrap">
+                        <p className="text-sm text-[#030712] whitespace-pre-wrap">
                           {msg.bot_response}
                         </p>
                       </div>
@@ -270,7 +270,7 @@ export default function AdminTicketsSection() {
               </div>
 
               {/* Reply bar */}
-              <div className="px-5 py-3 border-t border-[#F0ECE7] shrink-0">
+              <div className="px-5 py-3 border-t border-[#E5E7EB] shrink-0">
                 {feedback && (
                   <p className="text-xs text-emerald-600 mb-2">{feedback}</p>
                 )}
@@ -280,13 +280,13 @@ export default function AdminTicketsSection() {
                     onChange={(e) => setReply(e.target.value)}
                     placeholder={t("ticketReplyPlaceholder")}
                     rows={2}
-                    className="flex-1 border border-[#E8E4DF] rounded-xl px-4 py-2.5 text-sm text-[#111111] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#D8723C] focus:ring-1 focus:ring-[#D8723C]/20 transition-colors resize-none"
+                    className="flex-1 border border-[#E5E7EB] rounded-xl px-4 py-2.5 text-sm text-[#030712] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#0891B2] focus:ring-1 focus:ring-[#0891B2]/20 transition-colors resize-none"
                   />
                   <button
                     type="button"
                     onClick={() => replyMutation.mutate()}
                     disabled={!reply.trim() || replyMutation.isPending}
-                    className="self-end px-4 py-2.5 rounded-xl bg-[#D8723C] hover:bg-[#C4632F] disabled:opacity-50 text-white text-sm font-bold transition-colors cursor-pointer disabled:cursor-not-allowed flex items-center gap-1.5"
+                    className="self-end px-4 py-2.5 rounded-xl bg-[#0891B2] hover:bg-[#155E75] disabled:opacity-50 text-white text-sm font-bold transition-colors cursor-pointer disabled:cursor-not-allowed flex items-center gap-1.5"
                   >
                     <Send className="w-4 h-4" />
                     {t("ticketReply")}
