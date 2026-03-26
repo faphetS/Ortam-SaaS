@@ -33,7 +33,7 @@ export default function EditBotSidebar({
     <>
       {/* ── Desktop: vertical sidebar ── */}
       <nav className="hidden lg:block w-56 shrink-0 sticky top-24 self-start">
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-[0_2px_24px_rgba(45,42,38,0.05)] border border-[#EDE6DD]/50 p-2.5 flex flex-col gap-1">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-[0_2px_24px_rgba(17,24,39,0.05)] border border-[#E5E7EB]/50 p-2.5 flex flex-col gap-1">
           {categories.map((cat) => {
             const isActive = activeCategory === cat.id;
             const Icon = cat.icon;
@@ -48,15 +48,15 @@ export default function EditBotSidebar({
                   text-sm font-medium transition-colors duration-200 cursor-pointer
                   ${
                     isActive
-                      ? "text-[#FF7E47] font-bold"
-                      : "text-[#7A7267] hover:bg-[#FAF7F3] hover:text-[#2D2A26]"
+                      ? "text-[#22D3EE] font-bold"
+                      : "text-[#6B7280] hover:bg-[#F9FAFB] hover:text-[#111827]"
                   }
                 `}
               >
                 {isActive && (
                   <motion.div
                     layoutId="sidebar-active"
-                    className="absolute inset-0 rounded-xl bg-gradient-to-l from-[#FF7E47]/10 to-[#FF7E47]/5 border-e-[3px] border-[#FF7E47]"
+                    className="absolute inset-0 rounded-xl bg-gradient-to-l from-[#22D3EE]/10 to-[#22D3EE]/5 border-e-[3px] border-[#22D3EE]"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -70,7 +70,7 @@ export default function EditBotSidebar({
 
       {/* ── Mobile: horizontal pill tabs ── */}
       <nav className="lg:hidden">
-        <div className="flex gap-1.5 sm:gap-2 overflow-x-auto bg-white/80 backdrop-blur-sm rounded-xl shadow-[0_2px_24px_rgba(45,42,38,0.05)] border border-[#EDE6DD]/50 p-1.5 sm:p-2">
+        <div className="flex gap-1.5 sm:gap-2 overflow-x-auto bg-white/80 backdrop-blur-sm rounded-xl shadow-[0_2px_24px_rgba(17,24,39,0.05)] border border-[#E5E7EB]/50 p-1.5 sm:p-2">
           {categories.map((cat) => {
             const isActive = activeCategory === cat.id;
             const Icon = cat.icon;
@@ -85,15 +85,15 @@ export default function EditBotSidebar({
                   text-sm whitespace-nowrap transition-colors duration-200 cursor-pointer
                   ${
                     isActive
-                      ? "text-[#FF7E47] font-bold"
-                      : "text-[#7A7267] hover:bg-[#FAF7F3] hover:text-[#2D2A26]"
+                      ? "text-[#22D3EE] font-bold"
+                      : "text-[#6B7280] hover:bg-[#F9FAFB] hover:text-[#111827]"
                   }
                 `}
               >
                 {isActive && (
                   <motion.div
                     layoutId="sidebar-active-mobile"
-                    className="absolute inset-0 rounded-xl bg-[#FF7E47]/10"
+                    className="absolute inset-0 rounded-xl bg-[#22D3EE]/10"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
