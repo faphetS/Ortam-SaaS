@@ -78,36 +78,36 @@ function FileUploadCard() {
   }, [deleteDocument]);
 
   return (
-    <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-[0_2px_24px_rgba(45,42,38,0.05)] border border-[#EDE6DD]/50 p-6">
+    <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-[0_2px_24px_rgba(17,24,39,0.05)] border border-[#E5E7EB]/50 p-6">
       {/* Section label */}
       <div className="flex items-center gap-2 mb-4">
-        <FileText className="w-4 h-4 text-[#FF7E47]" />
-        <span className="text-sm font-semibold text-[#2D2A26]">
+        <FileText className="w-4 h-4 text-[#22D3EE]" />
+        <span className="text-sm font-semibold text-[#111827]">
           {t("uploadTitle")}
         </span>
       </div>
 
       {isLoading ? (
         <div className="flex items-center justify-center py-12">
-          <Loader2 className="w-6 h-6 text-[#FF7E47] animate-spin" />
+          <Loader2 className="w-6 h-6 text-[#22D3EE] animate-spin" />
         </div>
       ) : isUploading || document?.status === "processing" ? (
         <div className="flex flex-col items-center justify-center py-12 gap-4">
-          <Loader2 className="w-10 h-10 text-[#FF7E47] animate-spin" />
-          <p className="text-sm text-[#7A7267] font-medium">
+          <Loader2 className="w-10 h-10 text-[#22D3EE] animate-spin" />
+          <p className="text-sm text-[#6B7280] font-medium">
             {uploadProgress || t("processingFile")}
           </p>
         </div>
       ) : document?.status === "ready" ? (
         <div className="space-y-4">
-          <div className="bg-[#FAF7F3] rounded-xl p-4 border border-[#EDE6DD]/60">
+          <div className="bg-[#F9FAFB] rounded-xl p-4 border border-[#E5E7EB]/60">
             <div className="flex items-start gap-3">
-              <div className="p-2 bg-[#FF7E47]/10 rounded-lg shrink-0">
-                <FileText className="w-4 h-4 text-[#FF7E47]" />
+              <div className="p-2 bg-[#22D3EE]/10 rounded-lg shrink-0">
+                <FileText className="w-4 h-4 text-[#22D3EE]" />
               </div>
               <div className="flex-1 min-w-0 space-y-1.5">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-semibold text-[#2D2A26] truncate">
+                  <span className="text-sm font-semibold text-[#111827] truncate">
                     {document.file_name}
                   </span>
                   <span className="flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">
@@ -115,7 +115,7 @@ function FileUploadCard() {
                     {t("statusReady")}
                   </span>
                 </div>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[#7A7267]">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[#6B7280]">
                   <span>
                     {t("fileSize")}: {formatFileSize(document.file_size)}
                   </span>
@@ -137,7 +137,7 @@ function FileUploadCard() {
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-[#FF7E47] bg-[#FF7E47]/10 hover:bg-[#FF7E47]/20 transition-colors"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-[#22D3EE] bg-[#22D3EE]/10 hover:bg-[#22D3EE]/20 transition-colors"
             >
               <RefreshCw className="w-4 h-4" />
               {t("replaceFile")}
@@ -181,28 +181,28 @@ function FileUploadCard() {
             className={cn(
               "flex flex-col items-center justify-center gap-3 py-12 rounded-xl border-2 border-dashed cursor-pointer transition-all duration-200",
               isDragOver
-                ? "border-[#FF7E47] bg-[#FF7E47]/5"
-                : "border-[#EDE6DD] hover:border-[#FF7E47]/40 hover:bg-[#FAF7F3]",
+                ? "border-[#22D3EE] bg-[#22D3EE]/5"
+                : "border-[#E5E7EB] hover:border-[#22D3EE]/40 hover:bg-[#F9FAFB]",
             )}
           >
             <div
               className={cn(
                 "p-3 rounded-full transition-colors",
-                isDragOver ? "bg-[#FF7E47]/15" : "bg-[#EDE6DD]/60",
+                isDragOver ? "bg-[#22D3EE]/15" : "bg-[#E5E7EB]/60",
               )}
             >
               <Upload
                 className={cn(
                   "w-6 h-6 transition-colors",
-                  isDragOver ? "text-[#FF7E47]" : "text-[#A39B90]",
+                  isDragOver ? "text-[#22D3EE]" : "text-[#9CA3AF]",
                 )}
               />
             </div>
             <div className="text-center">
-              <p className="text-sm font-medium text-[#2D2A26]">
+              <p className="text-sm font-medium text-[#111827]">
                 {t("dragDrop")}
               </p>
-              <p className="text-xs text-[#A39B90] mt-1">
+              <p className="text-xs text-[#9CA3AF] mt-1">
                 {t("supportedFormats")}
               </p>
             </div>
@@ -256,11 +256,11 @@ function GoogleSheetCard() {
   const config = sourceConfig as SheetSourceConfig;
 
   return (
-    <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-[0_2px_24px_rgba(45,42,38,0.05)] border border-[#EDE6DD]/50 p-6">
+    <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-[0_2px_24px_rgba(17,24,39,0.05)] border border-[#E5E7EB]/50 p-6">
       {/* Section label */}
       <div className="flex items-center gap-2 mb-4">
         <Sheet className="w-4 h-4 text-emerald-600" />
-        <span className="text-sm font-semibold text-[#2D2A26]">
+        <span className="text-sm font-semibold text-[#111827]">
           {t("sheetsTitle")}
         </span>
       </div>
@@ -273,7 +273,7 @@ function GoogleSheetCard() {
         /* Connecting / Processing */
         <div className="flex flex-col items-center justify-center py-12 gap-4">
           <Loader2 className="w-10 h-10 text-emerald-600 animate-spin" />
-          <p className="text-sm text-[#7A7267] font-medium">
+          <p className="text-sm text-[#6B7280] font-medium">
             {isConnecting ? t("sheetsConnecting") : t("processingFile")}
           </p>
         </div>
@@ -287,7 +287,7 @@ function GoogleSheetCard() {
               </div>
               <div className="flex-1 min-w-0 space-y-1.5">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-semibold text-[#2D2A26] truncate">
+                  <span className="text-sm font-semibold text-[#111827] truncate">
                     {sheetDocument.file_name}
                   </span>
                   <span className="flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">
@@ -295,7 +295,7 @@ function GoogleSheetCard() {
                     {t("statusReady")}
                   </span>
                 </div>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[#7A7267]">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[#6B7280]">
                   <span>
                     {t("sheetsRowCount")}: {config.row_count ?? "—"}
                   </span>
@@ -383,7 +383,7 @@ function GoogleSheetCard() {
       ) : (
         /* Empty — show connect form */
         <div className="space-y-4">
-          <p className="text-xs text-[#7A7267]">{t("sheetsDesc")}</p>
+          <p className="text-xs text-[#6B7280]">{t("sheetsDesc")}</p>
 
           {/* Error message */}
           {(error || sheetDocument?.status === "error") && (
@@ -397,7 +397,7 @@ function GoogleSheetCard() {
 
           <div className="flex gap-2">
             <div className="relative flex-1">
-              <Link2 className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#A39B90]" />
+              <Link2 className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF]" />
               <input
                 type="url"
                 dir="ltr"
@@ -408,7 +408,7 @@ function GoogleSheetCard() {
                 }}
                 onKeyDown={(e) => e.key === "Enter" && handleConnect()}
                 placeholder={t("sheetsPlaceholder")}
-                className="w-full ps-9 pe-3 py-2.5 rounded-xl border border-[#EDE6DD] bg-[#FAF7F3] text-sm text-[#2D2A26] placeholder:text-[#A39B90] focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all"
+                className="w-full ps-9 pe-3 py-2.5 rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] text-sm text-[#111827] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all"
               />
             </div>
             <button
@@ -421,7 +421,7 @@ function GoogleSheetCard() {
             </button>
           </div>
 
-          <p className="text-[10px] text-[#A39B90]">{t("sheetsPublicHint")}</p>
+          <p className="text-[10px] text-[#9CA3AF]">{t("sheetsPublicHint")}</p>
         </div>
       )}
     </div>
@@ -442,14 +442,14 @@ export default function KnowledgeBaseSection() {
     >
       {/* Header */}
       <motion.div variants={fadeUp} className="flex items-center gap-3">
-        <div className="p-2.5 bg-[#FF7E47]/10 rounded-xl">
-          <BookOpen className="w-5 h-5 text-[#FF7E47]" />
+        <div className="p-2.5 bg-[#22D3EE]/10 rounded-xl">
+          <BookOpen className="w-5 h-5 text-[#22D3EE]" />
         </div>
         <div>
-          <h2 className="text-lg font-bold text-[#2D2A26]">
+          <h2 className="text-lg font-bold text-[#111827]">
             {t("knowledgeBase")}
           </h2>
-          <p className="text-sm text-[#7A7267]">{t("uploadDesc")}</p>
+          <p className="text-sm text-[#6B7280]">{t("uploadDesc")}</p>
         </div>
       </motion.div>
 
