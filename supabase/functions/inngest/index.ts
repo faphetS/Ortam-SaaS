@@ -27,7 +27,7 @@ const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const inngest = new Inngest({
-  id: "clix",
+  id: "ortam",
   eventKey: Deno.env.get("INNGEST_EVENT_KEY"),
 });
 
