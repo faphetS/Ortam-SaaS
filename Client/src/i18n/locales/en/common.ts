@@ -51,6 +51,6 @@ export default {
   servicePlaceholder: "e.g. Website Design",
   portfolioPlaceholder: "e.g. Summer Campaign",
   teamPlaceholder: "e.g. John Smith",
-  logoPlaceholder: "e.g. CLIX",
+  logoPlaceholder: "e.g. Ortam",
   itemNamePlaceholder: "Enter name",
 };
