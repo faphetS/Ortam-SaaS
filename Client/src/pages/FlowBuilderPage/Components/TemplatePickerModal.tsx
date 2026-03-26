@@ -21,15 +21,15 @@ export default function TemplatePickerModal({ onSelect, onClose }: TemplatePicke
           <button
             type="button"
             onClick={onClose}
-            className="absolute top-4 start-4 p-2 rounded-lg hover:bg-[#EDE6DD]/40 cursor-pointer"
+            className="absolute top-4 start-4 p-2 rounded-lg hover:bg-[#E5E7EB]/40 cursor-pointer"
           >
-            <X className="w-5 h-5 text-[#7A7267]" />
+            <X className="w-5 h-5 text-[#6B7280]" />
           </button>
         )}
-        <h1 className={`font-bold text-[#2D2A26] mb-2 ${isModal ? "text-xl" : "text-2xl"}`}>
+        <h1 className={`font-bold text-[#111827] mb-2 ${isModal ? "text-xl" : "text-2xl"}`}>
           {t("templatePickerTitle")}
         </h1>
-        <p className="text-sm text-[#A39B90]">
+        <p className="text-sm text-[#9CA3AF]">
           {t("templatePickerSubtitle")}
         </p>
       </div>
@@ -51,34 +51,34 @@ export default function TemplatePickerModal({ onSelect, onClose }: TemplatePicke
               onClick={() => onSelect(template.id)}
               className={`group relative flex flex-col items-center gap-3 p-6 rounded-xl border-2 transition-all cursor-pointer text-center ${
                 isBlank
-                  ? "border-dashed border-[#EDE6DD] hover:border-[#A39B90] bg-white/50"
-                  : "border-[#EDE6DD]/60 hover:border-[#FF7E47]/50 hover:shadow-md bg-white"
+                  ? "border-dashed border-[#E5E7EB] hover:border-[#9CA3AF] bg-white/50"
+                  : "border-[#E5E7EB]/60 hover:border-[#22D3EE]/50 hover:shadow-md bg-white"
               }`}
             >
               {/* Icon */}
               <div
                 className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${
                   isBlank
-                    ? "bg-[#EDE6DD]/40 group-hover:bg-[#EDE6DD]/60"
-                    : "bg-[#FFF5F0] group-hover:bg-[#FFE8DC]"
+                    ? "bg-[#E5E7EB]/40 group-hover:bg-[#E5E7EB]/60"
+                    : "bg-[#ECFEFF] group-hover:bg-[#CFFAFE]"
                 }`}
               >
                 <Icon
                   className={`w-6 h-6 ${
                     isBlank
-                      ? "text-[#A39B90] group-hover:text-[#7A7267]"
-                      : "text-[#FF7E47]"
+                      ? "text-[#9CA3AF] group-hover:text-[#6B7280]"
+                      : "text-[#22D3EE]"
                   }`}
                 />
               </div>
 
               {/* Name */}
-              <span className="text-sm font-bold text-[#2D2A26]">
+              <span className="text-sm font-bold text-[#111827]">
                 {t(template.nameKey)}
               </span>
 
               {/* Description */}
-              <span className="text-xs text-[#A39B90] leading-relaxed">
+              <span className="text-xs text-[#9CA3AF] leading-relaxed">
                 {t(template.descKey)}
               </span>
 
@@ -86,8 +86,8 @@ export default function TemplatePickerModal({ onSelect, onClose }: TemplatePicke
               <span
                 className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${
                   isBlank
-                    ? "bg-[#EDE6DD]/50 text-[#A39B90]"
-                    : "bg-[#FFF5F0] text-[#FF7E47]"
+                    ? "bg-[#E5E7EB]/50 text-[#9CA3AF]"
+                    : "bg-[#ECFEFF] text-[#22D3EE]"
                 }`}
               >
                 {t("templateSteps", { count: nodeCount })}
@@ -108,7 +108,7 @@ export default function TemplatePickerModal({ onSelect, onClose }: TemplatePicke
         onClick={onClose}
       >
         <div
-          className="relative bg-[#FAF7F3] rounded-2xl shadow-xl max-h-[90vh] overflow-y-auto"
+          className="relative bg-[#F9FAFB] rounded-2xl shadow-xl max-h-[90vh] overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
           {content}
@@ -119,7 +119,7 @@ export default function TemplatePickerModal({ onSelect, onClose }: TemplatePicke
 
   // Full-page mode (first visit)
   return (
-    <div className="h-[calc(100vh-3.5rem)] flex items-center justify-center bg-[#FAF7F3]" dir="rtl">
+    <div className="h-[calc(100vh-3.5rem)] flex items-center justify-center bg-[#F9FAFB]" dir="rtl">
       {content}
     </div>
   );
