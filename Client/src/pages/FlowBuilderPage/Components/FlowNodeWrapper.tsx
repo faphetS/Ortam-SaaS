@@ -34,8 +34,8 @@ export default function FlowNodeWrapper({
     <div
       className={`relative overflow-visible bg-white rounded-xl shadow-md border-2 min-w-[180px] transition-shadow ${
         width ? "" : "max-w-[240px] "
-      }${selected ? "shadow-lg ring-2 ring-[#FF7E47]/40" : ""}${disabled ? " opacity-50" : ""}`}
-      style={{ borderColor: selected ? "#FF7E47" : `${color}40`, ...(width ? { width } : {}) }}
+      }${selected ? "shadow-lg ring-2 ring-[#22D3EE]/40" : ""}${disabled ? " opacity-50" : ""}`}
+      style={{ borderColor: selected ? "#22D3EE" : `${color}40`, ...(width ? { width } : {}) }}
     >
       {/* Target handle */}
       {!hideTarget && (
@@ -53,13 +53,13 @@ export default function FlowNodeWrapper({
       >
         <div className="flex items-center gap-2">
           <span style={{ color }}>{icon}</span>
-          <span className="text-xs font-bold text-[#2D2A26]">{label}</span>
+          <span className="text-xs font-bold text-[#111827]">{label}</span>
         </div>
         {onDelete && (
           <button
             type="button"
             onClick={(e) => { e.stopPropagation(); onDelete(); }}
-            className="p-1 rounded hover:bg-red-100 text-[#A39B90] hover:text-red-500 transition-colors cursor-pointer"
+            className="p-1 rounded hover:bg-red-100 text-[#9CA3AF] hover:text-red-500 transition-colors cursor-pointer"
             aria-label="Delete node"
           >
             <Trash2 className="w-3 h-3" />
@@ -68,7 +68,7 @@ export default function FlowNodeWrapper({
       </div>
 
       {/* Body */}
-      <div className="px-3 py-2 text-xs text-[#7A7267]">{children}</div>
+      <div className="px-3 py-2 text-xs text-[#6B7280]">{children}</div>
 
       {/* Source handles */}
       {sourceHandles ? (
@@ -91,7 +91,7 @@ export default function FlowNodeWrapper({
               className="!w-3 !h-3 !border-2 !border-white !relative !transform-none !left-0 !top-0"
               style={{ backgroundColor: color }}
             />
-            <div className="pointer-events-none absolute z-50 bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2 px-2 py-1 rounded-md text-[10px] font-medium leading-none whitespace-nowrap bg-[#2D2A26] text-[#EDE6DD] shadow-[0_2px_8px_rgba(45,42,38,0.25)] opacity-0 scale-95 transition-all duration-150 ease-out group-hover/tip:opacity-100 group-hover/tip:scale-100 after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-[#2D2A26]">
+            <div className="pointer-events-none absolute z-50 bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2 px-2 py-1 rounded-md text-[10px] font-medium leading-none whitespace-nowrap bg-[#111827] text-[#E5E7EB] shadow-[0_2px_8px_rgba(17,24,39,0.25)] opacity-0 scale-95 transition-all duration-150 ease-out group-hover/tip:opacity-100 group-hover/tip:scale-100 after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-[#111827]">
               {handle.label}
             </div>
           </div>
