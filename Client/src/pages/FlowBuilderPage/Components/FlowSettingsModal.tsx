@@ -17,19 +17,19 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
       <div className="absolute inset-0 bg-black/30" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative bg-white rounded-xl shadow-xl w-[380px] max-h-[80vh] overflow-y-auto border border-[#EDE6DD]/60">
+      <div className="relative bg-white rounded-xl shadow-xl w-[380px] max-h-[80vh] overflow-y-auto border border-[#E5E7EB]/60">
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-[#EDE6DD]/40">
-          <span className="text-sm font-bold text-[#2D2A26]">{t("settingsTitle")}</span>
-          <button type="button" onClick={onClose} className="p-1 rounded hover:bg-[#EDE6DD]/40 cursor-pointer" aria-label="Close">
-            <X className="w-4 h-4 text-[#7A7267]" />
+        <div className="flex items-center justify-between px-5 py-4 border-b border-[#E5E7EB]/40">
+          <span className="text-sm font-bold text-[#111827]">{t("settingsTitle")}</span>
+          <button type="button" onClick={onClose} className="p-1 rounded hover:bg-[#E5E7EB]/40 cursor-pointer" aria-label="Close">
+            <X className="w-4 h-4 text-[#6B7280]" />
           </button>
         </div>
 
         {/* Settings */}
         <div className="p-5 space-y-5">
           {/* Strict Mode */}
-          <div className="rounded-lg bg-[#FFF5F0]/60 border border-[#FF7E47]/20 p-3">
+          <div className="rounded-lg bg-[#ECFEFF]/60 border border-[#22D3EE]/20 p-3">
             <SettingRow
               label={t("settingsStrictMode")}
               hint={t("settingsStrictModeHint")}
@@ -47,7 +47,7 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
           />
 
           {/* Human Takeover Cooldown */}
-          <div className="border-t border-[#EDE6DD]/40 pt-5">
+          <div className="border-t border-[#E5E7EB]/40 pt-5">
             <SettingRow
               label={t("settingsCooldown")}
               hint={t("settingsCooldownHint")}
@@ -74,7 +74,7 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
           </div>
 
           {/* Auto Follow-Up */}
-          <div className="border-t border-[#EDE6DD]/40 pt-5">
+          <div className="border-t border-[#E5E7EB]/40 pt-5">
             <SettingRow
               label={t("settingsAutoFollowUp")}
               hint={t("settingsAutoFollowUpHint")}
@@ -98,10 +98,10 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
                 />
 
                 <div>
-                  <label className="text-[10px] font-semibold text-[#2D2A26] block mb-1.5">
+                  <label className="text-[10px] font-semibold text-[#111827] block mb-1.5">
                     {t("settingsAutoFollowUpMaxCount")}
                   </label>
-                  <span className="text-[10px] text-[#A39B90] block mb-1.5">
+                  <span className="text-[10px] text-[#9CA3AF] block mb-1.5">
                     {t("settingsAutoFollowUpMaxCountHint")}
                   </span>
                   <input
@@ -116,7 +116,7 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
 
                 {/* Follow-Up Mode Toggle */}
                 <div>
-                  <label className="text-[10px] font-semibold text-[#2D2A26] block mb-1.5">
+                  <label className="text-[10px] font-semibold text-[#111827] block mb-1.5">
                     {t("settingsAutoFollowUpMode")}
                   </label>
                   <div className="flex items-center gap-2">
@@ -127,8 +127,8 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
                         onClick={() => onUpdate({ autoFollowUpMode: mode })}
                         className={`flex-1 px-2.5 py-1.5 rounded text-[10px] font-medium border cursor-pointer transition-colors ${
                           settings.autoFollowUpMode === mode
-                            ? "bg-[#FF7E47] text-white border-[#FF7E47]"
-                            : "bg-white text-[#7A7267] border-[#EDE6DD] hover:border-[#FF7E47]/50"
+                            ? "bg-[#22D3EE] text-white border-[#22D3EE]"
+                            : "bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#22D3EE]/50"
                         }`}
                       >
                         {t(mode === "bot" ? "settingsAutoFollowUpModeBot" : "settingsAutoFollowUpModeCustom")}
@@ -141,7 +141,7 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
                 {settings.autoFollowUpMode === "custom" && (
                   <div className="space-y-3">
                     <div>
-                      <label className="text-[10px] font-semibold text-[#2D2A26] block mb-1.5">
+                      <label className="text-[10px] font-semibold text-[#111827] block mb-1.5">
                         {t("settingsAutoFollowUpCustom1")}
                       </label>
                       <textarea
@@ -159,7 +159,7 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
                     </div>
                     {settings.autoFollowUpMaxCount >= 2 && (
                       <div>
-                        <label className="text-[10px] font-semibold text-[#2D2A26] block mb-1.5">
+                        <label className="text-[10px] font-semibold text-[#111827] block mb-1.5">
                           {t("settingsAutoFollowUpCustom2")}
                         </label>
                         <textarea
@@ -182,7 +182,7 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
             )}
           </div>
           {/* Session Auto-Reset */}
-          <div className="border-t border-[#EDE6DD]/40 pt-5">
+          <div className="border-t border-[#E5E7EB]/40 pt-5">
             <SettingRow
               label={t("settingsSessionReset")}
               hint={t("settingsSessionResetHint")}
@@ -210,11 +210,11 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
         </div>
 
         {/* Footer */}
-        <div className="px-5 py-3 border-t border-[#EDE6DD]/40">
+        <div className="px-5 py-3 border-t border-[#E5E7EB]/40">
           <button
             type="button"
             onClick={onClose}
-            className="w-full py-2 rounded-lg bg-[#FF7E47] text-white text-sm font-semibold hover:bg-[#e56e3a] transition-colors cursor-pointer"
+            className="w-full py-2 rounded-lg bg-[#22D3EE] text-white text-sm font-semibold hover:bg-[#e56e3a] transition-colors cursor-pointer"
           >
             {t("settingsDone")}
           </button>
@@ -225,15 +225,15 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
         .field-input {
           width: 100%;
           padding: 6px 10px;
-          border: 1px solid #EDE6DD;
+          border: 1px solid #E5E7EB;
           border-radius: 6px;
           font-size: 12px;
-          color: #2D2A26;
+          color: #111827;
           outline: none;
           transition: border-color 0.15s;
         }
         .field-input:focus {
-          border-color: #FF7E47;
+          border-color: #22D3EE;
         }
       `}</style>
     </div>
@@ -259,11 +259,11 @@ function SettingRow({
         type="checkbox"
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
-        className="accent-[#FF7E47] mt-0.5 shrink-0"
+        className="accent-[#22D3EE] mt-0.5 shrink-0"
       />
       <div>
-        <span className="text-xs font-semibold text-[#2D2A26] block">{label}</span>
-        <span className="text-[10px] text-[#A39B90] block mt-0.5">{hint}</span>
+        <span className="text-xs font-semibold text-[#111827] block">{label}</span>
+        <span className="text-[10px] text-[#9CA3AF] block mt-0.5">{hint}</span>
       </div>
     </label>
   );
@@ -291,7 +291,7 @@ function MinutesPresetInput({
 }) {
   return (
     <div>
-      <label className="text-[10px] font-semibold text-[#2D2A26] block mb-1.5">{label}</label>
+      <label className="text-[10px] font-semibold text-[#111827] block mb-1.5">{label}</label>
       <div className="flex items-center gap-2 mb-2">
         {presets.map((preset) => (
           <button
@@ -300,8 +300,8 @@ function MinutesPresetInput({
             onClick={() => onChange(preset.value)}
             className={`px-2.5 py-1 rounded text-[10px] font-medium border cursor-pointer transition-colors ${
               value === preset.value
-                ? "bg-[#FF7E47] text-white border-[#FF7E47]"
-                : "bg-white text-[#7A7267] border-[#EDE6DD] hover:border-[#FF7E47]/50"
+                ? "bg-[#22D3EE] text-white border-[#22D3EE]"
+                : "bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#22D3EE]/50"
             }`}
           >
             {preset.label}
