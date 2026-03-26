@@ -44,11 +44,11 @@ export default function FlowListDropdown({
     <div
       ref={ref}
       dir="rtl"
-      className="absolute top-full mt-1 start-0 w-72 bg-white border border-[#EDE6DD] rounded-xl shadow-lg z-50 overflow-hidden"
+      className="absolute top-full mt-1 start-0 w-72 bg-white border border-[#E5E7EB] rounded-xl shadow-lg z-50 overflow-hidden"
     >
       {/* Header */}
-      <div className="px-3 py-2 border-b border-[#EDE6DD]/60">
-        <span className="text-xs font-bold text-[#7A7267]">{t("flowList")}</span>
+      <div className="px-3 py-2 border-b border-[#E5E7EB]/60">
+        <span className="text-xs font-bold text-[#6B7280]">{t("flowList")}</span>
       </div>
 
       {/* Workflow list */}
@@ -63,8 +63,8 @@ export default function FlowListDropdown({
               key={w.id}
               className={`flex items-center gap-2 px-3 py-2.5 cursor-pointer transition-colors ${
                 isActive
-                  ? "bg-[#FFF5F0] border-e-2 border-[#FF7E47]"
-                  : "hover:bg-[#FAF7F3]"
+                  ? "bg-[#ECFEFF] border-e-2 border-[#22D3EE]"
+                  : "hover:bg-[#F9FAFB]"
               }`}
               onClick={() => {
                 onSwitch(w.id);
@@ -73,7 +73,7 @@ export default function FlowListDropdown({
             >
               {/* Name + status */}
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-[#2D2A26] truncate">{w.name}</p>
+                <p className="text-sm font-medium text-[#111827] truncate">{w.name}</p>
               </div>
 
               {/* Status badge */}
@@ -106,7 +106,7 @@ export default function FlowListDropdown({
                   <button
                     type="button"
                     onClick={() => setConfirmDeleteId(null)}
-                    className="text-[10px] text-[#7A7267] px-1 py-0.5 rounded hover:bg-[#EDE6DD]/40 cursor-pointer"
+                    className="text-[10px] text-[#6B7280] px-1 py-0.5 rounded hover:bg-[#E5E7EB]/40 cursor-pointer"
                   >
                     {t("cancel")}
                   </button>
@@ -123,7 +123,7 @@ export default function FlowListDropdown({
                   className={`p-1 rounded shrink-0 ${
                     isPublished
                       ? "text-[#D5CFC7] cursor-not-allowed"
-                      : "text-[#A39B90] hover:text-red-500 hover:bg-red-50 cursor-pointer"
+                      : "text-[#9CA3AF] hover:text-red-500 hover:bg-red-50 cursor-pointer"
                   }`}
                 >
                   <Trash2 className="w-3.5 h-3.5" />
@@ -135,7 +135,7 @@ export default function FlowListDropdown({
       </div>
 
       {/* New Flow button */}
-      <div className="border-t border-[#EDE6DD]/60 p-2">
+      <div className="border-t border-[#E5E7EB]/60 p-2">
         <button
           type="button"
           onClick={() => {
@@ -148,7 +148,7 @@ export default function FlowListDropdown({
           className={`flex items-center justify-center gap-1.5 w-full py-2 rounded-lg text-xs font-bold transition-colors ${
             atLimit
               ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-              : "bg-[#FF7E47] text-white hover:bg-[#E86D3A] cursor-pointer"
+              : "bg-[#22D3EE] text-white hover:bg-[#E86D3A] cursor-pointer"
           }`}
         >
           <Plus className="w-4 h-4" />
