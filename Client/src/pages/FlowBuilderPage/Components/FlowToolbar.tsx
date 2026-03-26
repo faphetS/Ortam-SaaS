@@ -55,7 +55,7 @@ export default function FlowToolbar({
 
   return (
     <>
-      <div className="flex items-center justify-between px-4 py-2 bg-white border-b border-[#EDE6DD]/60 shrink-0">
+      <div className="flex items-center justify-between px-4 py-2 bg-white border-b border-[#E5E7EB]/60 shrink-0">
         {/* Left: name + status */}
         <div className="flex items-center gap-3">
           {/* Editable name + dropdown trigger */}
@@ -65,10 +65,10 @@ export default function FlowToolbar({
               value={workflowName}
               onChange={(e) => onNameChange(e.target.value)}
               readOnly={isLocked}
-              className={`text-sm font-bold text-[#2D2A26] bg-transparent border-b border-transparent ${
+              className={`text-sm font-bold text-[#111827] bg-transparent border-b border-transparent ${
                 isLocked
                   ? "cursor-default opacity-60"
-                  : "hover:border-[#EDE6DD] focus:border-[#FF7E47]"
+                  : "hover:border-[#E5E7EB] focus:border-[#22D3EE]"
               } outline-none px-1 py-0.5 transition-colors`}
               dir="rtl"
             />
@@ -76,10 +76,10 @@ export default function FlowToolbar({
               type="button"
               ref={dropdownTriggerRef}
               onClick={() => setShowDropdown((v) => !v)}
-              className="flex items-center gap-1 px-1.5 py-0.5 rounded hover:bg-[#EDE6DD]/40 cursor-pointer"
+              className="flex items-center gap-1 px-1.5 py-0.5 rounded hover:bg-[#E5E7EB]/40 cursor-pointer"
             >
-              <span className="text-[11px] text-[#A39B90]">{t("switchFlow")}</span>
-              <ChevronDown className={`w-3.5 h-3.5 text-[#A39B90] transition-transform ${showDropdown ? "rotate-180" : ""}`} />
+              <span className="text-[11px] text-[#9CA3AF]">{t("switchFlow")}</span>
+              <ChevronDown className={`w-3.5 h-3.5 text-[#9CA3AF] transition-transform ${showDropdown ? "rotate-180" : ""}`} />
             </button>
             {showDropdown && (
               <FlowListDropdown
@@ -111,54 +111,54 @@ export default function FlowToolbar({
           <button
             type="button"
             onClick={onOpenSettings}
-            className="p-1.5 rounded hover:bg-[#EDE6DD]/40 cursor-pointer"
+            className="p-1.5 rounded hover:bg-[#E5E7EB]/40 cursor-pointer"
             title={t("settingsTitle")}
             aria-label={t("settingsTitle")}
           >
-            <Settings className="w-4 h-4 text-[#7A7267]" />
+            <Settings className="w-4 h-4 text-[#6B7280]" />
           </button>
 
           {/* Integrations */}
           <button
             type="button"
             onClick={onOpenIntegrations}
-            className="p-1.5 rounded hover:bg-[#EDE6DD]/40 cursor-pointer"
+            className="p-1.5 rounded hover:bg-[#E5E7EB]/40 cursor-pointer"
             title={t("integrationsTitle", { ns: "dashboard" })}
             aria-label={t("integrationsTitle", { ns: "dashboard" })}
           >
-            <Plug className="w-4 h-4 text-[#7A7267]" />
+            <Plug className="w-4 h-4 text-[#6B7280]" />
           </button>
         </div>
 
         {/* Right: actions */}
         <div className="flex items-center gap-2">
           {/* Undo / Redo */}
-          <div className="flex items-center gap-0.5 border-e border-[#EDE6DD]/60 pe-2 me-1">
+          <div className="flex items-center gap-0.5 border-e border-[#E5E7EB]/60 pe-2 me-1">
             <button
               type="button"
               onClick={onUndo}
               disabled={!canUndo}
-              className="p-1.5 rounded hover:bg-[#EDE6DD]/40 disabled:opacity-30 disabled:cursor-default cursor-pointer transition-colors"
+              className="p-1.5 rounded hover:bg-[#E5E7EB]/40 disabled:opacity-30 disabled:cursor-default cursor-pointer transition-colors"
               title={`${t("undo")} (Ctrl+Z)`}
               aria-label={t("undo")}
             >
-              <Undo2 className="w-4 h-4 text-[#7A7267]" />
+              <Undo2 className="w-4 h-4 text-[#6B7280]" />
             </button>
             <button
               type="button"
               onClick={onRedo}
               disabled={!canRedo}
-              className="p-1.5 rounded hover:bg-[#EDE6DD]/40 disabled:opacity-30 disabled:cursor-default cursor-pointer transition-colors"
+              className="p-1.5 rounded hover:bg-[#E5E7EB]/40 disabled:opacity-30 disabled:cursor-default cursor-pointer transition-colors"
               title={`${t("redo")} (Ctrl+Shift+Z)`}
               aria-label={t("redo")}
             >
-              <Redo2 className="w-4 h-4 text-[#7A7267]" />
+              <Redo2 className="w-4 h-4 text-[#6B7280]" />
             </button>
           </div>
 
           {/* Auto-save indicator */}
           {saveStatus === "saving" && (
-            <span className="flex items-center gap-1 text-[10px] text-[#A39B90]">
+            <span className="flex items-center gap-1 text-[10px] text-[#9CA3AF]">
               <Loader2 className="w-3 h-3 animate-spin" /> {t("saving")}
             </span>
           )}
@@ -219,18 +219,18 @@ export default function FlowToolbar({
                     <CircleStop className="w-5 h-5 text-amber-600" />
                   )}
                 </div>
-                <h3 className="text-lg font-bold text-[#2D2A26]">
+                <h3 className="text-lg font-bold text-[#111827]">
                   {isPublishing ? t("publish") : t("unpublish")}
                 </h3>
               </div>
-              <p className="text-sm text-[#7A7267]">
+              <p className="text-sm text-[#6B7280]">
                 {isPublishing ? t("publishConfirm") : t("unpublishConfirm")}
               </p>
               <div className="flex gap-3">
                 <button
                   type="button"
                   onClick={() => setShowConfirm(false)}
-                  className="flex-1 py-2.5 rounded-xl border border-[#EDE6DD] text-sm font-medium text-[#7A7267] hover:bg-[#FAF7F3] transition-colors cursor-pointer"
+                  className="flex-1 py-2.5 rounded-xl border border-[#E5E7EB] text-sm font-medium text-[#6B7280] hover:bg-[#F9FAFB] transition-colors cursor-pointer"
                 >
                   {t("cancel")}
                 </button>
