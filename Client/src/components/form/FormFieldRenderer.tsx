@@ -52,7 +52,7 @@ interface FormFieldRendererProps {
 
 /* ── Shared input styling ── */
 const inputBase =
-  "w-full bg-[#FAF7F3] border border-[#E5DDD3] rounded-xl px-4 py-3 text-sm text-[#2D2A26] placeholder-[#B8AFA4] focus:border-[#FF7E47] focus:ring-2 focus:ring-[#FF7E47]/15 outline-none transition-all duration-200";
+  "w-full bg-[#F9FAFB] border border-[#D1D5DB] rounded-xl px-4 py-3 text-sm text-[#111827] placeholder-[#D1D5DB] focus:border-[#22D3EE] focus:ring-2 focus:ring-[#22D3EE]/15 outline-none transition-all duration-200";
 
 
 /* ── Warm-themed checkbox (matches OrangeCheck pattern) ── */
@@ -75,8 +75,8 @@ function WarmCheckbox({
       className={cn(
         "group flex items-center gap-3 w-full rounded-xl px-4 py-3.5 text-start transition-all duration-300",
         checked
-          ? "bg-[#FF7E47]/8 border-2 border-[#FF7E47]/40"
-          : "bg-[#FAF7F3] border-2 border-transparent hover:border-[#EDE6DD]",
+          ? "bg-[#22D3EE]/8 border-2 border-[#22D3EE]/40"
+          : "bg-[#F9FAFB] border-2 border-transparent hover:border-[#E5E7EB]",
         disabled && "opacity-50 cursor-not-allowed",
       )}
     >
@@ -84,8 +84,8 @@ function WarmCheckbox({
         className={cn(
           "flex-shrink-0 w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all duration-200",
           checked
-            ? "bg-[#FF7E47] border-[#FF7E47]"
-            : "border-[#D5CCBF] group-hover:border-[#FF7E47]/40",
+            ? "bg-[#22D3EE] border-[#22D3EE]"
+            : "border-[#D5CCBF] group-hover:border-[#22D3EE]/40",
         )}
       >
         {checked && (
@@ -110,7 +110,7 @@ function WarmCheckbox({
       <span
         className={cn(
           "text-sm font-medium transition-colors",
-          checked ? "text-[#2D2A26]" : "text-[#7A7267]",
+          checked ? "text-[#111827]" : "text-[#6B7280]",
         )}
       >
         {label}
@@ -138,8 +138,8 @@ function WarmRadio({
       className={cn(
         "rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300",
         selected
-          ? "bg-[#FF7E47] text-white shadow-[0_2px_12px_rgba(255,126,71,0.3)]"
-          : "bg-[#FAF7F3] text-[#7A7267] hover:bg-[#F3ECE3] border border-[#EDE6DD]",
+          ? "bg-[#22D3EE] text-white shadow-[0_2px_12px_rgba(34,211,238,0.3)]"
+          : "bg-[#F9FAFB] text-[#6B7280] hover:bg-[#F3ECE3] border border-[#E5E7EB]",
       )}
     >
       {label}
@@ -164,8 +164,8 @@ function WarmToggle({
       className={cn(
         "relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 transition-colors duration-200",
         checked
-          ? "bg-[#FF7E47] border-[#FF7E47]"
-          : "bg-[#EDE6DD] border-[#E5DDD3]",
+          ? "bg-[#22D3EE] border-[#22D3EE]"
+          : "bg-[#E5E7EB] border-[#D1D5DB]",
       )}
     >
       <span
@@ -243,7 +243,7 @@ function FieldLabel({
   const { t } = useTranslation("common");
   return (
     <div className="space-y-1">
-      <div className="text-sm font-bold text-[#2D2A26] flex items-start gap-1.5">
+      <div className="text-sm font-bold text-[#111827] flex items-start gap-1.5">
         {field.is_required && (
           <span className="text-red-400 leading-relaxed">*</span>
         )}
@@ -252,14 +252,14 @@ function FieldLabel({
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(field.label) }}
         />
         {!field.is_required && (
-          <span className="text-[10px] font-medium text-[#B8AFA4] bg-[#F5F0EA] rounded-full px-2 py-0.5 leading-tight mt-0.5 whitespace-nowrap">
+          <span className="text-[10px] font-medium text-[#D1D5DB] bg-[#F3F4F6] rounded-full px-2 py-0.5 leading-tight mt-0.5 whitespace-nowrap">
             {t("optional")}
           </span>
         )}
       </div>
       {field.description && field.field_type !== "rules_list" && (
         <div
-          className={`text-xs text-[#7A7267] ${RICH_TEXT_CLASS}`}
+          className={`text-xs text-[#6B7280] ${RICH_TEXT_CLASS}`}
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(field.description) }}
         />
       )}
@@ -358,7 +358,7 @@ export function FormFieldRenderer({
                   className={cn(inputBase, "w-36")}
                 />
                 <div className="relative flex-1">
-                  <Globe className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#B8AFA4]" />
+                  <Globe className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D1D5DB]" />
                   <input
                     type="url"
                     dir="ltr"
@@ -374,7 +374,7 @@ export function FormFieldRenderer({
                 {entries.length > 1 && (
                   <button
                     type="button"
-                    className="h-9 w-9 shrink-0 flex items-center justify-center rounded-lg text-[#B8AFA4] hover:text-red-400 hover:bg-red-50 transition-colors"
+                    className="h-9 w-9 shrink-0 flex items-center justify-center rounded-lg text-[#D1D5DB] hover:text-red-400 hover:bg-red-50 transition-colors"
                     onClick={() => removeUrlEntry(field.id, idx)}
                   >
                     <Trash2 className="w-4 h-4" />
@@ -386,7 +386,7 @@ export function FormFieldRenderer({
           <button
             type="button"
             onClick={() => addUrlEntry(field.id)}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-[#FF7E47] bg-[#FF7E47]/8 hover:bg-[#FF7E47]/15 border border-[#FF7E47]/20 transition-all duration-200"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-[#22D3EE] bg-[#22D3EE]/8 hover:bg-[#22D3EE]/15 border border-[#22D3EE]/20 transition-all duration-200"
           >
             <Plus className="w-4 h-4" /> {t("addLink")}
           </button>
@@ -403,7 +403,7 @@ export function FormFieldRenderer({
             {qaItems.map((entry, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-2 bg-[#FAF7F3] rounded-xl p-3 border border-[#EDE6DD]/50"
+                className="flex items-start gap-2 bg-[#F9FAFB] rounded-xl p-3 border border-[#E5E7EB]/50"
               >
                 <div className="flex-1 space-y-2">
                   <input
@@ -426,7 +426,7 @@ export function FormFieldRenderer({
                 {qaItems.length > 1 && (
                   <button
                     type="button"
-                    className="h-9 w-9 shrink-0 flex items-center justify-center rounded-lg text-[#B8AFA4] hover:text-red-400 hover:bg-red-50 transition-colors mt-1"
+                    className="h-9 w-9 shrink-0 flex items-center justify-center rounded-lg text-[#D1D5DB] hover:text-red-400 hover:bg-red-50 transition-colors mt-1"
                     onClick={() => removeQaEntry(field.id, idx)}
                   >
                     <Trash2 className="w-4 h-4" />
@@ -438,7 +438,7 @@ export function FormFieldRenderer({
           <button
             type="button"
             onClick={() => addQaEntry(field.id)}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-[#FF7E47] bg-[#FF7E47]/8 hover:bg-[#FF7E47]/15 border border-[#FF7E47]/20 transition-all duration-200"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-[#22D3EE] bg-[#22D3EE]/8 hover:bg-[#22D3EE]/15 border border-[#22D3EE]/20 transition-all duration-200"
           >
             <Plus className="w-4 h-4" /> {t("addQuestion")}
           </button>
@@ -458,9 +458,9 @@ export function FormFieldRenderer({
               return (
                 <div
                   key={catIdx}
-                  className="bg-white rounded-2xl border border-[#EDE6DD] p-5 shadow-[0_1px_8px_rgba(45,42,38,0.04)]"
+                  className="bg-white rounded-2xl border border-[#E5E7EB] p-5 shadow-[0_1px_8px_rgba(17,24,39,0.04)]"
                 >
-                  <h4 className="text-sm font-bold text-[#FF7E47] mb-3">
+                  <h4 className="text-sm font-bold text-[#22D3EE] mb-3">
                     {catLabel}
                   </h4>
                   <div className="space-y-2">
@@ -477,7 +477,7 @@ export function FormFieldRenderer({
                         {items.length > 1 && (
                           <button
                             type="button"
-                            className="h-8 w-8 shrink-0 flex items-center justify-center rounded-lg text-[#B8AFA4] hover:text-red-400 hover:bg-red-50 transition-colors"
+                            className="h-8 w-8 shrink-0 flex items-center justify-center rounded-lg text-[#D1D5DB] hover:text-red-400 hover:bg-red-50 transition-colors"
                             onClick={() => removeRulesItem(field.id, catIdx, itemIdx)}
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -489,7 +489,7 @@ export function FormFieldRenderer({
                   <button
                     type="button"
                     onClick={() => addRulesItem(field.id, catIdx)}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold text-[#FF7E47] bg-[#FF7E47]/8 hover:bg-[#FF7E47]/15 border border-[#FF7E47]/20 transition-all duration-200 mt-3"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold text-[#22D3EE] bg-[#22D3EE]/8 hover:bg-[#22D3EE]/15 border border-[#22D3EE]/20 transition-all duration-200 mt-3"
                   >
                     <Plus className="w-3.5 h-3.5" /> {t("addRule")}
                   </button>
@@ -503,7 +503,7 @@ export function FormFieldRenderer({
 
     case "toggle":
       return (
-        <div className="flex items-center justify-between p-4 bg-[#FAF7F3] rounded-xl border border-[#EDE6DD]/50">
+        <div className="flex items-center justify-between p-4 bg-[#F9FAFB] rounded-xl border border-[#E5E7EB]/50">
           <FieldLabel field={field} />
           <WarmToggle
             checked={!!value}
@@ -533,16 +533,16 @@ export function FormFieldRenderer({
                 className={cn(
                   "group flex items-center gap-3 w-full rounded-xl px-4 py-3.5 text-start transition-all duration-300",
                   selected.includes("__other__")
-                    ? "bg-[#FF7E47]/8 border-2 border-[#FF7E47]/40"
-                    : "bg-[#FAF7F3] border-2 border-transparent hover:border-[#EDE6DD]",
+                    ? "bg-[#22D3EE]/8 border-2 border-[#22D3EE]/40"
+                    : "bg-[#F9FAFB] border-2 border-transparent hover:border-[#E5E7EB]",
                 )}
               >
                 <div
                   className={cn(
                     "flex-shrink-0 w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all duration-200",
                     selected.includes("__other__")
-                      ? "bg-[#FF7E47] border-[#FF7E47]"
-                      : "border-[#D5CCBF] group-hover:border-[#FF7E47]/40",
+                      ? "bg-[#22D3EE] border-[#22D3EE]"
+                      : "border-[#D5CCBF] group-hover:border-[#22D3EE]/40",
                   )}
                 >
                   {selected.includes("__other__") && (
@@ -558,7 +558,7 @@ export function FormFieldRenderer({
                     </motion.svg>
                   )}
                 </div>
-                <span className="text-sm font-medium text-[#2D2A26] whitespace-nowrap">{t("other")}:</span>
+                <span className="text-sm font-medium text-[#111827] whitespace-nowrap">{t("other")}:</span>
                 <input
                   placeholder={t("enterValue")}
                   value={otherValues[field.id] ?? ""}
@@ -568,7 +568,7 @@ export function FormFieldRenderer({
                   }}
                   onClick={(e) => e.stopPropagation()}
                   disabled={!selected.includes("__other__")}
-                  className="flex-1 bg-transparent border-none outline-none text-sm text-[#2D2A26] placeholder-[#B8AFA4] disabled:opacity-40"
+                  className="flex-1 bg-transparent border-none outline-none text-sm text-[#111827] placeholder-[#D1D5DB] disabled:opacity-40"
                 />
               </button>
             )}
