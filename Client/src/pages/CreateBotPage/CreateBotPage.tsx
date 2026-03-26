@@ -169,7 +169,7 @@ const CreateBotPage = () => {
       )}
       style={{
         background:
-          "linear-gradient(170deg, #FDF8F2 0%, #F8F0E6 40%, #FBF5EE 100%)",
+          "linear-gradient(170deg, #F9FAFB 0%, #F3F4F6 40%, #F9FAFB 100%)",
       }}
     >
       {/* ── Decorative warm gradient orbs ── */}
@@ -178,7 +178,7 @@ const CreateBotPage = () => {
           className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full opacity-30"
           style={{
             background:
-              "radial-gradient(circle, rgba(255,126,71,0.15) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(34,211,238,0.15) 0%, transparent 70%)",
           }}
         />
         <div
@@ -200,7 +200,7 @@ const CreateBotPage = () => {
           await signOut();
           navigate("/");
         }}
-        className="absolute top-4 start-4 z-20 flex items-center gap-2 rounded-full px-3 py-2 text-sm font-bold text-[#8C847A] backdrop-blur-xl transition-colors duration-200 hover:text-[#FF7E47] cursor-pointer"
+        className="absolute top-4 start-4 z-20 flex items-center gap-2 rounded-full px-3 py-2 text-sm font-bold text-[#8C847A] backdrop-blur-xl transition-colors duration-200 hover:text-[#22D3EE] cursor-pointer"
         style={{
           background: "rgba(255,255,255,0.5)",
           border: "1px solid rgba(237,230,221,0.5)",
@@ -221,7 +221,7 @@ const CreateBotPage = () => {
           transition={{ delay: 0.3 }}
           onClick={handleSkip}
           disabled={isSkipping}
-          className="absolute top-4 end-4 z-20 flex items-center gap-2 rounded-full px-3 py-2 text-sm font-bold text-[#8C847A] backdrop-blur-xl transition-colors duration-200 hover:text-[#FF7E47] cursor-pointer disabled:opacity-50"
+          className="absolute top-4 end-4 z-20 flex items-center gap-2 rounded-full px-3 py-2 text-sm font-bold text-[#8C847A] backdrop-blur-xl transition-colors duration-200 hover:text-[#22D3EE] cursor-pointer disabled:opacity-50"
           style={{
             background: "rgba(255,255,255,0.5)",
             border: "1px solid rgba(237,230,221,0.5)",
@@ -245,7 +245,7 @@ const CreateBotPage = () => {
             style={{
               background: "rgba(255,255,255,0.7)",
               boxShadow:
-                "0 4px 30px rgba(45,42,38,0.06), 0 1px 3px rgba(45,42,38,0.04)",
+                "0 4px 30px rgba(17,24,39,0.06), 0 1px 3px rgba(17,24,39,0.04)",
               border: "1px solid rgba(237,230,221,0.6)",
             }}
           >
@@ -266,7 +266,7 @@ const CreateBotPage = () => {
                         className={cn(
                           "w-full border-t-2 border-dashed transition-colors duration-500",
                           isCompleted || i <= currentIdx
-                            ? "border-[#FF7E47]/50"
+                            ? "border-[#22D3EE]/50"
                             : "border-[#DDD5CA]",
                         )}
                       />
@@ -285,13 +285,13 @@ const CreateBotPage = () => {
                     className={cn(
                       "relative flex items-center gap-2 rounded-full px-4 sm:px-5 py-2.5 text-sm font-bold transition-all duration-400",
                       isActive &&
-                        "bg-[#FF7E47] text-white shadow-[0_2px_16px_rgba(255,126,71,0.35)]",
+                        "bg-[#22D3EE] text-white shadow-[0_2px_16px_rgba(34,211,238,0.35)]",
                       isCompleted &&
                         !isActive &&
-                        "bg-white text-[#FF7E47] border border-[#FF7E47]/20",
+                        "bg-white text-[#22D3EE] border border-[#22D3EE]/20",
                       !isActive &&
                         !isCompleted &&
-                        "bg-transparent text-[#A39B90]",
+                        "bg-transparent text-[#9CA3AF]",
                       isClickable ? "cursor-pointer" : "cursor-default",
                     )}
                   >
