@@ -38,8 +38,8 @@ export default function NodePalette({ isLocked, onLockedDrag, strictMode }: Node
   };
 
   return (
-    <div className="w-56 bg-white border-s border-[#EDE6DD]/60 p-3 overflow-y-auto">
-      <h3 className="text-xs font-bold text-[#2D2A26] mb-3 px-1">
+    <div className="w-56 bg-white border-s border-[#E5E7EB]/60 p-3 overflow-y-auto">
+      <h3 className="text-xs font-bold text-[#111827] mb-3 px-1">
         {t("pageTitle")}
       </h3>
       <div className="flex flex-col gap-2">
@@ -55,10 +55,10 @@ export default function NodePalette({ isLocked, onLockedDrag, strictMode }: Node
               onDragStart={isItemDisabled ? undefined : (e) => onDragStart(e, item.type)}
               onClick={isLocked ? onLockedDrag : undefined}
               title={isStartBlocked ? t("cannotAddStartStrictMode") : undefined}
-              className={`flex items-center gap-2.5 p-2.5 rounded-lg border border-[#EDE6DD]/60 transition-all ${
+              className={`flex items-center gap-2.5 p-2.5 rounded-lg border border-[#E5E7EB]/60 transition-all ${
                 isItemDisabled
                   ? "opacity-50 cursor-not-allowed"
-                  : "hover:border-[#FF7E47]/30 hover:bg-[#FFF5F0]/50 cursor-grab active:cursor-grabbing"
+                  : "hover:border-[#22D3EE]/30 hover:bg-[#ECFEFF]/50 cursor-grab active:cursor-grabbing"
               }`}
             >
               <div
@@ -68,10 +68,10 @@ export default function NodePalette({ isLocked, onLockedDrag, strictMode }: Node
                 <Icon className="w-3.5 h-3.5" style={{ color }} />
               </div>
               <div className="min-w-0">
-                <p className="text-xs font-semibold text-[#2D2A26] truncate">
+                <p className="text-xs font-semibold text-[#111827] truncate">
                   {t(item.labelKey)}
                 </p>
-                <p className="text-[10px] text-[#A39B90] truncate">
+                <p className="text-[10px] text-[#9CA3AF] truncate">
                   {t(item.descKey)}
                 </p>
               </div>
