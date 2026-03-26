@@ -55,10 +55,10 @@ const fadeUp = (delay = 0) => ({
 /* ── Browser chrome bar ── */
 const BrowserChrome = ({ label }: { label: string }) => (
   <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-white/[0.02]">
-    <div className="w-2.5 h-2.5 rounded-full bg-[#FF6B2C]/40" />
-    <div className="w-2.5 h-2.5 rounded-full bg-[#FF6B2C]/25" />
-    <div className="w-2.5 h-2.5 rounded-full bg-[#FF6B2C]/15" />
-    <span className="text-[#FDF8F2]/25 text-xs tracking-wider mr-auto">
+    <div className="w-2.5 h-2.5 rounded-full bg-[#06B6D4]/40" />
+    <div className="w-2.5 h-2.5 rounded-full bg-[#06B6D4]/25" />
+    <div className="w-2.5 h-2.5 rounded-full bg-[#06B6D4]/15" />
+    <span className="text-[#F9FAFB]/25 text-xs tracking-wider mr-auto">
       {label}
     </span>
   </div>
@@ -66,8 +66,8 @@ const BrowserChrome = ({ label }: { label: string }) => (
 
 /* ── Step 1: Form wizard mock ── */
 const FormMock = ({ t }: { t: (k: string) => string }) => (
-  <div className="bg-[#1A1510] rounded-2xl overflow-hidden border border-[#2A2318]/60 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-    <BrowserChrome label="CLIX" />
+  <div className="bg-[#030712] rounded-2xl overflow-hidden border border-[#2A2318]/60 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+    <BrowserChrome label="Ortam" />
     <div
       className="p-6 sm:p-8 min-h-[320px] flex flex-col justify-between"
       style={{
@@ -83,9 +83,9 @@ const FormMock = ({ t }: { t: (k: string) => string }) => (
             key={i}
             className={`h-1.5 rounded-full ${
               i < 3
-                ? "bg-[#FF6B2C]"
+                ? "bg-[#06B6D4]"
                 : i === 3
-                  ? "bg-[#FF6B2C]/40"
+                  ? "bg-[#06B6D4]/40"
                   : "bg-white/10"
             }`}
             style={{ width: i === 3 ? 24 : i < 3 ? 16 : 8 }}
@@ -98,7 +98,7 @@ const FormMock = ({ t }: { t: (k: string) => string }) => (
 
       {/* Step counter */}
       <motion.p
-        className="text-[#FDF8F2]/25 text-xs text-center mb-3"
+        className="text-[#F9FAFB]/25 text-xs text-center mb-3"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
@@ -108,7 +108,7 @@ const FormMock = ({ t }: { t: (k: string) => string }) => (
 
       {/* Question */}
       <motion.h3
-        className="text-[#FDF8F2]/80 text-lg sm:text-xl font-medium text-center mb-6"
+        className="text-[#F9FAFB]/80 text-lg sm:text-xl font-medium text-center mb-6"
         dir="rtl"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -126,7 +126,7 @@ const FormMock = ({ t }: { t: (k: string) => string }) => (
       >
         <div
           dir="rtl"
-          className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-[#FDF8F2]/30"
+          className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-[#F9FAFB]/30"
         >
           {t("mockFormPlaceholder")}
         </div>
@@ -139,7 +139,7 @@ const FormMock = ({ t }: { t: (k: string) => string }) => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.4 }}
       >
-        <div className="flex items-center gap-2 bg-[#FF6B2C] hover:bg-[#E8590C] text-white text-sm font-medium px-6 py-2.5 rounded-xl transition-colors">
+        <div className="flex items-center gap-2 bg-[#06B6D4] hover:bg-[#0E7490] text-white text-sm font-medium px-6 py-2.5 rounded-xl transition-colors">
           {t("mockFormNext")}
           <ArrowLeft className="w-4 h-4" />
         </div>
@@ -150,14 +150,14 @@ const FormMock = ({ t }: { t: (k: string) => string }) => (
 
 /* ── Step 2: Preview & Edit dual chat mock ── */
 const PreviewMock = ({ t }: { t: (k: string) => string }) => (
-  <div className="bg-[#1A1510] rounded-2xl overflow-hidden border border-[#2A2318]/60 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-    <BrowserChrome label="CLIX" />
+  <div className="bg-[#030712] rounded-2xl overflow-hidden border border-[#2A2318]/60 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+    <BrowserChrome label="Ortam" />
     <div className="flex min-h-[320px]">
       {/* Demo chat panel */}
       <div className="flex-[3] border-l border-white/[0.06] flex flex-col">
         <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06]">
-          <MessageCircle className="w-3.5 h-3.5 text-[#FF6B2C]/60" />
-          <span className="text-xs text-[#FDF8F2]/40 font-medium">
+          <MessageCircle className="w-3.5 h-3.5 text-[#06B6D4]/60" />
+          <span className="text-xs text-[#F9FAFB]/40 font-medium">
             {t("mockDemoTitle")}
           </span>
         </div>
@@ -181,7 +181,7 @@ const PreviewMock = ({ t }: { t: (k: string) => string }) => (
             transition={{ delay: 1, duration: 0.4 }}
           >
             <div className="bg-white/[0.08] rounded-2xl rounded-ss-sm px-3 py-2 max-w-[85%]">
-              <p className="text-xs text-[#FDF8F2]/70">{t("mockDemoBot1")}</p>
+              <p className="text-xs text-[#F9FAFB]/70">{t("mockDemoBot1")}</p>
             </div>
           </motion.div>
         </div>
@@ -194,7 +194,7 @@ const PreviewMock = ({ t }: { t: (k: string) => string }) => (
       <div className="flex-[2] hidden sm:flex flex-col">
         <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06]">
           <Sparkles className="w-3.5 h-3.5 text-amber-400/60" />
-          <span className="text-xs text-[#FDF8F2]/40 font-medium">
+          <span className="text-xs text-[#F9FAFB]/40 font-medium">
             {t("mockEditTitle")}
           </span>
         </div>
@@ -218,7 +218,7 @@ const PreviewMock = ({ t }: { t: (k: string) => string }) => (
             transition={{ delay: 2, duration: 0.4 }}
           >
             <div className="bg-white/[0.06] rounded-2xl rounded-ss-sm px-3 py-2 max-w-[90%]">
-              <p className="text-xs text-[#FDF8F2]/60">{t("mockEditBot1")}</p>
+              <p className="text-xs text-[#F9FAFB]/60">{t("mockEditBot1")}</p>
             </div>
           </motion.div>
         </div>
@@ -238,7 +238,7 @@ const ConnectMock = ({ t }: { t: (k: string) => string }) => {
 
   return (
     <div className="bg-[#111B21] rounded-2xl overflow-hidden border border-[#2A2F33]/60 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
-      <BrowserChrome label="CLIX" />
+      <BrowserChrome label="Ortam" />
       <div className="min-h-[320px] flex flex-col items-center justify-center p-8 relative">
         {/* QR code fake pattern */}
         <motion.div
@@ -266,9 +266,9 @@ const ConnectMock = ({ t }: { t: (k: string) => string }) => {
                     key={i}
                     className={`rounded-[1px] ${
                       isCorner
-                        ? "bg-[#1A1A1A]"
+                        ? "bg-[#111827]"
                         : isData
-                          ? "bg-[#1A1A1A]/80"
+                          ? "bg-[#111827]/80"
                           : "bg-transparent"
                     }`}
                   />
@@ -289,7 +289,7 @@ const ConnectMock = ({ t }: { t: (k: string) => string }) => {
 
         {/* Scan instruction */}
         <motion.p
-          className="text-[#FDF8F2]/40 text-sm mb-2"
+          className="text-[#F9FAFB]/40 text-sm mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
@@ -307,7 +307,7 @@ const ConnectMock = ({ t }: { t: (k: string) => string }) => {
           <div className="px-3 py-1 rounded-full text-[10px] font-medium bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/20">
             Android
           </div>
-          <div className="px-3 py-1 rounded-full text-[10px] font-medium bg-white/[0.06] text-[#FDF8F2]/30 border border-white/[0.08]">
+          <div className="px-3 py-1 rounded-full text-[10px] font-medium bg-white/[0.06] text-[#F9FAFB]/30 border border-white/[0.08]">
             iPhone
           </div>
         </motion.div>
@@ -354,12 +354,12 @@ const FlowBuilderMock = ({ t }: { t: (k: string, opts?: Record<string, boolean>)
   const btnLabels = (t as any)("mockFlowBtnLabels", { returnObjects: true }) as string[];
 
   return (
-    <div className="bg-[#1A1510] rounded-2xl overflow-hidden border border-[#2A2318]/60 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-      <BrowserChrome label="CLIX — Flow Builder" />
+    <div className="bg-[#030712] rounded-2xl overflow-hidden border border-[#2A2318]/60 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+      <BrowserChrome label="Ortam — Flow Builder" />
       <div className="flex min-h-[320px]">
         {/* Node palette sidebar */}
         <div className="hidden sm:flex flex-col w-14 border-l border-white/[0.06] bg-white/[0.02] py-3 items-center gap-1">
-          <span className="text-[8px] text-[#FDF8F2]/20 font-medium mb-2 tracking-wider">
+          <span className="text-[8px] text-[#F9FAFB]/20 font-medium mb-2 tracking-wider">
             {t("mockFlowPalette")}
           </span>
           {[
@@ -401,7 +401,7 @@ const FlowBuilderMock = ({ t }: { t: (k: string, opts?: Record<string, boolean>)
                 <div className="text-[9px] text-emerald-400/50 mb-1 font-medium tracking-wide">
                   {t("mockFlowStart")}
                 </div>
-                <div className="text-[11px] text-[#FDF8F2]/50 bg-white/[0.04] rounded px-2 py-0.5">
+                <div className="text-[11px] text-[#F9FAFB]/50 bg-white/[0.04] rounded px-2 py-0.5">
                   {t("mockFlowTrigger")}
                 </div>
               </div>
@@ -431,7 +431,7 @@ const FlowBuilderMock = ({ t }: { t: (k: string, opts?: Record<string, boolean>)
                 <div className="text-[9px] text-blue-400/50 mb-1 font-medium tracking-wide">
                   {t("mockFlowText")}
                 </div>
-                <div className="text-[11px] text-[#FDF8F2]/55">
+                <div className="text-[11px] text-[#F9FAFB]/55">
                   {t("mockFlowGreeting")}
                 </div>
               </div>
@@ -458,24 +458,24 @@ const FlowBuilderMock = ({ t }: { t: (k: string, opts?: Record<string, boolean>)
               transition={{ delay: 1, duration: 0.5 }}
             >
               <motion.div
-                className="w-28 sm:w-32 rounded-xl border border-[#FF6B2C]/30 bg-[#FF6B2C]/10 p-2.5 text-center backdrop-blur-sm"
+                className="w-28 sm:w-32 rounded-xl border border-[#06B6D4]/30 bg-[#06B6D4]/10 p-2.5 text-center backdrop-blur-sm"
                 animate={{
                   boxShadow: [
-                    "0 0 15px rgba(255,107,44,0.06)",
-                    "0 0 25px rgba(255,107,44,0.15)",
-                    "0 0 15px rgba(255,107,44,0.06)",
+                    "0 0 15px rgba(6,182,212,0.06)",
+                    "0 0 25px rgba(6,182,212,0.15)",
+                    "0 0 15px rgba(6,182,212,0.06)",
                   ],
                 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
-                <div className="text-[9px] text-[#FF6B2C]/50 mb-1 font-medium tracking-wide">
+                <div className="text-[9px] text-[#06B6D4]/50 mb-1 font-medium tracking-wide">
                   {t("mockFlowButtons")}
                 </div>
                 <div className="flex flex-col gap-0.5 mt-1">
                   {btnLabels.map((label, i) => (
                     <div
                       key={i}
-                      className="text-[9px] text-[#FDF8F2]/40 bg-white/[0.05] rounded px-1.5 py-0.5"
+                      className="text-[9px] text-[#F9FAFB]/40 bg-white/[0.05] rounded px-1.5 py-0.5"
                     >
                       {label}
                     </div>
@@ -487,13 +487,13 @@ const FlowBuilderMock = ({ t }: { t: (k: string, opts?: Record<string, boolean>)
 
           {/* Floating "selected" indicator on buttons node */}
           <motion.div
-            className="absolute bottom-3 right-3 flex items-center gap-1.5 px-2 py-1 rounded-md bg-[#FF6B2C]/10 border border-[#FF6B2C]/20"
+            className="absolute bottom-3 right-3 flex items-center gap-1.5 px-2 py-1 rounded-md bg-[#06B6D4]/10 border border-[#06B6D4]/20"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 0.4 }}
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C] animate-pulse" />
-            <span className="text-[8px] text-[#FF6B2C]/60 font-medium">Editing</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] animate-pulse" />
+            <span className="text-[8px] text-[#06B6D4]/60 font-medium">Editing</span>
           </motion.div>
         </div>
       </div>
@@ -576,17 +576,17 @@ const ProductPreviewSection = () => {
       className="relative min-h-dvh flex flex-col justify-center py-24 px-6 overflow-hidden"
       style={{
         background:
-          "linear-gradient(180deg, #FBF5EE 0%, #F8F0E6 60%, #FDF8F2 100%)",
+          "linear-gradient(180deg, #F9FAFB 0%, #F3F4F6 60%, #F9FAFB 100%)",
       }}
     >
       {/* ── Floating accents ── */}
       <motion.div
-        className="absolute top-[10%] right-[4%] w-5 h-5 border-2 border-[#FF6B2C]/20 rotate-45"
+        className="absolute top-[10%] right-[4%] w-5 h-5 border-2 border-[#06B6D4]/20 rotate-45"
         animate={{ y: [0, -14, 0], rotate: [45, 50, 45] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-[12%] left-[3%] w-7 h-7 rounded-full border-2 border-[#FF6B2C]/15"
+        className="absolute bottom-[12%] left-[3%] w-7 h-7 rounded-full border-2 border-[#06B6D4]/15"
         animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.4, 0.15] }}
         transition={{
           duration: 6,
@@ -605,12 +605,12 @@ const ProductPreviewSection = () => {
           delay: 2,
         }}
       >
-        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]/40" />
-        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]/25" />
-        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]/12" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]/40" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]/25" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]/12" />
       </motion.div>
       <motion.div
-        className="absolute bottom-[20%] right-[3%] w-4 h-4 border border-[#FF6B2C]/20 rotate-45"
+        className="absolute bottom-[20%] right-[3%] w-4 h-4 border border-[#06B6D4]/20 rotate-45"
         animate={{ y: [0, 10, 0], rotate: [45, 50, 45] }}
         transition={{
           duration: 8,
@@ -628,7 +628,7 @@ const ProductPreviewSection = () => {
           animate={inView ? fadeUp(0).animate : {}}
           transition={fadeUp(0).transition}
         >
-          <span className="text-[#1A1A1A]">{t("howItWorks")}</span>
+          <span className="text-[#111827]">{t("howItWorks")}</span>
         </motion.h2>
         <motion.p
           className="text-gray-500 text-lg"
@@ -657,8 +657,8 @@ const ProductPreviewSection = () => {
               onClick={() => goToStep(idx)}
               className={`relative flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-sm font-medium transition-colors cursor-pointer ${
                 isActive
-                  ? "text-[#FF6B2C]"
-                  : "text-[#1A1A1A]/45 hover:text-[#1A1A1A]/70"
+                  ? "text-[#06B6D4]"
+                  : "text-[#111827]/45 hover:text-[#111827]/70"
               }`}
             >
               <Icon className="w-4 h-4" />
@@ -671,7 +671,7 @@ const ProductPreviewSection = () => {
               {isActive && (
                 <motion.div
                   layoutId="step-underline"
-                  className="absolute -bottom-1 left-2 right-2 h-[3px] rounded-full bg-[#FF6B2C]/20 overflow-hidden"
+                  className="absolute -bottom-1 left-2 right-2 h-[3px] rounded-full bg-[#06B6D4]/20 overflow-hidden"
                   transition={{
                     type: "spring",
                     stiffness: 400,
@@ -679,7 +679,7 @@ const ProductPreviewSection = () => {
                   }}
                 >
                   <motion.div
-                    className="h-full bg-[#FF6B2C] rounded-full"
+                    className="h-full bg-[#06B6D4] rounded-full"
                     style={{ width: `${progress}%` }}
                   />
                 </motion.div>
@@ -711,13 +711,13 @@ const ProductPreviewSection = () => {
               >
                 {/* Step badge */}
                 <div className="inline-flex items-center gap-2 mb-4">
-                  <span className="text-4xl sm:text-5xl font-bold text-[#FF6B2C]/15">
+                  <span className="text-4xl sm:text-5xl font-bold text-[#06B6D4]/15">
                     {String(activeStep + 1).padStart(2, "0")}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] mb-5 leading-snug">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#111827] mb-5 leading-snug">
                   {t(titleKeys[activeStep])}
                 </h3>
 
@@ -725,8 +725,8 @@ const ProductPreviewSection = () => {
                 <ul className="space-y-3 mb-6">
                   {bulletKeys[activeStep].map((key) => (
                     <li key={key} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#FF6B2C]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-3 h-3 text-[#FF6B2C]" />
+                      <div className="w-5 h-5 rounded-full bg-[#06B6D4]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-[#06B6D4]" />
                       </div>
                       <span className="text-gray-600 text-sm leading-relaxed">
                         {t(key)}
@@ -737,9 +737,9 @@ const ProductPreviewSection = () => {
 
                 {/* Time badge */}
                 {badgeKeys[activeStep] && (
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FF6B2C]/8 border border-[#FF6B2C]/15">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C] animate-pulse" />
-                    <span className="text-xs font-medium text-[#FF6B2C]">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#06B6D4]/8 border border-[#06B6D4]/15">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] animate-pulse" />
+                    <span className="text-xs font-medium text-[#06B6D4]">
                       {t(badgeKeys[activeStep]!)}
                     </span>
                   </div>
@@ -758,7 +758,7 @@ const ProductPreviewSection = () => {
                   (activeStep === 0 ? 3 : activeStep - 1) as StepIdx,
                 )
               }
-              className="hidden lg:flex absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/80 backdrop-blur border border-[#FF6B2C]/10 items-center justify-center text-[#FF6B2C]/60 hover:text-[#FF6B2C] hover:border-[#FF6B2C]/30 transition-colors shadow-sm cursor-pointer"
+              className="hidden lg:flex absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/80 backdrop-blur border border-[#06B6D4]/10 items-center justify-center text-[#06B6D4]/60 hover:text-[#06B6D4] hover:border-[#06B6D4]/30 transition-colors shadow-sm cursor-pointer"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -767,7 +767,7 @@ const ProductPreviewSection = () => {
               onClick={() =>
                 goToStep(((activeStep + 1) % 4) as StepIdx)
               }
-              className="hidden lg:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/80 backdrop-blur border border-[#FF6B2C]/10 items-center justify-center text-[#FF6B2C]/60 hover:text-[#FF6B2C] hover:border-[#FF6B2C]/30 transition-colors shadow-sm cursor-pointer"
+              className="hidden lg:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/80 backdrop-blur border border-[#06B6D4]/10 items-center justify-center text-[#06B6D4]/60 hover:text-[#06B6D4] hover:border-[#06B6D4]/30 transition-colors shadow-sm cursor-pointer"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
