@@ -106,7 +106,7 @@ const HomePage = () => {
   return (
     <div
       dir="rtl"
-      className="min-h-screen bg-[#FDF8F2] text-[#1A1A1A] font-secular-one"
+      className="min-h-screen bg-[#F9FAFB] text-[#111827] font-secular-one"
     >
       {/* ── Fixed Navbar ── */}
       <header className="fixed top-0 inset-x-0 z-50">
@@ -129,9 +129,9 @@ const HomePage = () => {
               aria-label="חזרה לתחילת העמוד"
             >
               <img
-                src="/clix-logo-full.png"
-                alt="CLIX"
-                className="h-6 transition-[filter] duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,107,44,0.6)]"
+                src="/Ortam-logo.png"
+                alt="Ortam"
+                className="h-6 transition-[filter] duration-300 group-hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.6)]"
               />
             </motion.button>
 
@@ -147,7 +147,7 @@ const HomePage = () => {
                     className={`relative flex items-center gap-1.5 py-2 text-sm font-medium transition-colors duration-300 cursor-pointer ${
                       activeSection === item.id
                         ? "text-[#0A0A0A]"
-                        : "text-[#3D3630]/70 hover:text-[#0A0A0A]"
+                        : "text-[#1F2937]/70 hover:text-[#0A0A0A]"
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
@@ -155,7 +155,7 @@ const HomePage = () => {
                     {activeSection === item.id && (
                       <motion.div
                         layoutId="nav-underline"
-                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FF6B2C] rounded-full"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#06B6D4] rounded-full"
                         transition={{
                           type: "spring",
                           stiffness: 400,
@@ -174,7 +174,7 @@ const HomePage = () => {
             <button
               type="button"
               onClick={() => navigate("/auth")}
-              className="flex items-center gap-1.5 text-sm text-[#3D3630]/70 hover:text-[#0A0A0A] transition-colors duration-300"
+              className="flex items-center gap-1.5 text-sm text-[#1F2937]/70 hover:text-[#0A0A0A] transition-colors duration-300"
             >
               <LogIn className="w-3.5 h-3.5" />
               {t("navLogin")}
@@ -182,7 +182,7 @@ const HomePage = () => {
             <button
               type="button"
               onClick={() => navigate("/auth?mode=signup")}
-              className="bg-[#FF6B2C] text-white text-sm px-4 py-2 rounded-lg hover:bg-[#E85D04] transition-colors flex items-center gap-1.5"
+              className="bg-[#06B6D4] text-white text-sm px-4 py-2 rounded-lg hover:bg-[#0891B2] transition-colors flex items-center gap-1.5"
             >
               {t("navStartFree")}
               <ArrowLeft className="w-3.5 h-3.5" />
@@ -193,7 +193,7 @@ const HomePage = () => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen((o) => !o)}
-            className="md:hidden p-2 rounded-lg text-[#3D3630] hover:bg-[#EDE6DD]/40 transition-colors"
+            className="md:hidden p-2 rounded-lg text-[#1F2937] hover:bg-[#E5E7EB]/40 transition-colors"
             aria-label="Menu"
           >
             {mobileMenuOpen ? (
@@ -212,7 +212,7 @@ const HomePage = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden mx-4 mt-1 bg-white/90 backdrop-blur-xl rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-[#EDE6DD]/50 overflow-hidden"
+              className="md:hidden mx-4 mt-1 bg-white/90 backdrop-blur-xl rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-[#E5E7EB]/50 overflow-hidden"
             >
               <div className="p-3 space-y-1">
                 {navItems.map((item) => {
@@ -224,8 +224,8 @@ const HomePage = () => {
                       onClick={() => scrollToSection(item.id)}
                       className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                         activeSection === item.id
-                          ? "bg-[#FF6B2C]/10 text-[#FF6B2C]"
-                          : "text-[#3D3630] hover:bg-[#FAF7F3]"
+                          ? "bg-[#06B6D4]/10 text-[#06B6D4]"
+                          : "text-[#1F2937] hover:bg-[#F9FAFB]"
                       }`}
                     >
                       <Icon className="w-4 h-4" />
@@ -234,7 +234,7 @@ const HomePage = () => {
                   );
                 })}
 
-                <div className="border-t border-[#EDE6DD]/50 my-2" />
+                <div className="border-t border-[#E5E7EB]/50 my-2" />
 
                 <button
                   type="button"
@@ -242,7 +242,7 @@ const HomePage = () => {
                     setMobileMenuOpen(false);
                     navigate("/auth");
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-[#3D3630] hover:bg-[#FAF7F3] transition-colors"
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-[#1F2937] hover:bg-[#F9FAFB] transition-colors"
                 >
                   <LogIn className="w-4 h-4" />
                   {t("navLogin")}
@@ -253,7 +253,7 @@ const HomePage = () => {
                     setMobileMenuOpen(false);
                     navigate("/auth?mode=signup");
                   }}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold bg-[#FF6B2C] text-white hover:bg-[#E85D04] transition-colors"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold bg-[#06B6D4] text-white hover:bg-[#0891B2] transition-colors"
                 >
                   {t("navStartFree")}
                   <ArrowLeft className="w-3.5 h-3.5" />
