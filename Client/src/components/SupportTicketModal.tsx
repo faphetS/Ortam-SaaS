@@ -201,10 +201,10 @@ export default function SupportTicketModal({
           exit={{ y: 40, opacity: 0, scale: 0.97 }}
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           onClick={(e) => e.stopPropagation()}
-          className="relative w-full sm:w-[520px] h-[85dvh] sm:h-[560px] bg-[#FAF7F3] rounded-t-2xl sm:rounded-2xl shadow-2xl shadow-black/15 overflow-hidden flex flex-col border border-[#EDE6DD]/60"
+          className="relative w-full sm:w-[520px] h-[85dvh] sm:h-[560px] bg-[#F9FAFB] rounded-t-2xl sm:rounded-2xl shadow-2xl shadow-black/15 overflow-hidden flex flex-col border border-[#E5E7EB]/60"
         >
           {/* ── Header ── */}
-          <div className="flex items-center gap-3 px-5 py-4 bg-[#2D2A26] text-white shrink-0">
+          <div className="flex items-center gap-3 px-5 py-4 bg-[#111827] text-white shrink-0">
             {view !== "list" && (
               <button
                 type="button"
@@ -215,7 +215,7 @@ export default function SupportTicketModal({
               </button>
             )}
             <div className="flex items-center gap-2.5 flex-1 min-w-0">
-              <div className="w-8 h-8 rounded-full bg-[#FF7E47] flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-full bg-[#22D3EE] flex items-center justify-center shrink-0">
                 <Headphones className="w-4 h-4 text-white" />
               </div>
               <div className="min-w-0">
@@ -271,7 +271,7 @@ export default function SupportTicketModal({
                 <button
                   type="button"
                   onClick={startNew}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#FF7E47] hover:bg-[#E86B38] text-white text-sm font-bold transition-colors cursor-pointer shadow-sm shadow-[#FF7E47]/20"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#22D3EE] hover:bg-[#0891B2] text-white text-sm font-bold transition-colors cursor-pointer shadow-sm shadow-[#22D3EE]/20"
                 >
                   <Plus className="w-4 h-4" />
                   {t("newConversation")}
@@ -282,13 +282,13 @@ export default function SupportTicketModal({
               <div className="flex-1 overflow-y-auto px-4 pb-4">
                 {tickets.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-full text-center py-12">
-                    <div className="w-14 h-14 rounded-2xl bg-[#EDE6DD]/60 flex items-center justify-center mb-3">
-                      <MessageCircle className="w-7 h-7 text-[#C5BDB3]" />
+                    <div className="w-14 h-14 rounded-2xl bg-[#E5E7EB]/60 flex items-center justify-center mb-3">
+                      <MessageCircle className="w-7 h-7 text-[#D1D5DB]" />
                     </div>
-                    <p className="text-sm font-semibold text-[#7A7267]">
+                    <p className="text-sm font-semibold text-[#6B7280]">
                       {t("noTickets")}
                     </p>
-                    <p className="text-xs text-[#A39B90] mt-1 max-w-[200px]">
+                    <p className="text-xs text-[#9CA3AF] mt-1 max-w-[200px]">
                       {t("noTicketsDesc")}
                     </p>
                   </div>
@@ -302,17 +302,17 @@ export default function SupportTicketModal({
                           type="button"
                           key={ticket.id}
                           onClick={() => openTicket(ticket.id)}
-                          className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-[#EDE6DD]/40 transition-colors cursor-pointer text-start group"
+                          className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-[#E5E7EB]/40 transition-colors cursor-pointer text-start group"
                         >
-                          <div className="w-9 h-9 rounded-full bg-[#EDE6DD]/60 flex items-center justify-center shrink-0 group-hover:bg-[#FF7E47]/10 transition-colors">
-                            <MessageCircle className="w-4 h-4 text-[#A39B90] group-hover:text-[#FF7E47] transition-colors" />
+                          <div className="w-9 h-9 rounded-full bg-[#E5E7EB]/60 flex items-center justify-center shrink-0 group-hover:bg-[#22D3EE]/10 transition-colors">
+                            <MessageCircle className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#22D3EE] transition-colors" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between gap-2">
-                              <p className="text-sm font-semibold text-[#2D2A26] truncate">
+                              <p className="text-sm font-semibold text-[#111827] truncate">
                                 {ticket.subject}
                               </p>
-                              <span className="text-[10px] text-[#A39B90] shrink-0">
+                              <span className="text-[10px] text-[#9CA3AF] shrink-0">
                                 {fmtTime(ticket.created_at)}
                               </span>
                             </div>
@@ -338,7 +338,7 @@ export default function SupportTicketModal({
             <div className="flex-1 flex flex-col overflow-hidden">
               <div className="flex-1 overflow-y-auto px-5 py-5 space-y-4">
                 <div>
-                  <label className="text-xs font-bold text-[#7A7267] mb-1.5 block">
+                  <label className="text-xs font-bold text-[#6B7280] mb-1.5 block">
                     {t("subjectLabel")}
                   </label>
                   <input
@@ -346,11 +346,11 @@ export default function SupportTicketModal({
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
                     placeholder={t("subjectPlaceholder")}
-                    className="w-full border border-[#EDE6DD] rounded-xl px-4 py-2.5 text-sm text-[#2D2A26] placeholder:text-[#C5BDB3] focus:outline-none focus:border-[#FF7E47] focus:ring-1 focus:ring-[#FF7E47]/20 transition-colors bg-white"
+                    className="w-full border border-[#E5E7EB] rounded-xl px-4 py-2.5 text-sm text-[#111827] placeholder:text-[#D1D5DB] focus:outline-none focus:border-[#22D3EE] focus:ring-1 focus:ring-[#22D3EE]/20 transition-colors bg-white"
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-bold text-[#7A7267] mb-1.5 block">
+                  <label className="text-xs font-bold text-[#6B7280] mb-1.5 block">
                     {t("messageLabel")}
                   </label>
                   <textarea
@@ -358,7 +358,7 @@ export default function SupportTicketModal({
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder={t("messagePlaceholder")}
                     rows={5}
-                    className="w-full border border-[#EDE6DD] rounded-xl px-4 py-2.5 text-sm text-[#2D2A26] placeholder:text-[#C5BDB3] focus:outline-none focus:border-[#FF7E47] focus:ring-1 focus:ring-[#FF7E47]/20 transition-colors resize-none bg-white"
+                    className="w-full border border-[#E5E7EB] rounded-xl px-4 py-2.5 text-sm text-[#111827] placeholder:text-[#D1D5DB] focus:outline-none focus:border-[#22D3EE] focus:ring-1 focus:ring-[#22D3EE]/20 transition-colors resize-none bg-white"
                   />
                 </div>
               </div>
@@ -371,7 +371,7 @@ export default function SupportTicketModal({
                   disabled={
                     !subject.trim() || !message.trim() || createMutation.isPending
                   }
-                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#FF7E47] hover:bg-[#E86B38] disabled:opacity-50 text-white text-sm font-bold transition-colors cursor-pointer disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#22D3EE] hover:bg-[#0891B2] disabled:opacity-50 text-white text-sm font-bold transition-colors cursor-pointer disabled:cursor-not-allowed"
                 >
                   <Send className="w-4 h-4" />
                   {createMutation.isPending ? t("submitting") : t("submit")}
@@ -404,12 +404,12 @@ export default function SupportTicketModal({
                         className="flex justify-end"
                       >
                         <div className="max-w-[80%]">
-                          <div className="bg-[#2D2A26] text-white rounded-2xl rounded-ee-md px-4 py-2.5 shadow-sm">
+                          <div className="bg-[#111827] text-white rounded-2xl rounded-ee-md px-4 py-2.5 shadow-sm">
                             <p className="text-[13px] leading-relaxed whitespace-pre-wrap">
                               {msg.user_message}
                             </p>
                           </div>
-                          <p className="text-[10px] text-[#A39B90] mt-1 text-end pe-1">
+                          <p className="text-[10px] text-[#9CA3AF] mt-1 text-end pe-1">
                             {fmtTime(msg.created_at)}
                           </p>
                         </div>
@@ -425,19 +425,19 @@ export default function SupportTicketModal({
                       >
                         <div className="max-w-[80%]">
                           <div className="flex items-center gap-1.5 mb-1 ps-1">
-                            <div className="w-4 h-4 rounded-full bg-[#FF7E47] flex items-center justify-center">
+                            <div className="w-4 h-4 rounded-full bg-[#22D3EE] flex items-center justify-center">
                               <Headphones className="w-2.5 h-2.5 text-white" />
                             </div>
-                            <span className="text-[10px] font-bold text-[#FF7E47]">
+                            <span className="text-[10px] font-bold text-[#22D3EE]">
                               {t("supportTeam")}
                             </span>
                           </div>
-                          <div className="bg-white border border-[#EDE6DD]/80 rounded-2xl rounded-ss-md px-4 py-2.5 shadow-sm">
-                            <p className="text-[13px] text-[#2D2A26] leading-relaxed whitespace-pre-wrap">
+                          <div className="bg-white border border-[#E5E7EB]/80 rounded-2xl rounded-ss-md px-4 py-2.5 shadow-sm">
+                            <p className="text-[13px] text-[#111827] leading-relaxed whitespace-pre-wrap">
                               {msg.bot_response}
                             </p>
                           </div>
-                          <p className="text-[10px] text-[#A39B90] mt-1 ps-1">
+                          <p className="text-[10px] text-[#9CA3AF] mt-1 ps-1">
                             {fmtTime(msg.created_at)}
                           </p>
                         </div>
@@ -449,9 +449,9 @@ export default function SupportTicketModal({
               </div>
 
               {/* Reply input */}
-              <div className="shrink-0 border-t border-[#EDE6DD]/60 bg-white px-4 py-3">
+              <div className="shrink-0 border-t border-[#E5E7EB]/60 bg-white px-4 py-3">
                 {isClosed ? (
-                  <p className="text-xs text-[#A39B90] text-center py-1">
+                  <p className="text-xs text-[#9CA3AF] text-center py-1">
                     {t("ticketClosed")}
                   </p>
                 ) : (
@@ -470,14 +470,14 @@ export default function SupportTicketModal({
                       }}
                       placeholder={t("replyPlaceholder")}
                       rows={1}
-                      className="flex-1 border border-[#EDE6DD] rounded-xl px-3 py-2 text-sm text-[#2D2A26] placeholder:text-[#C5BDB3] focus:outline-none focus:border-[#FF7E47] focus:ring-1 focus:ring-[#FF7E47]/20 transition-colors resize-none bg-[#FAF7F3] max-h-24"
+                      className="flex-1 border border-[#E5E7EB] rounded-xl px-3 py-2 text-sm text-[#111827] placeholder:text-[#D1D5DB] focus:outline-none focus:border-[#22D3EE] focus:ring-1 focus:ring-[#22D3EE]/20 transition-colors resize-none bg-[#F9FAFB] max-h-24"
                       style={{ minHeight: "38px" }}
                     />
                     <button
                       type="button"
                       onClick={() => replyMutation.mutate()}
                       disabled={!replyText.trim() || replyMutation.isPending}
-                      className="w-9 h-9 rounded-xl bg-[#FF7E47] hover:bg-[#E86B38] disabled:opacity-40 flex items-center justify-center transition-colors cursor-pointer disabled:cursor-not-allowed shrink-0 shadow-sm shadow-[#FF7E47]/20"
+                      className="w-9 h-9 rounded-xl bg-[#22D3EE] hover:bg-[#0891B2] disabled:opacity-40 flex items-center justify-center transition-colors cursor-pointer disabled:cursor-not-allowed shrink-0 shadow-sm shadow-[#22D3EE]/20"
                     >
                       <Send className="w-4 h-4 text-white" />
                     </button>
