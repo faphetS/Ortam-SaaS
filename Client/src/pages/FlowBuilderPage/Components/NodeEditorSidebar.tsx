@@ -21,8 +21,8 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
 
   if (!node) {
     return (
-      <div className="w-64 bg-white border-e border-[#EDE6DD]/60 p-4 flex items-center justify-center">
-        <p className="text-sm text-[#A39B90] text-center">{t("noNodeSelected")}</p>
+      <div className="w-64 bg-white border-e border-[#E5E7EB]/60 p-4 flex items-center justify-center">
+        <p className="text-sm text-[#9CA3AF] text-center">{t("noNodeSelected")}</p>
       </div>
     );
   }
@@ -31,14 +31,14 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
   const update = (patch: Partial<FlowNodeData>) => onUpdate(node.id, patch);
 
   return (
-    <div className="w-64 bg-white border-e border-[#EDE6DD]/60 flex flex-col overflow-hidden">
+    <div className="w-64 bg-white border-e border-[#E5E7EB]/60 flex flex-col overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-[#EDE6DD]/40">
-        <span className="text-sm font-bold text-[#2D2A26]">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-[#E5E7EB]/40">
+        <span className="text-sm font-bold text-[#111827]">
           {t(`node${capitalize(data.type)}`)}
         </span>
-        <button type="button" onClick={onClose} className="p-1 rounded hover:bg-[#EDE6DD]/40 cursor-pointer" aria-label="Close">
-          <X className="w-4 h-4 text-[#7A7267]" />
+        <button type="button" onClick={onClose} className="p-1 rounded hover:bg-[#E5E7EB]/40 cursor-pointer" aria-label="Close">
+          <X className="w-4 h-4 text-[#6B7280]" />
         </button>
       </div>
 
@@ -62,7 +62,7 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
 
             {/* Enable/Disable toggle */}
             <div className="flex items-center justify-between px-1 mb-1">
-              <span className="text-[10px] text-[#A39B90]">{t("startNodeToggleHint")}</span>
+              <span className="text-[10px] text-[#9CA3AF]">{t("startNodeToggleHint")}</span>
               <label className="relative inline-flex items-center cursor-pointer shrink-0 ms-2">
                 <input
                   type="checkbox"
@@ -70,7 +70,7 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
                   onChange={(e) => update({ disabled: !e.target.checked })}
                   className="sr-only peer"
                 />
-                <div className="w-8 h-[18px] bg-[#EDE6DD] rounded-full peer peer-checked:bg-[#22c55e] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:shadow-sm" />
+                <div className="w-8 h-[18px] bg-[#E5E7EB] rounded-full peer peer-checked:bg-[#22c55e] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:shadow-sm" />
               </label>
             </div>
 
@@ -141,7 +141,7 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
         {/* Yes/No question toggle */}
         {(data.type === "text" || data.type === "image") && (
           <div className="flex items-center justify-between px-1">
-            <span className="text-[10px] text-[#A39B90]">{t("yesNoModeHint")}</span>
+            <span className="text-[10px] text-[#9CA3AF]">{t("yesNoModeHint")}</span>
             <label className="relative inline-flex items-center cursor-pointer shrink-0 ms-2">
               <input
                 type="checkbox"
@@ -149,7 +149,7 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
                 onChange={(e) => update({ yesNoMode: e.target.checked, ...(e.target.checked ? { expectedReply: "", continueAuto: false } : {}) })}
                 className="sr-only peer"
               />
-              <div className="w-8 h-[18px] bg-[#EDE6DD] rounded-full peer peer-checked:bg-[#22c55e] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:shadow-sm" />
+              <div className="w-8 h-[18px] bg-[#E5E7EB] rounded-full peer peer-checked:bg-[#22c55e] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:shadow-sm" />
             </label>
           </div>
         )}
@@ -168,7 +168,7 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
               />
             </Field>
             <div className="flex items-center justify-between px-1">
-              <span className="text-[10px] text-[#A39B90]">{t("continueAutoHint")}</span>
+              <span className="text-[10px] text-[#9CA3AF]">{t("continueAutoHint")}</span>
               <label className="relative inline-flex items-center cursor-pointer shrink-0 ms-2">
                 <input
                   type="checkbox"
@@ -176,13 +176,13 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
                   onChange={(e) => update({ continueAuto: e.target.checked, ...(e.target.checked ? { expectedReply: "", allowSkip: false } : {}) })}
                   className="sr-only peer"
                 />
-                <div className="w-8 h-[18px] bg-[#EDE6DD] rounded-full peer peer-checked:bg-[#FF7E47] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:shadow-sm" />
+                <div className="w-8 h-[18px] bg-[#E5E7EB] rounded-full peer peer-checked:bg-[#22D3EE] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:shadow-sm" />
               </label>
             </div>
             {/* Allow Skip */}
             {!data.continueAuto && (
               <div className="flex items-center justify-between px-1">
-                <span className="text-[10px] text-[#A39B90]">{t("allowSkipHint")}</span>
+                <span className="text-[10px] text-[#9CA3AF]">{t("allowSkipHint")}</span>
                 <label className="relative inline-flex items-center cursor-pointer shrink-0 ms-2">
                   <input
                     type="checkbox"
@@ -190,7 +190,7 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
                     onChange={(e) => update({ allowSkip: e.target.checked })}
                     className="sr-only peer"
                   />
-                  <div className="w-8 h-[18px] bg-[#EDE6DD] rounded-full peer peer-checked:bg-[#06b6d4] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:shadow-sm" />
+                  <div className="w-8 h-[18px] bg-[#E5E7EB] rounded-full peer peer-checked:bg-[#06b6d4] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:shadow-sm" />
                 </label>
               </div>
             )}
@@ -232,7 +232,7 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
             />
             {/* Global menu toggle */}
             <div className="flex items-center justify-between px-1">
-              <span className="text-[10px] text-[#A39B90]">{t("globalMenuHint")}</span>
+              <span className="text-[10px] text-[#9CA3AF]">{t("globalMenuHint")}</span>
               <label className="relative inline-flex items-center cursor-pointer shrink-0 ms-2">
                 <input
                   type="checkbox"
@@ -240,7 +240,7 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
                   onChange={(e) => update({ isGlobalMenu: e.target.checked })}
                   className="sr-only peer"
                 />
-                <div className="w-8 h-[18px] bg-[#EDE6DD] rounded-full peer peer-checked:bg-[#06b6d4] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:shadow-sm" />
+                <div className="w-8 h-[18px] bg-[#E5E7EB] rounded-full peer peer-checked:bg-[#06b6d4] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:shadow-sm" />
               </label>
             </div>
           </>
@@ -301,7 +301,7 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
             )}
             {/* Allow Skip */}
             <div className="flex items-center justify-between px-1">
-              <span className="text-[10px] text-[#A39B90]">{t("allowSkipHint")}</span>
+              <span className="text-[10px] text-[#9CA3AF]">{t("allowSkipHint")}</span>
               <label className="relative inline-flex items-center cursor-pointer shrink-0 ms-2">
                 <input
                   type="checkbox"
@@ -309,7 +309,7 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
                   onChange={(e) => update({ allowSkip: e.target.checked })}
                   className="sr-only peer"
                 />
-                <div className="w-8 h-[18px] bg-[#EDE6DD] rounded-full peer peer-checked:bg-[#06b6d4] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:shadow-sm" />
+                <div className="w-8 h-[18px] bg-[#E5E7EB] rounded-full peer peer-checked:bg-[#06b6d4] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:shadow-sm" />
               </label>
             </div>
             {/* Language toggle for nudge messages */}
@@ -384,18 +384,18 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
       <style>{`
         .field-input {
           width: 100%;
-          border: 1px solid #EDE6DD;
+          border: 1px solid #E5E7EB;
           border-radius: 0.5rem;
           padding: 0.5rem 0.75rem;
           font-size: 0.8125rem;
-          color: #2D2A26;
-          background: #FAF7F3;
+          color: #111827;
+          background: #F9FAFB;
           outline: none;
           transition: border-color 0.2s;
         }
         .field-input:focus {
-          border-color: #FF7E47;
-          box-shadow: 0 0 0 2px rgba(255,126,71,0.1);
+          border-color: #22D3EE;
+          box-shadow: 0 0 0 2px rgba(34,211,238,0.1);
         }
       `}</style>
     </div>
@@ -407,8 +407,8 @@ export default function NodeEditorSidebar({ node, onUpdate, onClose, isLocked, s
 function Field({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="text-xs font-semibold text-[#2D2A26] block mb-1">{label}</label>
-      {hint && <p className="text-[10px] text-[#A39B90] mb-1.5">{hint}</p>}
+      <label className="text-xs font-semibold text-[#111827] block mb-1">{label}</label>
+      {hint && <p className="text-[10px] text-[#9CA3AF] mb-1.5">{hint}</p>}
       {children}
     </div>
   );
@@ -436,7 +436,7 @@ function ButtonsEditor({ buttons, onChange }: { buttons: ButtonItem[]; onChange:
 
   return (
     <div>
-      <label className="text-xs font-semibold text-[#2D2A26] block mb-2">{t("buttons")}</label>
+      <label className="text-xs font-semibold text-[#111827] block mb-2">{t("buttons")}</label>
       <div className="space-y-2 max-h-[280px] overflow-y-auto">
         {buttons.map((btn) => (
           <div key={btn.id} className="flex items-center gap-1.5">
@@ -454,7 +454,7 @@ function ButtonsEditor({ buttons, onChange }: { buttons: ButtonItem[]; onChange:
               className={`p-1.5 rounded cursor-pointer transition-colors ${
                 btn.openBot
                   ? "bg-violet-100 text-violet-600"
-                  : "text-[#A39B90] hover:bg-violet-50 hover:text-violet-500"
+                  : "text-[#9CA3AF] hover:bg-violet-50 hover:text-violet-500"
               }`}
               title={t("openBotToggle")}
             >
@@ -463,7 +463,7 @@ function ButtonsEditor({ buttons, onChange }: { buttons: ButtonItem[]; onChange:
             <button
               type="button"
               onClick={() => removeButton(btn.id)}
-              className="p-1.5 rounded hover:bg-red-50 text-[#A39B90] hover:text-red-500 cursor-pointer"
+              className="p-1.5 rounded hover:bg-red-50 text-[#9CA3AF] hover:text-red-500 cursor-pointer"
             >
               <Trash2 className="w-3 h-3" />
             </button>
@@ -474,12 +474,12 @@ function ButtonsEditor({ buttons, onChange }: { buttons: ButtonItem[]; onChange:
         <button
           type="button"
           onClick={addButton}
-          className="flex items-center gap-1 mt-2 text-xs text-[#FF7E47] hover:text-[#E86B38] cursor-pointer"
+          className="flex items-center gap-1 mt-2 text-xs text-[#22D3EE] hover:text-[#0891B2] cursor-pointer"
         >
           <Plus className="w-3 h-3" /> {t("addButton")}
         </button>
       ) : (
-        <p className="text-[10px] text-[#A39B90] mt-1">{t("maxButtons")}</p>
+        <p className="text-[10px] text-[#9CA3AF] mt-1">{t("maxButtons")}</p>
       )}
     </div>
   );
@@ -529,7 +529,7 @@ function ImageUploadField({ imageUrl, onUpdate }: { imageUrl: string; onUpdate: 
   if (imageUrl) {
     return (
       <Field label={t("nodeImage")}>
-        <div className="relative rounded-lg overflow-hidden border border-[#EDE6DD]">
+        <div className="relative rounded-lg overflow-hidden border border-[#E5E7EB]">
           <img src={imageUrl} alt="" className="w-full h-28 object-cover" />
           <button
             type="button"
@@ -557,17 +557,17 @@ function ImageUploadField({ imageUrl, onUpdate }: { imageUrl: string; onUpdate: 
         type="button"
         onClick={() => fileRef.current?.click()}
         disabled={uploading}
-        className="w-full flex flex-col items-center justify-center gap-1.5 py-4 rounded-lg border-2 border-dashed border-[#EDE6DD] hover:border-[#FF7E47]/40 hover:bg-[#FFF5F0]/30 transition-colors cursor-pointer disabled:cursor-wait"
+        className="w-full flex flex-col items-center justify-center gap-1.5 py-4 rounded-lg border-2 border-dashed border-[#E5E7EB] hover:border-[#22D3EE]/40 hover:bg-[#ECFEFF]/30 transition-colors cursor-pointer disabled:cursor-wait"
       >
         {uploading ? (
           <>
-            <Loader2 className="w-5 h-5 text-[#A39B90] animate-spin" />
-            <span className="text-[10px] text-[#A39B90]">{t("imageUploading")}</span>
+            <Loader2 className="w-5 h-5 text-[#9CA3AF] animate-spin" />
+            <span className="text-[10px] text-[#9CA3AF]">{t("imageUploading")}</span>
           </>
         ) : (
           <>
-            <Upload className="w-5 h-5 text-[#A39B90]" />
-            <span className="text-[10px] text-[#A39B90]">{t("imageUpload")}</span>
+            <Upload className="w-5 h-5 text-[#9CA3AF]" />
+            <span className="text-[10px] text-[#9CA3AF]">{t("imageUpload")}</span>
           </>
         )}
       </button>
@@ -860,10 +860,10 @@ function ResponseMappingEditor({
 
   return (
     <div>
-      <label className="text-xs font-semibold text-[#2D2A26] block mb-2">{t("apiCallResponseMapping")}</label>
+      <label className="text-xs font-semibold text-[#111827] block mb-2">{t("apiCallResponseMapping")}</label>
       <div className="space-y-2 max-h-[240px] overflow-y-auto">
         {mappings.map((m, i) => (
-          <div key={i} className="space-y-1 p-2 rounded-lg bg-[#FAF7F3] border border-[#EDE6DD]/60">
+          <div key={i} className="space-y-1 p-2 rounded-lg bg-[#F9FAFB] border border-[#E5E7EB]/60">
             <input
               type="text"
               value={m.jsonPath}
@@ -894,12 +894,12 @@ function ResponseMappingEditor({
         <button
           type="button"
           onClick={addMapping}
-          className="flex items-center gap-1 mt-2 text-xs text-[#FF7E47] hover:text-[#E86B38] cursor-pointer"
+          className="flex items-center gap-1 mt-2 text-xs text-[#22D3EE] hover:text-[#0891B2] cursor-pointer"
         >
           <Plus className="w-3 h-3" /> {t("apiCallAddMapping")}
         </button>
       ) : (
-        <p className="text-[10px] text-[#A39B90] mt-1">{t("apiCallMaxMappings")}</p>
+        <p className="text-[10px] text-[#9CA3AF] mt-1">{t("apiCallMaxMappings")}</p>
       )}
     </div>
   );
@@ -927,8 +927,8 @@ function KeywordsEditor({ keywords, disabled, onChange }: { keywords: string[]; 
 
   return (
     <div>
-      <label className="text-xs font-semibold text-[#2D2A26] block mb-1">{t("triggerText")}</label>
-      <p className="text-[10px] text-[#A39B90] mb-1.5">{t("triggerTextHint")}</p>
+      <label className="text-xs font-semibold text-[#111827] block mb-1">{t("triggerText")}</label>
+      <p className="text-[10px] text-[#9CA3AF] mb-1.5">{t("triggerTextHint")}</p>
       <div className="space-y-1.5">
         {keywords.map((kw, i) => (
           <div key={i} className="flex items-center gap-1">
@@ -944,7 +944,7 @@ function KeywordsEditor({ keywords, disabled, onChange }: { keywords: string[]; 
               <button
                 type="button"
                 onClick={() => removeKeyword(i)}
-                className="p-1.5 rounded hover:bg-red-50 text-[#A39B90] hover:text-red-500 cursor-pointer shrink-0"
+                className="p-1.5 rounded hover:bg-red-50 text-[#9CA3AF] hover:text-red-500 cursor-pointer shrink-0"
               >
                 <Trash2 className="w-3 h-3" />
               </button>
@@ -955,7 +955,7 @@ function KeywordsEditor({ keywords, disabled, onChange }: { keywords: string[]; 
       <button
         type="button"
         onClick={addKeyword}
-        className="flex items-center gap-1 mt-2 text-xs text-[#FF7E47] hover:text-[#E86B38] cursor-pointer"
+        className="flex items-center gap-1 mt-2 text-xs text-[#22D3EE] hover:text-[#0891B2] cursor-pointer"
       >
         <Plus className="w-3 h-3" /> {t("addKeyword")}
       </button>
@@ -1011,7 +1011,7 @@ function FixedTooltip({ text, children }: { text: string; children: React.ReactN
             transition: "opacity 150ms ease, transform 150ms ease",
           }}
         >
-          <div className="bg-[#2D2A26] text-[#FAF7F3] text-[11px] leading-relaxed rounded-lg px-3 py-2.5 shadow-xl whitespace-pre-line" dir="auto">
+          <div className="bg-[#111827] text-[#F9FAFB] text-[11px] leading-relaxed rounded-lg px-3 py-2.5 shadow-xl whitespace-pre-line" dir="auto">
             {text}
           </div>
         </div>,
