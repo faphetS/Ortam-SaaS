@@ -38,7 +38,7 @@ const WizardNavigator = ({
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             onClick={onBack}
-            className="w-11 h-11 rounded-full border border-[#E5DDD3] bg-white flex items-center justify-center text-[#7A7267] hover:border-[#FF7E47] hover:text-[#FF7E47] transition-colors duration-200 shadow-sm cursor-pointer"
+            className="w-11 h-11 rounded-full border border-[#D1D5DB] bg-white flex items-center justify-center text-[#6B7280] hover:border-[#22D3EE] hover:text-[#22D3EE] transition-colors duration-200 shadow-sm cursor-pointer"
           >
             {isRTL ? (
               <ArrowRight className="w-4.5 h-4.5" />
@@ -52,9 +52,9 @@ const WizardNavigator = ({
       {/* Dot indicators or progress bar */}
       <div className="flex-1 flex items-center justify-center">
         {useProgressBar ? (
-          <div className="w-full max-w-[200px] h-1.5 rounded-full bg-[#EDE6DD] overflow-hidden">
+          <div className="w-full max-w-[200px] h-1.5 rounded-full bg-[#E5E7EB] overflow-hidden">
             <motion.div
-              className="h-full bg-[#FF7E47] rounded-full"
+              className="h-full bg-[#22D3EE] rounded-full"
               initial={false}
               animate={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
@@ -73,9 +73,9 @@ const WizardNavigator = ({
                     width: isActive ? 10 : 7,
                     height: isActive ? 10 : 7,
                     backgroundColor: isActive
-                      ? "#FF7E47"
+                      ? "#22D3EE"
                       : isCompleted
-                        ? "rgba(255,126,71,0.45)"
+                        ? "rgba(34,211,238,0.45)"
                         : "#DDD5CA",
                   }}
                   transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
@@ -97,7 +97,7 @@ const WizardNavigator = ({
         className={cn(
           "inline-flex items-center gap-2 font-bold text-sm rounded-xl px-6 py-3 transition-all duration-200 cursor-pointer",
           isSubmit
-            ? "bg-[#FF7E47] hover:bg-[#E86B38] text-white shadow-[0_4px_20px_rgba(255,126,71,0.3)] hover:shadow-[0_6px_28px_rgba(255,126,71,0.4)]"
+            ? "bg-[#22D3EE] hover:bg-[#0891B2] text-white shadow-[0_4px_20px_rgba(34,211,238,0.3)] hover:shadow-[0_6px_28px_rgba(34,211,238,0.4)]"
             : "bg-[#6C5CE7] hover:bg-[#5A4BD6] text-white shadow-[0_4px_20px_rgba(108,92,231,0.25)]",
           nextDisabled && "opacity-50 cursor-not-allowed",
         )}
