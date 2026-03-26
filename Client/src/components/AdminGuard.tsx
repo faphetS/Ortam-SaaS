@@ -8,7 +8,7 @@ export default function AdminGuard({ children }: { children: React.ReactNode }) 
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#0D0D0D] flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-[#FF6B2C]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#06B6D4]" />
       </div>
     );
   }
