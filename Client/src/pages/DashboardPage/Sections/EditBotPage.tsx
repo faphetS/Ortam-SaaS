@@ -69,10 +69,10 @@ export default function EditBotPage() {
     >
       {/* ── Page Title ── */}
       <motion.div variants={fadeUp}>
-        <h1 className="text-2xl sm:text-3xl font-bold text-[#2D2A26] tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#111827] tracking-tight">
           {t("editBotPageTitle")}
         </h1>
-        <p className="text-sm text-[#7A7267] mt-0.5">
+        <p className="text-sm text-[#6B7280] mt-0.5">
           {t("editBotPageSubtitle")}
         </p>
       </motion.div>
