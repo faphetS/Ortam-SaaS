@@ -233,7 +233,7 @@ export default function DemoChatSection({ resetKey = 0, workflowId }: DemoChatSe
     <motion.div variants={fadeUp} className="flex flex-col h-full">
       <ChatPanel
         title={t("demoChatTitle")}
-        icon={<Bot className="w-4 h-4 text-[#FF7E47]" />}
+        icon={<Bot className="w-4 h-4 text-[#22D3EE]" />}
         statusText={t("demoChatStatus")}
         statusColor="emerald"
         messages={messages}
@@ -251,11 +251,11 @@ export default function DemoChatSection({ resetKey = 0, workflowId }: DemoChatSe
             whileHover={{ scale: 1.08, rotate: -15 }}
             whileTap={{ scale: 0.92 }}
             onClick={handleNewConversation}
-            className="p-1.5 rounded-xl hover:bg-[#FAF7F3] transition-colors group cursor-pointer"
+            className="p-1.5 rounded-xl hover:bg-[#F9FAFB] transition-colors group cursor-pointer"
             title={t("newConversation")}
             aria-label={t("newConversation")}
           >
-            <RotateCcw className="w-3.5 h-3.5 text-[#A39B90] group-hover:text-[#FF7E47] transition-colors" />
+            <RotateCcw className="w-3.5 h-3.5 text-[#9CA3AF] group-hover:text-[#22D3EE] transition-colors" />
           </motion.button>
         }
       />
