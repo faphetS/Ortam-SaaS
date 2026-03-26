@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Clock, Headphones } from "lucide-react";
 
-const ORANGE = "#FF6B2C";
-const ORANGE_DARK = "#E8590C";
+const CYAN = "#06B6D4";
+const CYAN_DARK = "#0E7490";
 
 const CtaSection = () => {
   const { t } = useTranslation("landing");
@@ -16,31 +16,31 @@ const CtaSection = () => {
   return (
     <section
       className="relative min-h-dvh flex flex-col justify-center py-32 px-6 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #FDF8F2 0%, #F8F0E6 60%, #FBF5EE 100%)" }}
+      style={{ background: "linear-gradient(180deg, #F9FAFB 0%, #F3F4F6 60%, #F9FAFB 100%)" }}
     >
       {/* Floating geometric accents */}
       <motion.div
-        className="absolute top-[8%] left-[6%] w-5 h-5 border-2 border-[#FF6B2C]/20 rotate-45"
+        className="absolute top-[8%] left-[6%] w-5 h-5 border-2 border-[#06B6D4]/20 rotate-45"
         animate={{ y: [0, -16, 0], rotate: [45, 52, 45] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute top-[15%] right-[5%] w-7 h-7 rounded-full border-2 border-[#FF6B2C]/15"
+        className="absolute top-[15%] right-[5%] w-7 h-7 rounded-full border-2 border-[#06B6D4]/15"
         animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.4, 0.15] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
       <motion.div
-        className="absolute bottom-[10%] left-[4%] w-3 h-3 rounded-full bg-[#FF6B2C]/20"
+        className="absolute bottom-[10%] left-[4%] w-3 h-3 rounded-full bg-[#06B6D4]/20"
         animate={{ y: [0, 12, 0], opacity: [0.2, 0.5, 0.2] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
       <motion.div
-        className="absolute bottom-[15%] right-[3%] w-4 h-4 border border-[#FF6B2C]/20 rotate-45"
+        className="absolute bottom-[15%] right-[3%] w-4 h-4 border border-[#06B6D4]/20 rotate-45"
         animate={{ y: [0, -10, 0], rotate: [45, 48, 45] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
       />
       <motion.div
-        className="absolute top-[45%] left-[2%] w-6 h-[2px] bg-[#FF6B2C]/20"
+        className="absolute top-[45%] left-[2%] w-6 h-[2px] bg-[#06B6D4]/20"
         animate={{ scaleX: [1, 1.8, 1], opacity: [0.2, 0.45, 0.2] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 3 }}
       />
@@ -49,8 +49,8 @@ const CtaSection = () => {
         animate={{ opacity: [0.15, 0.4, 0.15] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       >
-        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]/35" />
-        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]/20" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]/35" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]/20" />
       </motion.div>
 
       {/* Central glass container */}
@@ -68,10 +68,10 @@ const CtaSection = () => {
             animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="text-[#1A1A1A]">{t("ctaTitle").split("?")[0]}</span>
+            <span className="text-[#111827]">{t("ctaTitle").split("?")[0]}</span>
             <span
               style={{
-                background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})`,
+                background: `linear-gradient(135deg, ${CYAN}, ${CYAN_DARK})`,
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -97,7 +97,7 @@ const CtaSection = () => {
             <button
               type="button"
               onClick={() => navigate("/auth?mode=signup")}
-              className="clix-btn cta-glow-pulse text-base sm:text-xl px-8 sm:px-12 py-4 sm:py-5 rounded-xl"
+              className="ortam-btn cta-glow-pulse text-base sm:text-xl px-8 sm:px-12 py-4 sm:py-5 rounded-xl"
             >
               {t("ctaBtn")}
             </button>
@@ -118,9 +118,9 @@ const CtaSection = () => {
           <div className="flex items-center gap-2.5">
             <div
               className="w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{ background: `linear-gradient(135deg, ${ORANGE}20, ${ORANGE}40)` }}
+              style={{ background: `linear-gradient(135deg, ${CYAN}20, ${CYAN}40)` }}
             >
-              <Clock className="w-4 h-4" style={{ color: ORANGE }} />
+              <Clock className="w-4 h-4" style={{ color: CYAN }} />
             </div>
             <div>
               <p className="text-sm font-semibold text-gray-700">{t("ctaStatSetup")}</p>
@@ -142,7 +142,7 @@ const CtaSection = () => {
           <div className="flex items-center gap-2">
             <div
               className="w-7 h-7 rounded-full flex items-center justify-center"
-              style={{ background: `linear-gradient(135deg, ${ORANGE}, ${ORANGE_DARK})` }}
+              style={{ background: `linear-gradient(135deg, ${CYAN}, ${CYAN_DARK})` }}
             >
               <Headphones className="w-3.5 h-3.5 text-white" />
             </div>
