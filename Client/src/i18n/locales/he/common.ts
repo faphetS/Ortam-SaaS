@@ -51,6 +51,6 @@ export default {
   servicePlaceholder: "לדוגמה: עיצוב אתרים",
   portfolioPlaceholder: "לדוגמה: קמפיין קיץ",
   teamPlaceholder: "לדוגמה: ישראל ישראלי",
-  logoPlaceholder: "לדוגמה: CLIX",
+  logoPlaceholder: "לדוגמה: Ortam",
   itemNamePlaceholder: "הזן שם",
 };
