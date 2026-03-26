@@ -1,0 +1,61 @@
+import { Component, type ErrorInfo, type ReactNode } from "react";
+
+interface Props {
+  children: ReactNode;
+}
+
+interface State {
+  hasError: boolean;
+}
+
+class ErrorBoundary extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: Error): State {
+    // Ignore DOM manipulation errors caused by browser extensions
+    // (Google Translate, Grammarly, etc.) that modify text nodes —
+    // React's removeChild/insertBefore fails when the DOM is out of sync.
+    if (
+      error.name === "NotFoundError" &&
+      (error.message.includes("removeChild") || error.message.includes("insertBefore"))
+    ) {
+      return { hasError: false };
+    }
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    // Silently ignore DOM manipulation errors from browser extensions
+    if (
+      error.name === "NotFoundError" &&
+      (error.message.includes("removeChild") || error.message.includes("insertBefore"))
+    ) {
+      return;
+    }
+    console.error("ErrorBoundary caught an error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-dvh flex flex-col items-center justify-center gap-4 bg-neutral-300">
+          <p className="text-2xl font-bold text-neutral-800">Something went wrong.</p>
+          <button
+            type="button"
+            onClick={() => this.setState({ hasError: false })}
+            className="px-4 py-2 rounded-xl bg-neutral-800 text-neutral-200 hover:bg-neutral-700 cursor-pointer transition-colors"
+          >
+            Try Again
+          </button>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+export default ErrorBoundary;
