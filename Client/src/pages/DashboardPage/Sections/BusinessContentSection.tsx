@@ -228,16 +228,16 @@ function CategoryCard({
   const Icon = category.icon;
 
   return (
-    <div className="bg-white rounded-2xl shadow-[0_2px_24px_rgba(45,42,38,0.05)] border border-[#EDE6DD]/50 overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-[0_2px_24px_rgba(17,24,39,0.05)] border border-[#E5E7EB]/50 overflow-hidden">
       {/* Category header */}
-      <div className="flex items-center gap-3 px-6 py-4 border-b border-[#EDE6DD]/40">
-        <div className="w-8 h-8 rounded-lg bg-[#FF7E47]/10 flex items-center justify-center">
-          <Icon className="w-4 h-4 text-[#FF7E47]" />
+      <div className="flex items-center gap-3 px-6 py-4 border-b border-[#E5E7EB]/40">
+        <div className="w-8 h-8 rounded-lg bg-[#22D3EE]/10 flex items-center justify-center">
+          <Icon className="w-4 h-4 text-[#22D3EE]" />
         </div>
-        <h3 className="font-bold text-[#2D2A26] text-sm">
+        <h3 className="font-bold text-[#111827] text-sm">
           {t(category.labelKey)}
         </h3>
-        <span className="text-xs text-[#A39B90] bg-[#FAF7F3] px-2 py-0.5 rounded-full">
+        <span className="text-xs text-[#9CA3AF] bg-[#F9FAFB] px-2 py-0.5 rounded-full">
           {catFields.length}
         </span>
       </div>
@@ -269,12 +269,12 @@ function CategoryCard({
             transition={{ duration: 0.25, ease: EASE }}
             className="overflow-hidden"
           >
-            <div className="flex items-center justify-end gap-3 px-6 py-3 border-t border-[#EDE6DD]/40 bg-[#FEFCFA]">
+            <div className="flex items-center justify-end gap-3 px-6 py-3 border-t border-[#E5E7EB]/40 bg-[#FEFCFA]">
               <button
                 type="button"
                 onClick={onReset}
                 disabled={saving}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-[#7A7267] hover:text-[#2D2A26] hover:bg-[#EDE6DD]/40 transition-colors cursor-pointer"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-[#6B7280] hover:text-[#111827] hover:bg-[#E5E7EB]/40 transition-colors cursor-pointer"
               >
                 <X className="w-3.5 h-3.5" />
                 {t("cancelChanges")}
@@ -283,7 +283,7 @@ function CategoryCard({
                 type="button"
                 onClick={onSave}
                 disabled={saving}
-                className="flex items-center gap-2 px-5 py-2 rounded-xl text-sm font-bold bg-[#FF7E47] hover:bg-[#E86B38] text-white transition-colors shadow-[0_2px_12px_rgba(255,126,71,0.25)] cursor-pointer disabled:opacity-60"
+                className="flex items-center gap-2 px-5 py-2 rounded-xl text-sm font-bold bg-[#22D3EE] hover:bg-[#0891B2] text-white transition-colors shadow-[0_2px_12px_rgba(34,211,238,0.25)] cursor-pointer disabled:opacity-60"
               >
                 {saving ? (
                   <Loader2 key="loader" className="w-4 h-4 animate-spin" />
@@ -580,7 +580,7 @@ export default function BusinessContentSection() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <Loader2 className="w-8 h-8 animate-spin text-[#FF7E47]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#22D3EE]" />
       </div>
     );
   }
@@ -588,12 +588,12 @@ export default function BusinessContentSection() {
   if (!formResponse) {
     return (
       <div className="flex flex-col items-center justify-center py-32 text-center px-4">
-        <FileText className="w-12 h-12 text-[#A39B90] mb-4" />
-        <p className="text-[#7A7267] text-sm mb-4">{t("noFormData")}</p>
+        <FileText className="w-12 h-12 text-[#9CA3AF] mb-4" />
+        <p className="text-[#6B7280] text-sm mb-4">{t("noFormData")}</p>
         <button
           type="button"
           onClick={() => navigate("/create-bot")}
-          className="px-6 py-2.5 bg-[#FF7E47] hover:bg-[#E86B38] text-white font-bold rounded-xl transition-colors"
+          className="px-6 py-2.5 bg-[#22D3EE] hover:bg-[#0891B2] text-white font-bold rounded-xl transition-colors"
         >
           {t("goToCreateBot")}
         </button>
@@ -611,7 +611,7 @@ export default function BusinessContentSection() {
       >
         <motion.div
           variants={fadeUp}
-          className="bg-white rounded-2xl p-6 sm:p-8 shadow-[0_2px_24px_rgba(45,42,38,0.05)] border border-[#EDE6DD]/50"
+          className="bg-white rounded-2xl p-6 sm:p-8 shadow-[0_2px_24px_rgba(17,24,39,0.05)] border border-[#E5E7EB]/50"
         >
           <SubmissionProgress phase={loadingPhase} scrapeProgress={scrapeProgress} />
         </motion.div>
