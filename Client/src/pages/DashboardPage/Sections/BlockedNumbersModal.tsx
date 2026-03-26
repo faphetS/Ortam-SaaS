@@ -186,20 +186,20 @@ export default function BlockedNumbersModal({
           {/* Header */}
           <div className="flex items-center justify-between px-6 pt-5 pb-3">
             <div>
-              <h3 className="text-lg font-bold text-[#2D2A26]">
+              <h3 className="text-lg font-bold text-[#111827]">
                 {t("blockedNumbersTitle")}
               </h3>
-              <p className="text-xs text-[#A39B90] mt-0.5">
+              <p className="text-xs text-[#9CA3AF] mt-0.5">
                 {t("blockedNumbersDesc")}
               </p>
             </div>
             <button
               type="button"
               onClick={onClose}
-              className="p-1.5 rounded-lg hover:bg-[#FAF7F3] transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg hover:bg-[#F9FAFB] transition-colors cursor-pointer"
               aria-label="Close"
             >
-              <X className="w-5 h-5 text-[#7A7267]" />
+              <X className="w-5 h-5 text-[#6B7280]" />
             </button>
           </div>
 
@@ -216,13 +216,13 @@ export default function BlockedNumbersModal({
                 }}
                 onKeyDown={handleKeyDown}
                 placeholder={t("blockedNumbersPlaceholder")}
-                className="flex-1 border border-[#EDE6DD] rounded-xl px-4 py-2.5 text-sm text-[#2D2A26] placeholder:text-[#C5BDB3] focus:outline-none focus:border-[#FF7E47] focus:ring-1 focus:ring-[#FF7E47]/20 transition-colors"
+                className="flex-1 border border-[#E5E7EB] rounded-xl px-4 py-2.5 text-sm text-[#111827] placeholder:text-[#D1D5DB] focus:outline-none focus:border-[#22D3EE] focus:ring-1 focus:ring-[#22D3EE]/20 transition-colors"
               />
               <button
                 type="button"
                 onClick={handleAdd}
                 disabled={!input.trim() || addMutation.isPending}
-                className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#FF7E47] hover:bg-[#E86B38] disabled:opacity-50 text-white text-sm font-bold transition-colors cursor-pointer disabled:cursor-not-allowed"
+                className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#22D3EE] hover:bg-[#0891B2] disabled:opacity-50 text-white text-sm font-bold transition-colors cursor-pointer disabled:cursor-not-allowed"
               >
                 <Plus className="w-4 h-4" />
                 {t("blockedNumbersAdd")}
@@ -257,13 +257,13 @@ export default function BlockedNumbersModal({
           <div className="px-6 pb-5 max-h-72 overflow-y-auto">
             {blockedNumbers.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-10 text-center">
-                <div className="w-12 h-12 rounded-full bg-[#FAF7F3] flex items-center justify-center mb-3">
-                  <ShieldOff className="w-6 h-6 text-[#C5BDB3]" />
+                <div className="w-12 h-12 rounded-full bg-[#F9FAFB] flex items-center justify-center mb-3">
+                  <ShieldOff className="w-6 h-6 text-[#D1D5DB]" />
                 </div>
-                <p className="text-sm font-medium text-[#7A7267]">
+                <p className="text-sm font-medium text-[#6B7280]">
                   {t("blockedNumbersEmpty")}
                 </p>
-                <p className="text-xs text-[#A39B90] mt-1">
+                <p className="text-xs text-[#9CA3AF] mt-1">
                   {t("blockedNumbersEmptyDesc")}
                 </p>
               </div>
@@ -272,11 +272,11 @@ export default function BlockedNumbersModal({
                 {blockedNumbers.map((phone) => (
                   <div
                     key={phone}
-                    className="flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-[#FAF7F3] transition-colors group"
+                    className="flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-[#F9FAFB] transition-colors group"
                   >
                     <span
                       dir="ltr"
-                      className="text-sm text-[#2D2A26] font-mono"
+                      className="text-sm text-[#111827] font-mono"
                     >
                       {formatPhone(phone)}
                     </span>
@@ -284,7 +284,7 @@ export default function BlockedNumbersModal({
                       type="button"
                       onClick={() => removeMutation.mutate(phone)}
                       disabled={removeMutation.isPending}
-                      className="p-1.5 rounded-lg text-[#C5BDB3] hover:text-red-500 hover:bg-red-50 transition-colors cursor-pointer opacity-0 group-hover:opacity-100"
+                      className="p-1.5 rounded-lg text-[#D1D5DB] hover:text-red-500 hover:bg-red-50 transition-colors cursor-pointer opacity-0 group-hover:opacity-100"
                       title={t("blockedNumbersRemove")}
                       aria-label={t("blockedNumbersRemove")}
                     >
