@@ -36,7 +36,7 @@ const STATUS_KEYS: Record<string, string> = {
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const card =
-  "bg-white rounded-2xl border border-[#E8E4DF] shadow-[0_1px_3px_rgba(0,0,0,0.06)]";
+  "bg-white rounded-2xl border border-[#E5E7EB] shadow-[0_1px_3px_rgba(0,0,0,0.06)]";
 
 interface GatewayInstance {
   id: string;
@@ -293,7 +293,7 @@ export default function GatewaySection() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <Loader2 className="w-8 h-8 animate-spin text-[#D8723C]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#0891B2]" />
       </div>
     );
   }
@@ -310,7 +310,7 @@ export default function GatewaySection() {
         className="shrink-0 flex items-center justify-between"
       >
         <div>
-          <h1 className="text-xl font-bold text-[#111111]">
+          <h1 className="text-xl font-bold text-[#030712]">
             {t("gatewayTitle")}
           </h1>
           <p className="text-xs text-[#999999] mt-0.5">
@@ -334,7 +334,7 @@ export default function GatewaySection() {
           <button
             type="button"
             onClick={() => setShowCreate(true)}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#D8723C] hover:bg-[#C4632F] text-white text-xs font-bold transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0891B2] hover:bg-[#155E75] text-white text-xs font-bold transition-colors cursor-pointer"
           >
             <Plus className="w-3.5 h-3.5" />
             {t("gatewayCreateNew")}
@@ -363,7 +363,7 @@ export default function GatewaySection() {
       >
         <div className={cn(card, "w-[420px] p-6", !showCreate && "scale-95")}>
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-sm font-bold text-[#111111]">
+            <h2 className="text-sm font-bold text-[#030712]">
               {t("gatewayCreateNew")}
             </h2>
             <button
@@ -378,7 +378,7 @@ export default function GatewaySection() {
           <div className="space-y-4">
             {/* Instance ID */}
             <div>
-              <label className="block text-xs font-bold text-[#444444] mb-1">
+              <label className="block text-xs font-bold text-[#374151] mb-1">
                 {t("gatewayInstanceId")}
               </label>
               <input
@@ -389,7 +389,7 @@ export default function GatewaySection() {
                   )
                 }
                 placeholder="my-bot-1"
-                className="w-full border border-[#E8E4DF] rounded-xl px-4 py-2.5 text-sm text-[#111111] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#D8723C] focus:ring-1 focus:ring-[#D8723C]/20 transition-colors"
+                className="w-full border border-[#E5E7EB] rounded-xl px-4 py-2.5 text-sm text-[#030712] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#0891B2] focus:ring-1 focus:ring-[#0891B2]/20 transition-colors"
               />
               <p className="text-[10px] text-[#AAAAAA] mt-1">
                 {t("gatewayInstanceIdHint")}
@@ -398,20 +398,20 @@ export default function GatewaySection() {
 
             {/* Label */}
             <div>
-              <label className="block text-xs font-bold text-[#444444] mb-1">
+              <label className="block text-xs font-bold text-[#374151] mb-1">
                 {t("gatewayLabel")}
               </label>
               <input
                 value={newLabel}
                 onChange={(e) => setNewLabel(e.target.value)}
                 placeholder="My WhatsApp Bot"
-                className="w-full border border-[#E8E4DF] rounded-xl px-4 py-2.5 text-sm text-[#111111] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#D8723C] focus:ring-1 focus:ring-[#D8723C]/20 transition-colors"
+                className="w-full border border-[#E5E7EB] rounded-xl px-4 py-2.5 text-sm text-[#030712] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#0891B2] focus:ring-1 focus:ring-[#0891B2]/20 transition-colors"
               />
             </div>
 
             {/* Webhook URL */}
             <div>
-              <label className="block text-xs font-bold text-[#444444] mb-1">
+              <label className="block text-xs font-bold text-[#374151] mb-1">
                 {t("gatewayWebhookUrl")}{" "}
                 <span className="font-normal text-[#AAAAAA]">
                   ({t("fieldDescription") || "optional"})
@@ -422,7 +422,7 @@ export default function GatewaySection() {
                 onChange={(e) => setNewWebhook(e.target.value)}
                 placeholder="https://n8n.example.com/webhook/..."
                 dir="ltr"
-                className="w-full border border-[#E8E4DF] rounded-xl px-4 py-2.5 text-sm text-[#111111] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#D8723C] focus:ring-1 focus:ring-[#D8723C]/20 transition-colors font-mono text-xs"
+                className="w-full border border-[#E5E7EB] rounded-xl px-4 py-2.5 text-sm text-[#030712] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#0891B2] focus:ring-1 focus:ring-[#0891B2]/20 transition-colors font-mono text-xs"
               />
               <p className="text-[10px] text-[#AAAAAA] mt-1">
                 {t("gatewayWebhookUrlHint")}
@@ -434,7 +434,7 @@ export default function GatewaySection() {
             type="button"
             onClick={() => createMutation.mutate()}
             disabled={!newId.trim() || createMutation.isPending}
-            className="mt-5 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#D8723C] hover:bg-[#C4632F] disabled:opacity-50 text-white text-sm font-bold transition-colors cursor-pointer disabled:cursor-not-allowed"
+            className="mt-5 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0891B2] hover:bg-[#155E75] disabled:opacity-50 text-white text-sm font-bold transition-colors cursor-pointer disabled:cursor-not-allowed"
           >
             <span className="w-4 h-4">
               {createMutation.isPending ? (
@@ -458,7 +458,7 @@ export default function GatewaySection() {
         )}
       >
         <div className={cn(card, "w-[360px] p-6", !confirmAction && "scale-95")}>
-          <p className="text-sm font-bold text-[#111111] mb-5">
+          <p className="text-sm font-bold text-[#030712] mb-5">
             {confirmAction?.type === "disconnect"
               ? t("gatewayDisconnectConfirm")
               : t("gatewayDeleteConfirm")}
@@ -467,7 +467,7 @@ export default function GatewaySection() {
             <button
               type="button"
               onClick={() => setConfirmAction(null)}
-              className="px-4 py-2 rounded-xl text-xs font-bold text-[#666666] hover:bg-black/[0.04] border border-[#E8E4DF] transition-colors cursor-pointer"
+              className="px-4 py-2 rounded-xl text-xs font-bold text-[#666666] hover:bg-black/[0.04] border border-[#E5E7EB] transition-colors cursor-pointer"
             >
               {t("cancel")}
             </button>
@@ -522,13 +522,13 @@ export default function GatewaySection() {
                     setQrCode(null);
                   }}
                   className={cn(
-                    "w-full text-start px-4 py-3.5 border-b border-[#F0ECE7] hover:bg-[#FAFAF8] transition-colors cursor-pointer",
+                    "w-full text-start px-4 py-3.5 border-b border-[#E5E7EB] hover:bg-[#F9FAFB] transition-colors cursor-pointer",
                     selectedId === inst.id &&
-                      "bg-[#FDF9F6] border-s-2 border-s-[#D8723C]"
+                      "bg-[#FFFFFF] border-s-2 border-s-[#0891B2]"
                   )}
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <p className="text-xs font-bold text-[#111111] truncate flex-1">
+                    <p className="text-xs font-bold text-[#030712] truncate flex-1">
                       {inst.label || inst.instance_id}
                     </p>
                     <span
@@ -557,9 +557,9 @@ export default function GatewaySection() {
           {selected ? (
             <>
               {/* Detail header */}
-              <div className="px-5 py-4 border-b border-[#F0ECE7] shrink-0">
+              <div className="px-5 py-4 border-b border-[#E5E7EB] shrink-0">
                 <div className="flex items-center justify-between mb-1">
-                  <h2 className="text-sm font-bold text-[#111111] truncate flex-1">
+                  <h2 className="text-sm font-bold text-[#030712] truncate flex-1">
                     {selected.label || selected.instance_id}
                   </h2>
                   <span
@@ -595,7 +595,7 @@ export default function GatewaySection() {
                         <img
                           src={qrCode}
                           alt="QR Code"
-                          className="w-64 h-64 rounded-xl border border-[#E8E4DF]"
+                          className="w-64 h-64 rounded-xl border border-[#E5E7EB]"
                         />
                         <button
                           type="button"
@@ -603,7 +603,7 @@ export default function GatewaySection() {
                             startMutation.mutate(selected.instance_id)
                           }
                           disabled={startMutation.isPending}
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-[#D8723C] hover:bg-[#D8723C]/10 transition-colors cursor-pointer"
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-[#0891B2] hover:bg-[#0891B2]/10 transition-colors cursor-pointer"
                         >
                           <RefreshCw
                             className={cn(
@@ -621,7 +621,7 @@ export default function GatewaySection() {
                           startMutation.mutate(selected.instance_id)
                         }
                         disabled={startMutation.isPending}
-                        className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-dashed border-[#E8E4DF] text-xs font-bold text-[#999999] hover:border-[#D8723C] hover:text-[#D8723C] transition-colors cursor-pointer"
+                        className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-dashed border-[#E5E7EB] text-xs font-bold text-[#999999] hover:border-[#0891B2] hover:text-[#0891B2] transition-colors cursor-pointer"
                       >
                         <span className="w-4 h-4">
                           {startMutation.isPending ? (
@@ -653,7 +653,7 @@ export default function GatewaySection() {
 
                 {/* Webhook URL */}
                 <div>
-                  <label className="flex items-center gap-1.5 text-xs font-bold text-[#444444] mb-1.5">
+                  <label className="flex items-center gap-1.5 text-xs font-bold text-[#374151] mb-1.5">
                     <Link className="w-3.5 h-3.5" />
                     {t("gatewayWebhookUrl")}
                   </label>
@@ -663,7 +663,7 @@ export default function GatewaySection() {
                       onChange={(e) => setWebhookInput(e.target.value)}
                       placeholder="https://n8n.example.com/webhook/..."
                       dir="ltr"
-                      className="flex-1 border border-[#E8E4DF] rounded-xl px-4 py-2.5 text-sm text-[#111111] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#D8723C] focus:ring-1 focus:ring-[#D8723C]/20 transition-colors font-mono text-xs"
+                      className="flex-1 border border-[#E5E7EB] rounded-xl px-4 py-2.5 text-sm text-[#030712] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#0891B2] focus:ring-1 focus:ring-[#0891B2]/20 transition-colors font-mono text-xs"
                     />
                     <button
                       type="button"
@@ -674,7 +674,7 @@ export default function GatewaySection() {
                         })
                       }
                       disabled={webhookMutation.isPending}
-                      className="px-4 py-2.5 rounded-xl bg-[#111111] hover:bg-[#333333] disabled:opacity-50 text-white text-xs font-bold transition-colors cursor-pointer disabled:cursor-not-allowed"
+                      className="px-4 py-2.5 rounded-xl bg-[#030712] hover:bg-[#333333] disabled:opacity-50 text-white text-xs font-bold transition-colors cursor-pointer disabled:cursor-not-allowed"
                     >
                       {webhookMutation.isPending && (
                         <Loader2 className="w-4 h-4 animate-spin" />
@@ -690,7 +690,7 @@ export default function GatewaySection() {
                 {/* Send test message */}
                 {selected.status === "connected" && (
                   <div>
-                    <label className="flex items-center gap-1.5 text-xs font-bold text-[#444444] mb-1.5">
+                    <label className="flex items-center gap-1.5 text-xs font-bold text-[#374151] mb-1.5">
                       <Send className="w-3.5 h-3.5" />
                       {t("gatewaySendTest")}
                     </label>
@@ -700,7 +700,7 @@ export default function GatewaySection() {
                         onChange={(e) => setTestPhone(e.target.value)}
                         placeholder="972501234567"
                         dir="ltr"
-                        className="w-full border border-[#E8E4DF] rounded-xl px-4 py-2.5 text-sm text-[#111111] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#D8723C] focus:ring-1 focus:ring-[#D8723C]/20 transition-colors font-mono text-xs"
+                        className="w-full border border-[#E5E7EB] rounded-xl px-4 py-2.5 text-sm text-[#030712] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#0891B2] focus:ring-1 focus:ring-[#0891B2]/20 transition-colors font-mono text-xs"
                       />
                       <div className="flex gap-2">
                         <textarea
@@ -708,7 +708,7 @@ export default function GatewaySection() {
                           onChange={(e) => setTestMessage(e.target.value)}
                           placeholder={t("gatewayTestMessage")}
                           rows={2}
-                          className="flex-1 border border-[#E8E4DF] rounded-xl px-4 py-2.5 text-sm text-[#111111] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#D8723C] focus:ring-1 focus:ring-[#D8723C]/20 transition-colors resize-none"
+                          className="flex-1 border border-[#E5E7EB] rounded-xl px-4 py-2.5 text-sm text-[#030712] placeholder:text-[#CCCCCC] focus:outline-none focus:border-[#0891B2] focus:ring-1 focus:ring-[#0891B2]/20 transition-colors resize-none"
                         />
                         <button
                           type="button"
@@ -718,7 +718,7 @@ export default function GatewaySection() {
                             !testMessage.trim() ||
                             sendTestMutation.isPending
                           }
-                          className="self-end px-4 py-2.5 rounded-xl bg-[#D8723C] hover:bg-[#C4632F] disabled:opacity-50 text-white text-xs font-bold transition-colors cursor-pointer disabled:cursor-not-allowed flex items-center gap-1.5"
+                          className="self-end px-4 py-2.5 rounded-xl bg-[#0891B2] hover:bg-[#155E75] disabled:opacity-50 text-white text-xs font-bold transition-colors cursor-pointer disabled:cursor-not-allowed flex items-center gap-1.5"
                         >
                           <span className="w-4 h-4">
                             {sendTestMutation.isPending ? (
@@ -735,7 +735,7 @@ export default function GatewaySection() {
               </div>
 
               {/* Actions footer */}
-              <div className="px-5 py-3 border-t border-[#F0ECE7] shrink-0 flex items-center gap-2">
+              <div className="px-5 py-3 border-t border-[#E5E7EB] shrink-0 flex items-center gap-2">
                 {selected.status === "connected" && (
                   <button
                     type="button"
