@@ -70,11 +70,11 @@ export default function PendingPage() {
         className="min-h-screen font-secular-one flex items-center justify-center"
         style={{
           background:
-            "linear-gradient(170deg, #FDF8F2 0%, #F8F0E6 40%, #FBF5EE 100%)",
+            "linear-gradient(170deg, #F9FAFB 0%, #F3F4F6 40%, #F9FAFB 100%)",
         }}
       >
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <Loader2 className="w-8 h-8 animate-spin text-[#FF6B2C]" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#06B6D4]" />
         </motion.div>
       </div>
     );
@@ -86,7 +86,7 @@ export default function PendingPage() {
       className="min-h-screen font-secular-one relative"
       style={{
         background:
-          "linear-gradient(170deg, #FDF8F2 0%, #F8F0E6 40%, #FBF5EE 100%)",
+          "linear-gradient(170deg, #F9FAFB 0%, #F3F4F6 40%, #F9FAFB 100%)",
       }}
     >
       {/* Background glow */}
@@ -94,12 +94,12 @@ export default function PendingPage() {
 
       {/* Floating geometric accents */}
       <motion.div
-        className="absolute top-[12%] right-[10%] w-5 h-5 border-2 border-[#FF6B2C]/20 rotate-45"
+        className="absolute top-[12%] right-[10%] w-5 h-5 border-2 border-[#06B6D4]/20 rotate-45"
         animate={{ y: [0, -14, 0], rotate: [45, 52, 45] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute top-[18%] left-[8%] w-3.5 h-3.5 rounded-full bg-[#FF6B2C]/15"
+        className="absolute top-[18%] left-[8%] w-3.5 h-3.5 rounded-full bg-[#06B6D4]/15"
         animate={{ y: [0, 12, 0], scale: [1, 1.4, 1] }}
         transition={{
           duration: 8,
@@ -109,7 +109,7 @@ export default function PendingPage() {
         }}
       />
       <motion.div
-        className="absolute top-[50%] right-[6%] w-7 h-7 rounded-full border-2 border-[#FF6B2C]/15"
+        className="absolute top-[50%] right-[6%] w-7 h-7 rounded-full border-2 border-[#06B6D4]/15"
         animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.35, 0.15] }}
         transition={{
           duration: 6,
@@ -119,7 +119,7 @@ export default function PendingPage() {
         }}
       />
       <motion.div
-        className="absolute bottom-[22%] left-[12%] w-4 h-4 border-2 border-[#FF6B2C]/20"
+        className="absolute bottom-[22%] left-[12%] w-4 h-4 border-2 border-[#06B6D4]/20"
         animate={{ y: [0, 10, 0], rotate: [0, 12, 0] }}
         transition={{
           duration: 9,
@@ -129,7 +129,7 @@ export default function PendingPage() {
         }}
       />
       <motion.div
-        className="absolute top-[60%] left-[5%] w-9 h-[2px] bg-[#FF6B2C]/15"
+        className="absolute top-[60%] left-[5%] w-9 h-[2px] bg-[#06B6D4]/15"
         animate={{ scaleX: [1, 1.6, 1], opacity: [0.15, 0.35, 0.15] }}
         transition={{
           duration: 7,
@@ -148,9 +148,9 @@ export default function PendingPage() {
           delay: 1,
         }}
       >
-        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]/30" />
-        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]/20" />
-        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]/10" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]/30" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]/20" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]/10" />
       </motion.div>
 
       {/* Centered content */}
@@ -164,12 +164,12 @@ export default function PendingPage() {
           dir="ltr"
         >
           <img
-            src="/clix-logo-full.png"
-            alt="CLIX"
-            className="h-8 drop-shadow-[0_0_12px_rgba(255,107,44,0.3)]"
+            src="/Ortam-logo.png"
+            alt="Ortam"
+            className="h-8 drop-shadow-[0_0_12px_rgba(6,182,212,0.3)]"
           />
-          <span className="text-[#2D2A26] font-bold text-2xl tracking-wide select-none">
-            CLIX
+          <span className="text-[#111827] font-bold text-2xl tracking-wide select-none">
+            Ortam
           </span>
         </motion.div>
 
@@ -202,20 +202,20 @@ export default function PendingPage() {
                 className="w-16 h-16 rounded-2xl flex items-center justify-center"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(255,107,44,0.12), rgba(255,107,44,0.22))",
-                  border: "1px solid rgba(255,107,44,0.18)",
+                    "linear-gradient(135deg, rgba(6,182,212,0.12), rgba(6,182,212,0.22))",
+                  border: "1px solid rgba(6,182,212,0.18)",
                 }}
               >
-                <Bell className="w-8 h-8 text-[#FF6B2C] bell-rock" />
+                <Bell className="w-8 h-8 text-[#06B6D4] bell-rock" />
               </div>
             </motion.div>
 
             {/* Text */}
             <div className="text-center space-y-3 mb-6">
-              <h1 className="text-[22px] font-bold text-[#2D2A26]">
+              <h1 className="text-[22px] font-bold text-[#111827]">
                 {t("title")}
               </h1>
-              <p className="text-[#7A7267] text-sm leading-relaxed">
+              <p className="text-[#6B7280] text-sm leading-relaxed">
                 {t("subtitle")}
               </p>
             </div>
@@ -245,7 +245,7 @@ export default function PendingPage() {
                       className={cn(
                         "w-2 h-2 rounded-full",
                         isPending
-                          ? "bg-[#FF9F3C] animate-pulse"
+                          ? "bg-[#22D3EE] animate-pulse"
                           : "bg-green-500",
                       )}
                     />
@@ -273,7 +273,7 @@ export default function PendingPage() {
               whileTap={isChecking ? {} : { scale: 0.985 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
               className={cn(
-                "clix-btn w-full text-[15px] py-3.5 rounded-xl flex items-center justify-center gap-2",
+                "ortam-btn w-full text-[15px] py-3.5 rounded-xl flex items-center justify-center gap-2",
                 isChecking && "opacity-60 pointer-events-none",
               )}
             >
@@ -284,13 +284,13 @@ export default function PendingPage() {
             </motion.button>
 
             {/* Divider */}
-            <div className="my-4 border-t border-[#EDE6DD]/60" />
+            <div className="my-4 border-t border-[#E5E7EB]/60" />
 
             {/* Log out button */}
             <button
               type="button"
               onClick={handleSignOut}
-              className="w-full py-2.5 flex items-center justify-center gap-2 text-[#A39B90] hover:text-[#7A7267] transition-colors text-sm"
+              className="w-full py-2.5 flex items-center justify-center gap-2 text-[#9CA3AF] hover:text-[#6B7280] transition-colors text-sm"
             >
               <LogOut className="w-4 h-4" />
               {t("signOutBtn")}
@@ -303,7 +303,7 @@ export default function PendingPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="text-[#A39B90] text-xs mt-8 tracking-wide"
+          className="text-[#9CA3AF] text-xs mt-8 tracking-wide"
         >
           {t("tagline")}
         </motion.p>
