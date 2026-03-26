@@ -103,14 +103,14 @@ export default function RagUploadModal({ isOpen, onClose }: RagUploadModalProps)
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-[#EDE6DD]/60">
-              <h2 className="text-lg font-bold text-[#2D2A26]">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E7EB]/60">
+              <h2 className="text-lg font-bold text-[#111827]">
                 {t("uploadTitle")}
               </h2>
               <button
                 type="button"
                 onClick={handleClose}
-                className="p-1.5 rounded-lg text-[#A39B90] hover:text-[#2D2A26] hover:bg-[#EDE6DD]/40 transition-colors cursor-pointer"
+                className="p-1.5 rounded-lg text-[#9CA3AF] hover:text-[#111827] hover:bg-[#E5E7EB]/40 transition-colors cursor-pointer"
                 aria-label="Close"
               >
                 <X className="w-5 h-5" />
@@ -121,27 +121,27 @@ export default function RagUploadModal({ isOpen, onClose }: RagUploadModalProps)
             <div className="px-6 py-5">
               {isLoading ? (
                 <div className="flex items-center justify-center py-12">
-                  <Loader2 className="w-6 h-6 text-[#FF7E47] animate-spin" />
+                  <Loader2 className="w-6 h-6 text-[#22D3EE] animate-spin" />
                 </div>
               ) : isUploading || document?.status === "processing" ? (
                 /* Uploading / Processing State */
                 <div className="flex flex-col items-center justify-center py-10 gap-4">
-                  <Loader2 className="w-10 h-10 text-[#FF7E47] animate-spin" />
-                  <p className="text-sm text-[#7A7267] font-medium">
+                  <Loader2 className="w-10 h-10 text-[#22D3EE] animate-spin" />
+                  <p className="text-sm text-[#6B7280] font-medium">
                     {uploadProgress || t("processingFile")}
                   </p>
                 </div>
               ) : document?.status === "ready" ? (
                 /* Document Ready State */
                 <div className="space-y-4">
-                  <div className="bg-[#FAF7F3] rounded-xl p-4 border border-[#EDE6DD]/60">
+                  <div className="bg-[#F9FAFB] rounded-xl p-4 border border-[#E5E7EB]/60">
                     <div className="flex items-start gap-3">
-                      <div className="p-2 bg-[#FF7E47]/10 rounded-lg shrink-0">
-                        <FileText className="w-5 h-5 text-[#FF7E47]" />
+                      <div className="p-2 bg-[#22D3EE]/10 rounded-lg shrink-0">
+                        <FileText className="w-5 h-5 text-[#22D3EE]" />
                       </div>
                       <div className="flex-1 min-w-0 space-y-2">
                         <div className="flex items-center gap-2">
-                          <span className="text-sm font-semibold text-[#2D2A26] truncate">
+                          <span className="text-sm font-semibold text-[#111827] truncate">
                             {document.file_name}
                           </span>
                           <span className="flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">
@@ -149,7 +149,7 @@ export default function RagUploadModal({ isOpen, onClose }: RagUploadModalProps)
                             {t("statusReady")}
                           </span>
                         </div>
-                        <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[#7A7267]">
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[#6B7280]">
                           <span>
                             {t("fileSize")}:{" "}
                             {formatFileSize(document.file_size)}
@@ -173,7 +173,7 @@ export default function RagUploadModal({ isOpen, onClose }: RagUploadModalProps)
                     <button
                       type="button"
                       onClick={() => fileInputRef.current?.click()}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-[#FF7E47] bg-[#FF7E47]/10 hover:bg-[#FF7E47]/20 transition-colors cursor-pointer"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-[#22D3EE] bg-[#22D3EE]/10 hover:bg-[#22D3EE]/20 transition-colors cursor-pointer"
                     >
                       <RefreshCw className="w-4 h-4" />
                       {t("replaceFile")}
@@ -198,7 +198,7 @@ export default function RagUploadModal({ isOpen, onClose }: RagUploadModalProps)
               ) : (
                 /* Empty / Error State — show upload zone */
                 <div className="space-y-4">
-                  <p className="text-sm text-[#7A7267] leading-relaxed">
+                  <p className="text-sm text-[#6B7280] leading-relaxed">
                     {t("uploadDesc")}
                   </p>
 
@@ -226,30 +226,30 @@ export default function RagUploadModal({ isOpen, onClose }: RagUploadModalProps)
                     className={cn(
                       "flex flex-col items-center justify-center gap-3 py-10 rounded-xl border-2 border-dashed cursor-pointer transition-all duration-200",
                       isDragOver
-                        ? "border-[#FF7E47] bg-[#FF7E47]/5"
-                        : "border-[#EDE6DD] hover:border-[#FF7E47]/40 hover:bg-[#FAF7F3]",
+                        ? "border-[#22D3EE] bg-[#22D3EE]/5"
+                        : "border-[#E5E7EB] hover:border-[#22D3EE]/40 hover:bg-[#F9FAFB]",
                     )}
                   >
                     <div
                       className={cn(
                         "p-3 rounded-full transition-colors",
                         isDragOver
-                          ? "bg-[#FF7E47]/15"
-                          : "bg-[#EDE6DD]/60",
+                          ? "bg-[#22D3EE]/15"
+                          : "bg-[#E5E7EB]/60",
                       )}
                     >
                       <Upload
                         className={cn(
                           "w-6 h-6 transition-colors",
-                          isDragOver ? "text-[#FF7E47]" : "text-[#A39B90]",
+                          isDragOver ? "text-[#22D3EE]" : "text-[#9CA3AF]",
                         )}
                       />
                     </div>
                     <div className="text-center">
-                      <p className="text-sm font-medium text-[#2D2A26]">
+                      <p className="text-sm font-medium text-[#111827]">
                         {t("dragDrop")}
                       </p>
-                      <p className="text-xs text-[#A39B90] mt-1">
+                      <p className="text-xs text-[#9CA3AF] mt-1">
                         {t("supportedFormats")}
                       </p>
                     </div>
