@@ -43,14 +43,14 @@ function SectionCard({
   return (
     <motion.div
       variants={fadeUp}
-      className="bg-white rounded-2xl border border-[#EDE6DD]/60 shadow-[0_1px_12px_rgba(45,42,38,0.04)] p-6"
+      className="bg-white rounded-2xl border border-[#E5E7EB]/60 shadow-[0_1px_12px_rgba(17,24,39,0.04)] p-6"
     >
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-[#FF6B2C]/10 flex items-center justify-center">
-            <Icon className="w-4 h-4 text-[#FF6B2C]" />
+          <div className="w-8 h-8 rounded-lg bg-[#06B6D4]/10 flex items-center justify-center">
+            <Icon className="w-4 h-4 text-[#06B6D4]" />
           </div>
-          <h2 className="text-base font-bold text-[#2D2A26]">{title}</h2>
+          <h2 className="text-base font-bold text-[#111827]">{title}</h2>
         </div>
         {headerAction}
       </div>
@@ -92,9 +92,9 @@ function InputField({
 
   return (
     <div>
-      <label className="block text-[#2D2A26]/60 text-sm mb-1">{label}</label>
+      <label className="block text-[#111827]/60 text-sm mb-1">{label}</label>
       <div className="relative">
-        <Icon className="absolute right-3 top-1/2 -translate-y-1/2 w-[17px] h-[17px] text-[#A39B90]" />
+        <Icon className="absolute right-3 top-1/2 -translate-y-1/2 w-[17px] h-[17px] text-[#9CA3AF]" />
         <input
           type={inputType}
           value={value}
@@ -104,20 +104,20 @@ function InputField({
           dir={dir}
           placeholder={placeholder}
           className={cn(
-            "w-full border border-[#EDE6DD] rounded-xl text-[#2D2A26] text-sm py-2.5 pr-10",
+            "w-full border border-[#E5E7EB] rounded-xl text-[#111827] text-sm py-2.5 pr-10",
             showToggle ? "pl-10" : "pl-3.5",
             disabled
-              ? "bg-[#F5F2EE] text-[#A39B90] cursor-not-allowed"
+              ? "bg-[#F5F2EE] text-[#9CA3AF] cursor-not-allowed"
               : readOnly
                 ? "bg-[#FAF7F4] cursor-default"
-                : "bg-white focus:outline-none focus:border-[#FF6B2C]/50 focus:shadow-[0_0_0_3px_rgba(255,107,44,0.08)] hover:border-[#D5CEC5] transition-all duration-200",
+                : "bg-white focus:outline-none focus:border-[#06B6D4]/50 focus:shadow-[0_0_0_3px_rgba(6,182,212,0.08)] hover:border-[#D1D5DB] transition-all duration-200",
           )}
         />
         {showToggle && (
           <button
             type="button"
             onClick={onToggle}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-[#A39B90] hover:text-[#7A7267] transition-colors"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9CA3AF] hover:text-[#6B7280] transition-colors"
           >
             {isVisible ? (
               <EyeOff className="w-[17px] h-[17px]" />
@@ -169,7 +169,7 @@ function SubmitBtn({
       onClick={onClick}
       disabled={isSubmitting || disabled}
       className={cn(
-        "clix-btn w-full sm:w-auto text-sm py-2.5 px-6 rounded-xl flex items-center justify-center gap-2 cursor-pointer",
+        "ortam-btn w-full sm:w-auto text-sm py-2.5 px-6 rounded-xl flex items-center justify-center gap-2 cursor-pointer",
         (isSubmitting || disabled) && "opacity-50 cursor-not-allowed",
       )}
     >
@@ -186,7 +186,7 @@ function EditBtn({ onClick, label }: { onClick: () => void; label: string }) {
     <button
       type="button"
       onClick={onClick}
-      className="flex items-center gap-1.5 text-sm text-[#FF6B2C] hover:text-[#E8590C] transition-colors cursor-pointer"
+      className="flex items-center gap-1.5 text-sm text-[#06B6D4] hover:text-[#0E7490] transition-colors cursor-pointer"
     >
       <Pencil className="w-3.5 h-3.5" />
       {label}
@@ -295,7 +295,7 @@ export default function ProfilePage() {
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: EASE }}
-        className="text-xl font-bold text-[#2D2A26] mb-6"
+        className="text-xl font-bold text-[#111827] mb-6"
       >
         {t("pageTitle")}
       </motion.h1>
@@ -351,7 +351,7 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={handleCancelProfile}
-                  className="text-sm text-[#7A7267] hover:text-[#2D2A26] transition-colors cursor-pointer"
+                  className="text-sm text-[#6B7280] hover:text-[#111827] transition-colors cursor-pointer"
                 >
                   {t("cancel")}
                 </button>
@@ -413,7 +413,7 @@ export default function ProfilePage() {
                   <button
                     type="button"
                     onClick={handleCancelPassword}
-                    className="text-sm text-[#7A7267] hover:text-[#2D2A26] transition-colors cursor-pointer"
+                    className="text-sm text-[#6B7280] hover:text-[#111827] transition-colors cursor-pointer"
                   >
                     {t("cancel")}
                   </button>
@@ -422,7 +422,7 @@ export default function ProfilePage() {
             </>
           ) : (
             <>
-              <p className="text-sm text-[#A39B90]">••••••••</p>
+              <p className="text-sm text-[#9CA3AF]">••••••••</p>
               {pwMsg && (
                 <div className="mt-3">
                   <FeedbackMsg msg={pwMsg} isError={pwIsError} />
