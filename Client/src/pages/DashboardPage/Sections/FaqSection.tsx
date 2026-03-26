@@ -139,7 +139,7 @@ export default function FaqSection() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <Loader2 className="w-8 h-8 animate-spin text-[#FF7E47]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#22D3EE]" />
       </div>
     );
   }
@@ -154,10 +154,10 @@ export default function FaqSection() {
       {/* Table */}
       <motion.div
         variants={fadeUp}
-        className="bg-white rounded-2xl shadow-[0_2px_24px_rgba(45,42,38,0.05)] border border-[#EDE6DD]/50 overflow-hidden"
+        className="bg-white rounded-2xl shadow-[0_2px_24px_rgba(17,24,39,0.05)] border border-[#E5E7EB]/50 overflow-hidden"
       >
         {/* Table Header */}
-        <div className="grid grid-cols-[40px_1fr_1fr_64px_48px] gap-3 px-5 py-3 bg-[#FAF7F3] border-b border-[#EDE6DD]/60 text-xs font-bold text-[#7A7267] uppercase tracking-wider">
+        <div className="grid grid-cols-[40px_1fr_1fr_64px_48px] gap-3 px-5 py-3 bg-[#F9FAFB] border-b border-[#E5E7EB]/60 text-xs font-bold text-[#6B7280] uppercase tracking-wider">
           <span>#</span>
           <span>{t("question")}</span>
           <span>{t("answer")}</span>
@@ -174,10 +174,10 @@ export default function FaqSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, x: 40 }}
               transition={{ duration: 0.25, ease: EASE }}
-              className="grid grid-cols-[40px_1fr_1fr_64px_48px] gap-3 px-5 py-3 border-b border-[#EDE6DD]/30 items-center group"
+              className="grid grid-cols-[40px_1fr_1fr_64px_48px] gap-3 px-5 py-3 border-b border-[#E5E7EB]/30 items-center group"
             >
               {/* Row number */}
-              <span className="text-xs text-[#A39B90] font-mono">{idx + 1}</span>
+              <span className="text-xs text-[#9CA3AF] font-mono">{idx + 1}</span>
 
               {/* Question */}
               <input
@@ -185,7 +185,7 @@ export default function FaqSection() {
                 value={entry.question}
                 onChange={(e) => updateField(entry.id, "question", e.target.value)}
                 placeholder={t("questionPlaceholder")}
-                className="w-full px-3 py-2 rounded-lg border border-transparent hover:border-[#EDE6DD] focus:border-[#FF7E47]/40 focus:ring-2 focus:ring-[#FF7E47]/20 bg-transparent text-sm text-[#2D2A26] placeholder-[#C5BDB4] transition-all outline-none"
+                className="w-full px-3 py-2 rounded-lg border border-transparent hover:border-[#E5E7EB] focus:border-[#22D3EE]/40 focus:ring-2 focus:ring-[#22D3EE]/20 bg-transparent text-sm text-[#111827] placeholder-[#C5BDB4] transition-all outline-none"
               />
 
               {/* Answer */}
@@ -194,7 +194,7 @@ export default function FaqSection() {
                 value={entry.answer}
                 onChange={(e) => updateField(entry.id, "answer", e.target.value)}
                 placeholder={t("answerPlaceholder")}
-                className="w-full px-3 py-2 rounded-lg border border-transparent hover:border-[#EDE6DD] focus:border-[#FF7E47]/40 focus:ring-2 focus:ring-[#FF7E47]/20 bg-transparent text-sm text-[#2D2A26] placeholder-[#C5BDB4] transition-all outline-none"
+                className="w-full px-3 py-2 rounded-lg border border-transparent hover:border-[#E5E7EB] focus:border-[#22D3EE]/40 focus:ring-2 focus:ring-[#22D3EE]/20 bg-transparent text-sm text-[#111827] placeholder-[#C5BDB4] transition-all outline-none"
               />
 
               {/* Active toggle */}
@@ -203,7 +203,7 @@ export default function FaqSection() {
                   type="button"
                   onClick={() => toggleActive(entry.id)}
                   className={`w-10 h-5.5 rounded-full relative transition-colors duration-200 cursor-pointer ${
-                    entry.is_active ? "bg-[#FF7E47]" : "bg-[#D9D4CE]"
+                    entry.is_active ? "bg-[#22D3EE]" : "bg-[#D9D4CE]"
                   }`}
                 >
                   <span
@@ -230,17 +230,17 @@ export default function FaqSection() {
         {entries.length === 0 && (
           <div className="flex flex-col items-center justify-center py-16 text-center">
             <HelpCircle className="w-10 h-10 text-[#D9D4CE] mb-3" />
-            <p className="text-sm text-[#7A7267] font-medium">{t("noQuestionsYet")}</p>
-            <p className="text-xs text-[#A39B90] mt-1">{t("clickAddToStart")}</p>
+            <p className="text-sm text-[#6B7280] font-medium">{t("noQuestionsYet")}</p>
+            <p className="text-xs text-[#9CA3AF] mt-1">{t("clickAddToStart")}</p>
           </div>
         )}
 
         {/* Add Row Button */}
-        <div className="px-5 py-3 border-t border-[#EDE6DD]/40">
+        <div className="px-5 py-3 border-t border-[#E5E7EB]/40">
           <button
             type="button"
             onClick={addEntry}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-[#FF7E47] hover:bg-[#FF7E47]/10 transition-colors cursor-pointer"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-[#22D3EE] hover:bg-[#22D3EE]/10 transition-colors cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             {t("addRow")}
@@ -269,8 +269,8 @@ export default function FaqSection() {
             whileTap={dirty ? { scale: 0.98 } : {}}
             className={`group relative w-full sm:w-auto inline-flex items-center justify-center gap-2.5 font-bold text-base rounded-2xl px-10 py-4 transition-all duration-300 ${
               dirty
-                ? "bg-[#FF7E47] hover:bg-[#E86B38] text-white shadow-[0_4px_20px_rgba(255,126,71,0.3)] hover:shadow-[0_6px_28px_rgba(255,126,71,0.4)]"
-                : "bg-[#EDE6DD] text-[#A39B90] cursor-not-allowed"
+                ? "bg-[#22D3EE] hover:bg-[#0891B2] text-white shadow-[0_4px_20px_rgba(34,211,238,0.3)] hover:shadow-[0_6px_28px_rgba(34,211,238,0.4)]"
+                : "bg-[#E5E7EB] text-[#9CA3AF] cursor-not-allowed"
             }`}
           >
             {saving ? (
