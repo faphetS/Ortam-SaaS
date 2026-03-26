@@ -86,7 +86,7 @@ export default function AdminUsersSection() {
         animate={{ opacity: 1, y: 0 }}
         className="mb-6"
       >
-        <h1 className="text-2xl font-bold text-[#111111]">{t("usersTitle")}</h1>
+        <h1 className="text-2xl font-bold text-[#030712]">{t("usersTitle")}</h1>
         <p className="text-[#999999] text-sm mt-1">{t("usersSubtitle")}</p>
       </motion.div>
 
@@ -105,7 +105,7 @@ export default function AdminUsersSection() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={t("searchPlaceholder")}
-            className="w-full bg-white border border-[#E8E4DF] rounded-xl pr-10 pl-4 py-2.5 text-sm text-[#111111] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#D8723C]/50 focus:ring-2 focus:ring-[#D8723C]/10 transition-colors"
+            className="w-full bg-white border border-[#E5E7EB] rounded-xl pr-10 pl-4 py-2.5 text-sm text-[#030712] placeholder:text-[#BBBBBB] focus:outline-none focus:border-[#0891B2]/50 focus:ring-2 focus:ring-[#0891B2]/10 transition-colors"
           />
         </div>
 
@@ -120,15 +120,15 @@ export default function AdminUsersSection() {
               className={cn(
                 "px-3 py-1.5 rounded-lg text-xs font-medium border transition-all duration-200 cursor-pointer",
                 statusFilter === s
-                  ? "bg-[#D8723C]/10 text-[#D8723C] border-[#D8723C]/30"
-                  : "bg-transparent text-[#777777] border-[#E0DBD6] hover:text-[#333333] hover:border-[#C5BEB8]"
+                  ? "bg-[#0891B2]/10 text-[#0891B2] border-[#0891B2]/30"
+                  : "bg-transparent text-[#777777] border-[#D1D5DB] hover:text-[#333333] hover:border-[#C5BEB8]"
               )}
             >
               {statusLabel(s)}
             </button>
           ))}
 
-          <div className="w-px h-6 bg-[#E0DBD6] self-center mx-1" />
+          <div className="w-px h-6 bg-[#D1D5DB] self-center mx-1" />
 
           {/* Bot status filters */}
           {botFilters.map((b) => (
@@ -139,8 +139,8 @@ export default function AdminUsersSection() {
               className={cn(
                 "px-3 py-1.5 rounded-lg text-xs font-medium border transition-all duration-200 cursor-pointer",
                 botFilter === b
-                  ? "bg-[#D8723C]/10 text-[#D8723C] border-[#D8723C]/30"
-                  : "bg-transparent text-[#777777] border-[#E0DBD6] hover:text-[#333333] hover:border-[#C5BEB8]"
+                  ? "bg-[#0891B2]/10 text-[#0891B2] border-[#0891B2]/30"
+                  : "bg-transparent text-[#777777] border-[#D1D5DB] hover:text-[#333333] hover:border-[#C5BEB8]"
               )}
             >
               {botLabel(b)}
@@ -152,7 +152,7 @@ export default function AdminUsersSection() {
       {/* Loading */}
       {isLoading && (
         <div className="flex justify-center py-20">
-          <Loader2 className="w-8 h-8 animate-spin text-[#D8723C]" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#0891B2]" />
         </div>
       )}
 
@@ -186,16 +186,16 @@ export default function AdminUsersSection() {
             exit={{ opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.3, delay: i * 0.03 }}
             onClick={() => navigate(`/admin/users/${user.id}`)}
-            className="mb-2 rounded-2xl border border-[#E8E4DF] bg-white px-5 py-4 flex items-center gap-4 cursor-pointer hover:bg-[#FDF9F6] hover:border-[#D8723C]/30 hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all duration-200 shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
+            className="mb-2 rounded-2xl border border-[#E5E7EB] bg-white px-5 py-4 flex items-center gap-4 cursor-pointer hover:bg-[#FFFFFF] hover:border-[#0891B2]/30 hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all duration-200 shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
           >
             {/* Avatar */}
-            <div className="w-10 h-10 rounded-full bg-[#D8723C]/10 border border-[#D8723C]/20 flex items-center justify-center shrink-0 text-[#D8723C] font-bold text-sm">
+            <div className="w-10 h-10 rounded-full bg-[#0891B2]/10 border border-[#0891B2]/20 flex items-center justify-center shrink-0 text-[#0891B2] font-bold text-sm">
               {user.full_name?.charAt(0) ?? "?"}
             </div>
 
             {/* Name + Email */}
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-bold text-[#111111] truncate">
+              <p className="text-sm font-bold text-[#030712] truncate">
                 {user.full_name}
               </p>
               <p className="text-xs text-[#999999] truncate">{user.email}</p>
