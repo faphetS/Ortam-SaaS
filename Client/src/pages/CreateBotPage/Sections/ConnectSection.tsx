@@ -66,7 +66,7 @@ const slideVariants = {
 };
 
 /* ── Confetti particle config ── */
-const PARTICLE_COLORS = ["#FF7E47", "#FFB878", "#FFC599", "#FF9A6C", "#FFD4B8"];
+const PARTICLE_COLORS = ["#22D3EE", "#67E8F9", "#A5F3FC", "#06B6D4", "#CFFAFE"];
 
 function generateParticles(count: number) {
   return Array.from({ length: count }, (_, i) => ({
@@ -126,14 +126,14 @@ function SuccessOverlay({ onGoToDashboard, t }: { onGoToDashboard: () => void; t
             animate={{ scale: [1, 1.5, 1.3], opacity: [0.5, 0, 0] }}
             transition={{ duration: 1.2, delay: 0.3 }}
             className="absolute inset-0 rounded-full"
-            style={{ background: "radial-gradient(circle, rgba(255,126,71,0.3) 0%, transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, rgba(34,211,238,0.3) 0%, transparent 70%)" }}
           />
           <svg width="96" height="96" viewBox="0 0 96 96" className="relative">
             <motion.circle
               cx="48"
               cy="48"
               r="44"
-              fill="#FF7E47"
+              fill="#22D3EE"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
@@ -159,10 +159,10 @@ function SuccessOverlay({ onGoToDashboard, t }: { onGoToDashboard: () => void; t
           transition={{ duration: 0.5, delay: 0.7, ease: EASE }}
           className="text-center space-y-2"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#2D2A26]">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#111827]">
             {t("connectSuccessTitle")}
           </h2>
-          <p className="text-base text-[#7A7267] max-w-sm mx-auto">
+          <p className="text-base text-[#6B7280] max-w-sm mx-auto">
             {t("connectSuccessSubtitle")}
           </p>
         </motion.div>
@@ -175,7 +175,7 @@ function SuccessOverlay({ onGoToDashboard, t }: { onGoToDashboard: () => void; t
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={onGoToDashboard}
-          className="inline-flex items-center gap-3 bg-[#FF7E47] hover:bg-[#E86B38] text-white font-bold text-lg rounded-2xl px-10 py-4 transition-colors duration-300 shadow-[0_4px_24px_rgba(255,126,71,0.35)] hover:shadow-[0_6px_32px_rgba(255,126,71,0.45)] cursor-pointer"
+          className="inline-flex items-center gap-3 bg-[#22D3EE] hover:bg-[#0891B2] text-white font-bold text-lg rounded-2xl px-10 py-4 transition-colors duration-300 shadow-[0_4px_24px_rgba(34,211,238,0.35)] hover:shadow-[0_6px_32px_rgba(34,211,238,0.45)] cursor-pointer"
         >
           {t("goToDashboard")}
           <ArrowRight className="w-5 h-5" />
