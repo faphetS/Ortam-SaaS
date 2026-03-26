@@ -18,7 +18,7 @@ interface FileUploadZoneProps {
 }
 
 const inputClass =
-  "w-full bg-[#FAF7F3] border border-[#E5DDD3] rounded-xl px-4 py-2.5 text-sm text-[#2D2A26] placeholder-[#B8AFA4] focus:border-[#FF7E47] focus:ring-2 focus:ring-[#FF7E47]/15 outline-none transition-all duration-200";
+  "w-full bg-[#F9FAFB] border border-[#D1D5DB] rounded-xl px-4 py-2.5 text-sm text-[#111827] placeholder-[#D1D5DB] focus:border-[#22D3EE] focus:ring-2 focus:ring-[#22D3EE]/15 outline-none transition-all duration-200";
 
 export function FileUploadZone({
   uploads,
@@ -79,7 +79,7 @@ export function FileUploadZone({
       <div
         className={cn(
           "border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-all duration-200",
-          "border-[#E5DDD3] hover:border-[#FF7E47]/40 hover:bg-[#FF7E47]/[0.03]",
+          "border-[#D1D5DB] hover:border-[#22D3EE]/40 hover:bg-[#22D3EE]/[0.03]",
         )}
         onClick={() => inputRef.current?.click()}
       >
@@ -93,14 +93,14 @@ export function FileUploadZone({
         />
         <div className="flex flex-col items-center gap-2">
           {isAnyUploading ? (
-            <Loader2 className="w-6 h-6 text-[#FF7E47] animate-spin" />
+            <Loader2 className="w-6 h-6 text-[#22D3EE] animate-spin" />
           ) : (
-            <Upload className="w-6 h-6 text-[#B8AFA4]" />
+            <Upload className="w-6 h-6 text-[#D1D5DB]" />
           )}
-          <span className="text-sm text-[#7A7267]">
+          <span className="text-sm text-[#6B7280]">
             {isAnyUploading ? t("uploadingFiles") : t("clickToUpload")}
           </span>
-          <span className="text-xs text-[#B8AFA4]">{t("uploadMultiple")}</span>
+          <span className="text-xs text-[#D1D5DB]">{t("uploadMultiple")}</span>
         </div>
       </div>
 
@@ -110,13 +110,13 @@ export function FileUploadZone({
           {uploads.map((item, idx) => (
             <div
               key={item.id}
-              className="p-4 bg-[#FAF7F3] rounded-xl border border-[#EDE6DD]/50 space-y-3"
+              className="p-4 bg-[#F9FAFB] rounded-xl border border-[#E5E7EB]/50 space-y-3"
             >
               {/* Top row: preview + file name + status + remove */}
               <div className="flex items-center gap-3">
-                <div className="w-14 h-14 rounded-lg overflow-hidden bg-[#EDE6DD]/30 flex-shrink-0 flex items-center justify-center border border-[#EDE6DD]/50">
+                <div className="w-14 h-14 rounded-lg overflow-hidden bg-[#E5E7EB]/30 flex-shrink-0 flex items-center justify-center border border-[#E5E7EB]/50">
                   {item.fileType === "video" ? (
-                    <Film className="w-6 h-6 text-[#B8AFA4]" />
+                    <Film className="w-6 h-6 text-[#D1D5DB]" />
                   ) : (
                     <img
                       src={item.previewUrl}
@@ -127,11 +127,11 @@ export function FileUploadZone({
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium text-[#2D2A26]">
+                    <span className="text-sm font-medium text-[#111827]">
                       {t("file")} {idx + 1}
                     </span>
                     {item.uploading && (
-                      <Loader2 className="w-3.5 h-3.5 animate-spin text-[#FF7E47]" />
+                      <Loader2 className="w-3.5 h-3.5 animate-spin text-[#22D3EE]" />
                     )}
                     {item.uploaded && (
                       <span className="text-xs text-emerald-500 font-medium">
@@ -142,13 +142,13 @@ export function FileUploadZone({
                       <span className="text-xs text-red-500">{item.error}</span>
                     )}
                   </div>
-                  <span className="text-xs text-[#A39B90] truncate block">
+                  <span className="text-xs text-[#9CA3AF] truncate block">
                     {item.fileName}
                   </span>
                 </div>
                 <button
                   type="button"
-                  className="h-8 w-8 shrink-0 flex items-center justify-center rounded-lg text-[#B8AFA4] hover:text-red-400 hover:bg-red-50 transition-colors"
+                  className="h-8 w-8 shrink-0 flex items-center justify-center rounded-lg text-[#D1D5DB] hover:text-red-400 hover:bg-red-50 transition-colors"
                   onClick={() => onRemove(item.id)}
                   aria-label="Remove file"
                 >
@@ -158,7 +158,7 @@ export function FileUploadZone({
 
               {/* Category select */}
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-[#7A7267]">
+                <label className="text-xs font-medium text-[#6B7280]">
                   {t("fileTypeQuestion")}
                 </label>
                 <select
@@ -179,7 +179,7 @@ export function FileUploadZone({
 
               {/* Item name */}
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-[#7A7267]">
+                <label className="text-xs font-medium text-[#6B7280]">
                   {getItemNameLabel(item.category)}
                 </label>
                 <input
@@ -194,7 +194,7 @@ export function FileUploadZone({
 
               {/* Description */}
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-[#7A7267]">
+                <label className="text-xs font-medium text-[#6B7280]">
                   {t("descriptionOptional")}
                 </label>
                 <textarea
