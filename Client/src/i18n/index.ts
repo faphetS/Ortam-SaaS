@@ -33,7 +33,7 @@ i18n
     fallbackLng: "he",
     detection: {
       order: ["localStorage", "navigator"],
-      lookupLocalStorage: "clix_language",
+      lookupLocalStorage: "ortam_language",
       caches: ["localStorage"],
     },
     interpolation: { escapeValue: false },
