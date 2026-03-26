@@ -55,7 +55,7 @@ export default function AdminApprovalsSection() {
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <h1 className="text-2xl font-bold text-[#111111]">
+        <h1 className="text-2xl font-bold text-[#030712]">
           {t("approvalsTitle")}
         </h1>
         <p className="text-[#999999] text-sm mt-1">{t("approvalsSubtitle")}</p>
@@ -64,7 +64,7 @@ export default function AdminApprovalsSection() {
       {/* Loading */}
       {isLoading && (
         <div className="flex justify-center py-20">
-          <Loader2 className="w-8 h-8 animate-spin text-[#D8723C]" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#0891B2]" />
         </div>
       )}
 
@@ -97,16 +97,16 @@ export default function AdminApprovalsSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, x: 40, scale: 0.96 }}
             transition={{ duration: 0.3, delay: i * 0.05 }}
-            className="mb-3 rounded-2xl border border-[#E8E4DF] bg-white px-5 py-4 flex items-center gap-4 shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
+            className="mb-3 rounded-2xl border border-[#E5E7EB] bg-white px-5 py-4 flex items-center gap-4 shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
           >
             {/* Avatar */}
-            <div className="w-10 h-10 rounded-full bg-[#D8723C]/10 border border-[#D8723C]/20 flex items-center justify-center shrink-0 text-[#D8723C] font-bold text-sm">
+            <div className="w-10 h-10 rounded-full bg-[#0891B2]/10 border border-[#0891B2]/20 flex items-center justify-center shrink-0 text-[#0891B2] font-bold text-sm">
               {user.full_name?.charAt(0) ?? "?"}
             </div>
 
             {/* Info */}
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-bold text-[#111111] truncate">
+              <p className="text-sm font-bold text-[#030712] truncate">
                 {user.full_name}
               </p>
               <p className="text-xs text-[#999999] truncate">{user.email}</p>
