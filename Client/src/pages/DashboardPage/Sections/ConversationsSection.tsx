@@ -85,12 +85,12 @@ function MessageBubble({ msg }: { msg: Message }) {
       <div
         className={`rounded-2xl px-3.5 py-2.5 shadow-sm ${
           isInbound
-            ? "bg-white border border-[#EDE6DD]/60 text-[#2D2A26] rounded-ss-sm"
-            : "bg-[#2D2A26] text-white rounded-ee-sm"
+            ? "bg-white border border-[#E5E7EB]/60 text-[#111827] rounded-ss-sm"
+            : "bg-[#111827] text-white rounded-ee-sm"
         }`}
       >
         {(msg.message_type === "buttons" || msg.message_type === "image") && (
-          <span className={`text-[10px] font-semibold uppercase tracking-wide ${isInbound ? "text-[#B8AFA4]" : "text-white/60"} block mb-1`}>
+          <span className={`text-[10px] font-semibold uppercase tracking-wide ${isInbound ? "text-[#D1D5DB]" : "text-white/60"} block mb-1`}>
             [{msg.message_type === "buttons" ? "BUTTONS SENT" : "IMAGE SENT"}]
           </span>
         )}
@@ -99,7 +99,7 @@ function MessageBubble({ msg }: { msg: Message }) {
         </p>
       </div>
       <span
-        className={`text-[10px] text-[#B8AFA4] mt-0.5 block px-1 ${
+        className={`text-[10px] text-[#D1D5DB] mt-0.5 block px-1 ${
           isInbound ? "text-start" : "text-end"
         }`}
       >
@@ -205,26 +205,26 @@ export default function ConversationsSection() {
     <motion.div variants={fadeUp} className="flex flex-col">
       {/* Section Header */}
       <div className="flex items-center gap-2.5 mb-3">
-        <div className="w-8 h-8 rounded-xl bg-[#FF7E47]/10 flex items-center justify-center">
-          <MessageSquare className="w-4 h-4 text-[#FF7E47]" />
+        <div className="w-8 h-8 rounded-xl bg-[#22D3EE]/10 flex items-center justify-center">
+          <MessageSquare className="w-4 h-4 text-[#22D3EE]" />
         </div>
-        <h2 className="text-base font-bold text-[#2D2A26]">
+        <h2 className="text-base font-bold text-[#111827]">
           {t("conversationsTitle")}
         </h2>
         {sessions.length > 0 && (
-          <span className="text-[11px] font-semibold text-[#A39B90] bg-[#FAF7F3] px-2 py-0.5 rounded-full">
+          <span className="text-[11px] font-semibold text-[#9CA3AF] bg-[#F9FAFB] px-2 py-0.5 rounded-full">
             {sessions.length}
           </span>
         )}
       </div>
 
       {/* Master-Detail Card */}
-      <div className="bg-white rounded-2xl overflow-hidden shadow-[0_2px_28px_rgba(45,42,38,0.06)] border border-[#EDE6DD]/50 flex flex-col lg:flex-row min-h-[420px] max-h-[520px]">
+      <div className="bg-white rounded-2xl overflow-hidden shadow-[0_2px_28px_rgba(17,24,39,0.06)] border border-[#E5E7EB]/50 flex flex-col lg:flex-row min-h-[420px] max-h-[520px]">
         {/* ── Left Panel: Session List ── */}
-        <div className="lg:w-[280px] w-full border-b lg:border-b-0 lg:border-e border-[#EDE6DD]/50 flex flex-col shrink-0">
+        <div className="lg:w-[280px] w-full border-b lg:border-b-0 lg:border-e border-[#E5E7EB]/50 flex flex-col shrink-0">
           {/* List Header */}
-          <div className="px-4 py-3 border-b border-[#EDE6DD]/40 bg-[#FDFBF8]">
-            <div className="flex items-center gap-2 text-[11px] font-bold text-[#A39B90] uppercase tracking-wider">
+          <div className="px-4 py-3 border-b border-[#E5E7EB]/40 bg-[#FDFBF8]">
+            <div className="flex items-center gap-2 text-[11px] font-bold text-[#9CA3AF] uppercase tracking-wider">
               <Users className="w-3.5 h-3.5" />
               {t("phoneLabel")}
             </div>
@@ -233,14 +233,14 @@ export default function ConversationsSection() {
           {/* Session Items */}
           <div
             className="flex-1 overflow-y-auto"
-            style={{ scrollbarWidth: "thin", scrollbarColor: "#E5DDD3 transparent" }}
+            style={{ scrollbarWidth: "thin", scrollbarColor: "#D1D5DB transparent" }}
           >
             {sessions.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full px-4 py-10 text-center">
-                <div className="w-12 h-12 rounded-2xl bg-[#FAF7F3] flex items-center justify-center mb-3">
-                  <MessageCircle className="w-5 h-5 text-[#B8AFA4]" />
+                <div className="w-12 h-12 rounded-2xl bg-[#F9FAFB] flex items-center justify-center mb-3">
+                  <MessageCircle className="w-5 h-5 text-[#D1D5DB]" />
                 </div>
-                <p className="text-sm text-[#A39B90] font-medium">
+                <p className="text-sm text-[#9CA3AF] font-medium">
                   {t("conversationsEmpty")}
                 </p>
               </div>
@@ -254,21 +254,21 @@ export default function ConversationsSection() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -8 }}
                     onClick={() => setSelectedId(session.id)}
-                    className={`w-full text-start px-4 py-3.5 transition-all duration-200 border-b border-[#EDE6DD]/30 cursor-pointer group ${
+                    className={`w-full text-start px-4 py-3.5 transition-all duration-200 border-b border-[#E5E7EB]/30 cursor-pointer group ${
                       effectiveSelectedId === session.id
-                        ? "bg-[#FF7E47]/[0.06] border-s-2 border-s-[#FF7E47]"
-                        : "hover:bg-[#FAF7F3]"
+                        ? "bg-[#22D3EE]/[0.06] border-s-2 border-s-[#22D3EE]"
+                        : "hover:bg-[#F9FAFB]"
                     }`}
                   >
                     <div className="flex items-center justify-between mb-1.5">
                       <div className="flex items-center gap-2">
-                        <Phone className="w-3.5 h-3.5 text-[#A39B90] group-hover:text-[#FF7E47] transition-colors" />
-                        <span className="text-[13px] font-bold text-[#2D2A26] tracking-tight font-mono truncate">
+                        <Phone className="w-3.5 h-3.5 text-[#9CA3AF] group-hover:text-[#22D3EE] transition-colors" />
+                        <span className="text-[13px] font-bold text-[#111827] tracking-tight font-mono truncate">
                           {formatPhone(session.phone)}
                         </span>
                       </div>
                     </div>
-                    <span className="flex items-center gap-1 text-[10px] text-[#B8AFA4]">
+                    <span className="flex items-center gap-1 text-[10px] text-[#D1D5DB]">
                       <Clock className="w-2.5 h-2.5" />
                       {relativeTime(session.last_message_at)}
                     </span>
@@ -283,22 +283,22 @@ export default function ConversationsSection() {
         <div className="flex-1 flex flex-col min-w-0 min-h-0">
           {/* Chat Header */}
           {selectedSession ? (
-            <div className="px-4 sm:px-5 py-3 border-b border-[#EDE6DD]/40 bg-[#FDFBF8] flex items-center gap-3 shrink-0">
+            <div className="px-4 sm:px-5 py-3 border-b border-[#E5E7EB]/40 bg-[#FDFBF8] flex items-center gap-3 shrink-0">
               <button
                 type="button"
                 onClick={() => setSelectedId(null)}
-                className="lg:hidden p-1 rounded-lg hover:bg-[#FAF7F3] transition-colors cursor-pointer"
+                className="lg:hidden p-1 rounded-lg hover:bg-[#F9FAFB] transition-colors cursor-pointer"
               >
-                <ArrowLeft className="w-4 h-4 text-[#7A7267] rtl:rotate-180" />
+                <ArrowLeft className="w-4 h-4 text-[#6B7280] rtl:rotate-180" />
               </button>
-              <div className="w-8 h-8 rounded-full bg-[#2D2A26] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-[#111827] flex items-center justify-center">
                 <Phone className="w-3.5 h-3.5 text-white" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[13px] font-bold text-[#2D2A26] font-mono truncate">
+                <p className="text-[13px] font-bold text-[#111827] font-mono truncate">
                   {formatPhone(selectedSession.phone)}
                 </p>
-                <span className="text-[10px] text-[#B8AFA4]">
+                <span className="text-[10px] text-[#D1D5DB]">
                   {relativeTime(selectedSession.last_message_at)}
                 </span>
               </div>
@@ -308,12 +308,12 @@ export default function ConversationsSection() {
                 className="p-1.5 rounded-lg hover:bg-red-50 transition-colors cursor-pointer group"
                 title={t("resetSession")}
               >
-                <RotateCcw className="w-4 h-4 text-[#A39B90] group-hover:text-red-500 transition-colors" />
+                <RotateCcw className="w-4 h-4 text-[#9CA3AF] group-hover:text-red-500 transition-colors" />
               </button>
             </div>
           ) : (
-            <div className="px-4 sm:px-5 py-3 border-b border-[#EDE6DD]/40 bg-[#FDFBF8] shrink-0">
-              <p className="text-[13px] font-bold text-[#A39B90]">
+            <div className="px-4 sm:px-5 py-3 border-b border-[#E5E7EB]/40 bg-[#FDFBF8] shrink-0">
+              <p className="text-[13px] font-bold text-[#9CA3AF]">
                 {t("conversationsSelectPrompt")}
               </p>
             </div>
@@ -325,23 +325,23 @@ export default function ConversationsSection() {
             className="flex-1 px-4 sm:px-5 py-4 overflow-y-auto flex flex-col gap-2"
             style={{
               background:
-                "linear-gradient(180deg, #FDFBF8 0%, #FAF7F3 100%)",
+                "linear-gradient(180deg, #FDFBF8 0%, #F9FAFB 100%)",
               scrollbarWidth: "thin",
-              scrollbarColor: "#E5DDD3 transparent",
+              scrollbarColor: "#D1D5DB transparent",
             }}
           >
             {!effectiveSelectedId ? (
               <div className="flex flex-col items-center justify-center h-full text-center">
-                <div className="w-16 h-16 rounded-2xl bg-[#FAF7F3] border border-[#EDE6DD]/50 flex items-center justify-center mb-3">
+                <div className="w-16 h-16 rounded-2xl bg-[#F9FAFB] border border-[#E5E7EB]/50 flex items-center justify-center mb-3">
                   <MessageSquare className="w-7 h-7 text-[#C8C0B6]" />
                 </div>
-                <p className="text-sm text-[#A39B90]">
+                <p className="text-sm text-[#9CA3AF]">
                   {t("conversationsSelectPrompt")}
                 </p>
               </div>
             ) : messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center">
-                <p className="text-sm text-[#A39B90]">
+                <p className="text-sm text-[#9CA3AF]">
                   {t("noMessages")}
                 </p>
               </div>
@@ -376,18 +376,18 @@ export default function ConversationsSection() {
                 <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
                   <AlertTriangle className="w-5 h-5 text-red-500" />
                 </div>
-                <h3 className="text-base font-bold text-[#2D2A26]">
+                <h3 className="text-base font-bold text-[#111827]">
                   {t("resetSession")}
                 </h3>
               </div>
-              <p className="text-sm text-[#7A7267]">
+              <p className="text-sm text-[#6B7280]">
                 {t("resetSessionConfirm")}
               </p>
               <div className="flex gap-3 pt-1">
                 <button
                   type="button"
                   onClick={() => setShowResetConfirm(false)}
-                  className="flex-1 px-4 py-2.5 rounded-xl border border-[#EDE6DD] text-sm font-semibold text-[#7A7267] hover:bg-[#FAF7F3] transition-colors cursor-pointer"
+                  className="flex-1 px-4 py-2.5 rounded-xl border border-[#E5E7EB] text-sm font-semibold text-[#6B7280] hover:bg-[#F9FAFB] transition-colors cursor-pointer"
                 >
                   {t("cancel")}
                 </button>
