@@ -125,6 +125,11 @@ export default function DemoChatSection({ resetKey = 0, workflowId }: DemoChatSe
           ...prev,
           { id: `bot-${Date.now()}`, role: "bot", text: data.response!, time: nowStamp() },
         ]);
+      } else if (data) {
+        setMessages((prev) => [
+          ...prev,
+          { id: `bot-${Date.now()}`, role: "bot", text: "...", time: nowStamp() },
+        ]);
       }
     } catch (err) {
       const botMsg: ChatMessage = {
@@ -194,6 +199,11 @@ export default function DemoChatSection({ resetKey = 0, workflowId }: DemoChatSe
         setMessages((prev) => [
           ...prev,
           { id: `bot-${Date.now()}`, role: "bot", text: data.response!, time: nowStamp() },
+        ]);
+      } else if (data) {
+        setMessages((prev) => [
+          ...prev,
+          { id: `bot-${Date.now()}`, role: "bot", text: "...", time: nowStamp() },
         ]);
       }
     } catch (err) {

@@ -7,12 +7,10 @@ import {
   Pencil,
   GitBranch,
   UserCircle,
-  Headphones,
   ChevronDown,
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAuth } from "@/hooks/useAuth";
-import SupportTicketModal from "@/components/SupportTicketModal";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -36,7 +34,6 @@ export default function UserLayout() {
   const navigate = useNavigate();
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [supportModalOpen, setSupportModalOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -191,26 +188,6 @@ export default function UserLayout() {
         <Outlet />
       </main>
 
-      {/* Floating Support Button — hidden on flow builder (has its own assistant) */}
-      {!location.pathname.includes("/flow-builder") && (
-        <button
-          type="button"
-          onClick={() => setSupportModalOpen(true)}
-          className="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full bg-[#22D3EE] text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center"
-          aria-label={t("support")}
-          title={t("support")}
-        >
-          <Headphones className="w-5 h-5" />
-        </button>
-      )}
-
-      {user?.id && (
-        <SupportTicketModal
-          open={supportModalOpen}
-          onClose={() => setSupportModalOpen(false)}
-          userId={user.id}
-        />
-      )}
     </div>
   );
 }

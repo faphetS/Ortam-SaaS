@@ -93,7 +93,10 @@ const FormSection = ({ onNext }: FormSectionProps) => {
   const { data: fields = [], isLoading: fieldsLoading } = useQuery({
     queryKey: ["form_fields"],
     queryFn: async () => {
-      const { data, error } = await supabase.rpc("admin_list_form_fields");
+      const { data, error } = await supabase
+        .from("form_fields")
+        .select("*")
+        .order("sort_order", { ascending: true });
       if (error) throw error;
       return ((data as any[]) ?? []).map((f: any) => ({
         ...f,
@@ -106,15 +109,18 @@ const FormSection = ({ onNext }: FormSectionProps) => {
   const { data: settings } = useQuery({
     queryKey: ["form_settings"],
     queryFn: async () => {
-      const { data, error } = await supabase.rpc("admin_get_form_settings");
+      const { data, error } = await supabase
+        .from("form_settings")
+        .select("*")
+        .limit(1)
+        .maybeSingle();
       if (error) throw error;
-      const row = (data as any)?.[0];
-      if (row) {
+      if (data) {
         return {
-          opening_title: row.opening_title ?? "",
-          opening_text: row.opening_text ?? "",
-          closing_title: row.closing_title ?? "",
-          closing_text: row.closing_text ?? "",
+          opening_title: data.opening_title ?? "",
+          opening_text: data.opening_text ?? "",
+          closing_title: data.closing_title ?? "",
+          closing_text: data.closing_text ?? "",
         } as FormSettings;
       }
       return null;
@@ -470,10 +476,20 @@ const FormSection = ({ onNext }: FormSectionProps) => {
   }
 
   /* ── Render: loading ── */
-  if (fieldsLoading || steps.length === 0) {
+  if (fieldsLoading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
         <Loader2 className="animate-spin w-8 h-8 text-[#22D3EE]" />
+      </div>
+    );
+  }
+
+  /* ── Render: no form fields configured ── */
+  if (steps.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
+        <Bot className="w-12 h-12 text-[#9CA3AF] mb-4" />
+        <p className="text-[#6B7280] text-sm">{t("noFormFields", { defaultValue: "No form fields configured yet." })}</p>
       </div>
     );
   }

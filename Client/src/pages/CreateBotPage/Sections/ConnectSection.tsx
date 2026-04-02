@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { callWClixAPIConnect } from "@/services/edge-functions";
+import { callWaConnect } from "@/services/edge-functions";
 import { supabase } from "@/services/supabase";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -242,7 +242,7 @@ const ConnectSection = () => {
     connectFailCountRef.current = 0;
 
     const check = async () => {
-      const result = await callWClixAPIConnect({ user_id: user.id, action: "status" });
+      const result = await callWaConnect({ user_id: user.id, action: "status" });
       const gatewayStatus = (result.data as { status?: string })?.status;
 
       if (!cancelled) {
@@ -284,7 +284,7 @@ const ConnectSection = () => {
 
   const pollStatus = useCallback(async () => {
     if (!user?.id) return;
-    const result = await callWClixAPIConnect({
+    const result = await callWaConnect({
       user_id: user.id,
       action: "status",
     });
@@ -309,7 +309,7 @@ const ConnectSection = () => {
     setQrCode(null);
 
     try {
-      const result = await callWClixAPIConnect({ user_id: user.id });
+      const result = await callWaConnect({ user_id: user.id });
 
       if (result.error) throw new Error(result.error);
 

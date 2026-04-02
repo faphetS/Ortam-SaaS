@@ -68,6 +68,7 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
                   min={5}
                   max={1440}
                   onChange={(v) => onUpdate({ cooldownMinutes: v })}
+                  customLabel={t("settingsCustom")}
                 />
               </div>
             )}
@@ -88,13 +89,13 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
                   label={t("settingsAutoFollowUpDelay")}
                   value={settings.autoFollowUpDelayMinutes}
                   presets={[
-                    { value: 30, label: t("settingsAutoFollowUpPreset30") },
-                    { value: 60, label: t("settingsAutoFollowUpPreset60") },
-                    { value: 120, label: t("settingsAutoFollowUpPreset120") },
+                    { value: 10, label: t("settingsAutoFollowUpPreset10") },
+                    { value: 20, label: t("settingsAutoFollowUpPreset20") },
                   ]}
                   min={1}
                   max={1440}
                   onChange={(v) => onUpdate({ autoFollowUpDelayMinutes: v })}
+                  customLabel={t("settingsCustom")}
                 />
 
                 <div>
@@ -203,6 +204,7 @@ export default function FlowSettingsModal({ settings, onUpdate, onClose }: FlowS
                   min={30}
                   max={10080}
                   onChange={(v) => onUpdate({ sessionResetMinutes: v })}
+                  customLabel={t("settingsCustom")}
                 />
               </div>
             )}
@@ -281,6 +283,7 @@ function MinutesPresetInput({
   min,
   max,
   onChange,
+  customLabel,
 }: {
   label: string;
   value: number;
@@ -288,10 +291,16 @@ function MinutesPresetInput({
   min: number;
   max: number;
   onChange: (value: number) => void;
+  customLabel?: string;
 }) {
+  const activePreset = presets.find((p) => p.value === value);
+  const isPreset = !!activePreset;
+
   return (
     <div>
-      <label className="text-[10px] font-semibold text-[#111827] block mb-1.5">{label}</label>
+      <label className="text-[10px] font-semibold text-[#111827] block mb-1.5">
+        {isPreset ? activePreset.label : label}
+      </label>
       <div className="flex items-center gap-2 mb-2">
         {presets.map((preset) => (
           <button
@@ -307,15 +316,30 @@ function MinutesPresetInput({
             {preset.label}
           </button>
         ))}
+        <button
+          type="button"
+          onClick={() => {
+            if (isPreset) onChange(min);
+          }}
+          className={`px-2.5 py-1 rounded text-[10px] font-medium border cursor-pointer transition-colors ${
+            !isPreset
+              ? "bg-[#22D3EE] text-white border-[#22D3EE]"
+              : "bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#22D3EE]/50"
+          }`}
+        >
+          {customLabel ?? "Custom"}
+        </button>
       </div>
-      <input
-        type="number"
-        min={min}
-        max={max}
-        value={value}
-        onChange={(e) => onChange(Math.max(min, Math.min(max, Number(e.target.value))))}
-        className="field-input w-full"
-      />
+      {!isPreset && (
+        <input
+          type="number"
+          min={min}
+          max={max}
+          value={value}
+          onChange={(e) => onChange(Math.max(min, Math.min(max, Number(e.target.value))))}
+          className="field-input w-full"
+        />
+      )}
     </div>
   );
 }

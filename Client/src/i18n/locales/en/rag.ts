@@ -25,6 +25,8 @@ const rag = {
   errorUpload: "Upload failed. Please try again.",
   errorProcessing: "Processing failed. Please try again.",
   errorDelete: "Deletion failed. Please try again.",
+  removing: "Removing document...",
+  disconnecting: "Disconnecting sheet...",
   retry: "Try Again",
 
   // Google Sheets
@@ -33,9 +35,8 @@ const rag = {
     "Connect a public Google Sheet as a knowledge source. The bot will search this data when answering customers.",
   sheetsPlaceholder: "Paste public Google Sheet URL",
   sheetsConnect: "Connect",
-  sheetsDisconnect: "Disconnect",
-  sheetsDisconnectConfirm:
-    "Are you sure? All data from this sheet will be removed.",
+  sheetsDisconnect: "Disconnect Sheet",
+  sheetsDisconnectConfirm: "Are you sure? All sheet data will be deleted.",
   sheetsSync: "Refresh",
   sheetsSyncing: "Syncing...",
   sheetsConnecting: "Connecting...",

@@ -32,10 +32,10 @@ const dashboard = {
 
   // Conversations Section
   conversationsTitle: "Active Chats",
-  conversationsEmpty: "No active conversations yet",
-  conversationsSelectPrompt: "Select a conversation to view messages",
-  noMessages: "No messages in this conversation yet",
-  resetSession: "Reset Conversation",
+  conversationsEmpty: "No active chats yet",
+  conversationsSelectPrompt: "Select a chat to view messages",
+  noMessages: "No messages in this chat yet",
+  resetSession: "Reset Chat",
   resetSessionConfirm: "This will clear all messages and reset the flow to the beginning. The customer will start fresh on their next message.",
   resetSessionAction: "Reset",
   sessionActive: "Active",
@@ -49,7 +49,7 @@ const dashboard = {
   demoChatPlaceholder: "Type a message to test...",
   demoChatGreeting:
     "Hi! Send me a message to test your bot.",
-  newConversation: "New conversation",
+  newConversation: "New chat",
 
   // Edit Bot Section
   editBotTitle: "Edit Bot Behavior",

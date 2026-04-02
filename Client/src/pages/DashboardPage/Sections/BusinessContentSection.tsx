@@ -176,11 +176,13 @@ function takeFieldSnapshot(
   fieldIds: string[],
   formValues: Record<string, string | string[] | boolean>,
   urlEntries: Record<string, Array<{ url: string; label: string }>>,
+  rulesEntries?: Record<string, string[][]>,
 ): Snapshot {
   const snap: Snapshot = {};
   for (const id of fieldIds) {
     snap[`v_${id}`] = JSON.stringify(formValues[id] ?? "");
     snap[`u_${id}`] = JSON.stringify(urlEntries[id] ?? []);
+    if (rulesEntries) snap[`r_${id}`] = JSON.stringify(rulesEntries[id] ?? []);
   }
   return snap;
 }
@@ -190,10 +192,12 @@ function isSnapshotDirty(
   formValues: Record<string, string | string[] | boolean>,
   urlEntries: Record<string, Array<{ url: string; label: string }>>,
   snapshot: Snapshot,
+  rulesEntries?: Record<string, string[][]>,
 ): boolean {
   for (const id of fieldIds) {
     if (JSON.stringify(formValues[id] ?? "") !== (snapshot[`v_${id}`] ?? '""')) return true;
     if (JSON.stringify(urlEntries[id] ?? []) !== (snapshot[`u_${id}`] ?? "[]")) return true;
+    if (rulesEntries && JSON.stringify(rulesEntries[id] ?? []) !== (snapshot[`r_${id}`] ?? "[]")) return true;
   }
   return false;
 }
@@ -341,6 +345,8 @@ export default function BusinessContentSection() {
     updateQaEntry,
     addQaEntry,
     removeQaEntry,
+    rulesEntries,
+    setRulesEntries,
     getRulesEntries,
     updateRulesItem,
     addRulesItem,
@@ -369,7 +375,7 @@ export default function BusinessContentSection() {
         .eq("user_id", user.id)
         .order("created_at", { ascending: false })
         .limit(1)
-        .single();
+        .maybeSingle();
       if (error || !data) return null;
       return data;
     },
@@ -397,9 +403,10 @@ export default function BusinessContentSection() {
     const snaps: Record<string, Snapshot> = {};
     for (const { category, fields: catFields } of groupsNow) {
       const fieldIds = catFields.map((f) => f.id);
-      snaps[category.id] = takeFieldSnapshot(fieldIds, mapped, mappedUrls);
+      snaps[category.id] = takeFieldSnapshot(fieldIds, mapped, mappedUrls, rulesEntries);
     }
     snapshotsRef.current = snaps;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formResponse, fields, setFormValues, setUrlEntries]);
 
   /* ── Dirty check per category ── */
@@ -412,9 +419,10 @@ export default function BusinessContentSection() {
         formValues,
         urlEntries,
         snap,
+        rulesEntries,
       );
     },
-    [formValues, urlEntries],
+    [formValues, urlEntries, rulesEntries],
   );
 
   /* ── Reset category to snapshot ── */
@@ -440,15 +448,24 @@ export default function BusinessContentSection() {
         }
         return next;
       });
+
+      setRulesEntries((prev) => {
+        const next = { ...prev };
+        for (const f of catFields) {
+          const val = snap[`r_${f.id}`];
+          if (val !== undefined) next[f.id] = JSON.parse(val);
+        }
+        return next;
+      });
     },
-    [setFormValues, setUrlEntries],
+    [setFormValues, setUrlEntries, setRulesEntries],
   );
 
   /* ── Commit snapshot after save ── */
   const commitCategory = useCallback(
     (categoryId: string, catFields: FormField[]) => {
       const fieldIds = catFields.map((f) => f.id);
-      snapshotsRef.current[categoryId] = takeFieldSnapshot(fieldIds, formValues, urlEntries);
+      snapshotsRef.current[categoryId] = takeFieldSnapshot(fieldIds, formValues, urlEntries, rulesEntries);
     },
     [formValues, urlEntries],
   );

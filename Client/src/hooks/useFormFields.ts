@@ -255,6 +255,8 @@ export function useFormFields() {
     updateQaEntry,
     addQaEntry,
     removeQaEntry,
+    rulesEntries,
+    setRulesEntries,
     getRulesEntries,
     updateRulesItem,
     addRulesItem,

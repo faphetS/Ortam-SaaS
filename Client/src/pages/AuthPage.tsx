@@ -297,13 +297,11 @@ export default function AuthPage() {
   const { t } = useTranslation("auth");
   const navigate = useNavigate();
   const {
+    user,
     signUp,
     signIn,
     resetPassword,
     isAuthenticated,
-    isAdmin,
-    isApproved,
-    isPending,
     hasCompletedOnboarding,
     isLoading: authLoading,
   } = useAuth();
@@ -337,17 +335,15 @@ export default function AuthPage() {
   // Forgot
   const [forgotEmail, setForgotEmail] = useState("");
 
-  // Redirect authenticated users
+  // Redirect authenticated users (wait for profile to load before deciding)
   useEffect(() => {
     if (authLoading) return;
     if (!isAuthenticated) return;
-    if (isAdmin) navigate("/admin/dashboard", { replace: true });
-    else if (isPending) navigate("/pending", { replace: true });
-    else if (isApproved)
-      navigate(hasCompletedOnboarding ? "/dashboard" : "/create-bot", {
-        replace: true,
-      });
-  }, [isAuthenticated, isAdmin, isApproved, isPending, hasCompletedOnboarding, authLoading, navigate]);
+    if (!user) return; // profile still loading
+    navigate(hasCompletedOnboarding ? "/dashboard" : "/create-bot", {
+      replace: true,
+    });
+  }, [isAuthenticated, hasCompletedOnboarding, authLoading, navigate, user]);
 
   // Loading gate
   if (!initialLoadDone.current) {
@@ -409,12 +405,18 @@ export default function AuthPage() {
         return;
       }
 
+      // Supabase returns no error but empty identities when email already exists
+      if (data?.user && data.user.identities?.length === 0) {
+        setError(t("errorEmailExists"));
+        return;
+      }
+
       if (!data?.session) {
         setSuccess(t("signupConfirmEmail"));
         return;
       }
 
-      navigate("/pending");
+      navigate("/create-bot");
     } catch {
       setError(t("errorLoginFailed"));
     } finally {

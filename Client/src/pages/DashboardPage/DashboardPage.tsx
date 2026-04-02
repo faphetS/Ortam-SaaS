@@ -16,7 +16,7 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/services/supabase";
-import { callWClixAPIConnect } from "@/services/edge-functions";
+import { callWaConnect } from "@/services/edge-functions";
 import ConversationsSection from "./Sections/ConversationsSection";
 import BlockedNumbersModal from "./Sections/BlockedNumbersModal";
 import WhatsAppConnectModal from "@/components/WhatsAppConnectModal";
@@ -116,7 +116,7 @@ function BotStatusPill({ userId }: { userId: string }) {
     failCountRef.current = 0;
 
     const check = async () => {
-      const result = await callWClixAPIConnect({ user_id: userId, action: "status" });
+      const result = await callWaConnect({ user_id: userId, action: "status" });
       const gwData = result.data as { status?: string; phoneNumber?: string };
       const gw = gwData?.status;
 
@@ -202,7 +202,7 @@ function BotStatusPill({ userId }: { userId: string }) {
     setMenuOpen(false);
     setShowConfirmDisconnect(false);
     try {
-      const result = await callWClixAPIConnect({ user_id: userId, action: "disconnect" });
+      const result = await callWaConnect({ user_id: userId, action: "disconnect" });
       if (result.error) {
         showFeedback("error", t("disconnectError"));
         setLoading(false);

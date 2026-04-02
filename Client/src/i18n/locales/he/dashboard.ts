@@ -32,10 +32,10 @@ const dashboard = {
 
   // Conversations Section
   conversationsTitle: "צ'אטים פעילים",
-  conversationsEmpty: "אין שיחות פעילות עדיין",
-  conversationsSelectPrompt: "בחר שיחה כדי לצפות בהודעות",
-  noMessages: "אין הודעות בשיחה הזו עדיין",
-  resetSession: "איפוס שיחה",
+  conversationsEmpty: "אין צ׳אטים פעילים עדיין",
+  conversationsSelectPrompt: "בחר צ׳אט כדי לצפות בהודעות",
+  noMessages: "אין הודעות בצ׳אט הזה עדיין",
+  resetSession: "איפוס צ׳אט",
   resetSessionConfirm: "פעולה זו תמחק את כל ההודעות ותאפס את התהליך להתחלה. הלקוח יתחיל מחדש בהודעה הבאה שלו.",
   resetSessionAction: "איפוס",
   sessionActive: "פעיל",
@@ -48,7 +48,7 @@ const dashboard = {
   demoChatStatus: "מקוון",
   demoChatPlaceholder: "הקלד הודעה לבדיקה...",
   demoChatGreeting: "היי! שלח לי הודעה כדי לבדוק את הבוט שלך.",
-  newConversation: "שיחה חדשה",
+  newConversation: "צ׳אט חדש",
 
   // Edit Bot Section
   editBotTitle: "עריכת התנהגות הבוט",

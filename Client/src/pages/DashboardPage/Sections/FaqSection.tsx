@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Trash2, Loader2, HelpCircle, Sparkles } from "lucide-react";
+import { Plus, Trash2, Loader2, HelpCircle, Sparkles, CheckCircle2, AlertCircle } from "lucide-react";
 import { supabase } from "@/services/supabase";
 import { useAuth } from "@/hooks/useAuth";
-import { useAutoPublish } from "@/hooks/useAutoPublish";
-import FeedbackBanner from "@/components/FeedbackBanner";
 import { EASE, stagger, fadeUp } from "@/lib/animations";
 
 interface FaqDraftEntry {
@@ -19,7 +18,7 @@ interface FaqDraftEntry {
 export default function FaqSection() {
   const { t } = useTranslation("faq");
   const { user } = useAuth();
-  const { autoPublish } = useAutoPublish();
+
 
   const [entries, setEntries] = useState<FaqDraftEntry[]>([]);
   const [loading, setLoading] = useState(true);
@@ -28,28 +27,11 @@ export default function FaqSection() {
   const [error, setError] = useState<string | null>(null);
   const [dirty, setDirty] = useState(false);
 
-  // Load entries: prefer draft_faq_entries from form_responses, fallback to faq_entries
+  // Load entries from the live faq_entries table
   useEffect(() => {
     if (!user?.id) return;
     (async () => {
       try {
-        // Check for draft first
-        const { data: formRow, error: draftErr } = await supabase
-          .from("form_responses")
-          .select("draft_faq_entries")
-          .eq("user_id", user.id)
-          .order("created_at", { ascending: false })
-          .limit(1)
-          .single();
-
-        if (!draftErr && formRow?.draft_faq_entries) {
-          const draft = formRow.draft_faq_entries as unknown as FaqDraftEntry[];
-          setEntries(draft);
-          setLoading(false);
-          return;
-        }
-
-        // No draft — load from live faq_entries
         const { data, error: listErr } = await supabase
           .from("faq_entries")
           .select("*")
@@ -110,26 +92,58 @@ export default function FaqSection() {
     setSaving(true);
     setError(null);
 
-    try {
-      const draftData = entries.map((e, idx) => ({
-        question: e.question,
-        answer: e.answer,
-        is_active: e.is_active,
-        sort_order: idx,
-      }));
+    const activeEntries = entries.filter((e) => e.question.trim() || e.answer.trim());
+    const activeIds = new Set(activeEntries.map((e) => e.id));
 
-      const { error: updateErr } = await supabase
-        .from("form_responses")
-        .update({ draft_faq_entries: JSON.stringify(draftData) })
+    try {
+      // 1. Delete removed entries (ones that were loaded from DB but no longer in local state)
+      const { data: existing } = await supabase
+        .from("faq_entries")
+        .select("id")
         .eq("user_id", user.id);
 
-      if (updateErr) throw updateErr;
+      const idsToDelete = (existing ?? [])
+        .map((e) => e.id)
+        .filter((id) => !activeIds.has(id));
 
-      await autoPublish();
+      if (idsToDelete.length > 0) {
+        await supabase.from("faq_entries").delete().in("id", idsToDelete);
+      }
+
+      // 2. Upsert active entries
+      if (activeEntries.length > 0) {
+        const rows = activeEntries.map((e, idx) => ({
+          id: e.id,
+          user_id: user.id,
+          question: e.question,
+          answer: e.answer,
+          is_active: e.is_active,
+          sort_order: idx,
+        }));
+        const { data: upserted, error: upsertErr } = await supabase
+          .from("faq_entries")
+          .upsert(rows, { onConflict: "id" })
+          .select();
+        if (upsertErr) throw upsertErr;
+
+        if (upserted) {
+          setEntries(
+            upserted.map((e) => ({
+              id: e.id,
+              question: e.question ?? "",
+              answer: e.answer ?? "",
+              is_active: e.is_active ?? true,
+              sort_order: e.sort_order ?? 0,
+            })),
+          );
+        }
+      }
+
       setDirty(false);
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
-    } catch {
+    } catch (err) {
+      console.error("[FaqSection] save error:", err);
       setError(t("saveError"));
     } finally {
       setSaving(false);
@@ -248,15 +262,37 @@ export default function FaqSection() {
         </div>
       </motion.div>
 
-      {/* Error */}
-      {error && (
-        <FeedbackBanner variant="error" message={error} className="mt-6" />
-      )}
-
-      {/* Success feedback */}
-      {saved && (
-        <FeedbackBanner variant="success" message={t("changesSaved")} className="mt-6" />
-      )}
+      {/* Fixed toast notifications via portal */}
+      {(saved || error) &&
+        createPortal(
+          <AnimatePresence>
+            {saved && (
+              <motion.div
+                key="faq-success"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="fixed top-20 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-medium shadow-lg"
+              >
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                {t("changesSaved")}
+              </motion.div>
+            )}
+            {error && (
+              <motion.div
+                key="faq-error"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="fixed top-20 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-5 py-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-medium shadow-lg"
+              >
+                <AlertCircle className="w-4 h-4 shrink-0" />
+                {error}
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body,
+        )}
 
       {/* Save Draft Button */}
       {entries.length > 0 && (

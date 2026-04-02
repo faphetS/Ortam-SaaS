@@ -3,7 +3,7 @@ import { Loader2 } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 
 export default function AuthGuard({ children }: { children: React.ReactNode }) {
-  const { isLoading, isAuthenticated, isAdmin, isPending } = useAuth();
+  const { isLoading, isAuthenticated } = useAuth();
 
   if (isLoading) {
     return (
@@ -14,8 +14,6 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
   }
 
   if (!isAuthenticated) return <Navigate to="/auth" replace />;
-  if (isAdmin) return <Navigate to="/admin" replace />;
-  if (isPending) return <Navigate to="/pending" replace />;
 
   return <>{children}</>;
 }

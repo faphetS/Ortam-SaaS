@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/useAuth";
@@ -12,6 +13,8 @@ import FaqSection from "./FaqSection";
 import KnowledgeBaseSection from "./KnowledgeBaseSection";
 import EditBotSidebar from "./EditBotSidebar";
 import type { EditBotCategory } from "./EditBotSidebar";
+
+const VALID_TABS = new Set<EditBotCategory>(["edit", "content", "faq", "knowledge-base"]);
 
 /* ── Animated wrapper to avoid repeating motion props per tab ── */
 function AnimatedPanel({
@@ -40,8 +43,15 @@ export default function EditBotPage() {
   const { t } = useTranslation("dashboard");
   const { user } = useAuth();
   const [resetKey, setResetKey] = useState(0);
-  const [activeCategory, setActiveCategory] =
-    useState<EditBotCategory>("edit");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const rawTab = searchParams.get("tab") as EditBotCategory | null;
+  const activeCategory: EditBotCategory = rawTab && VALID_TABS.has(rawTab) ? rawTab : "edit";
+
+  const setActiveCategory = useCallback(
+    (cat: EditBotCategory) => setSearchParams({ tab: cat }, { replace: true }),
+    [setSearchParams],
+  );
 
   // Fetch user's workflow for demo chat
   const { data: workflow } = useQuery({

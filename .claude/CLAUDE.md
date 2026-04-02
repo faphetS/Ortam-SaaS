@@ -4,11 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview 
 
-**CLIX** — SaaS WhatsApp Bot Builder for Israeli businesses (Hebrew-first, RTL). Users create AI-powered WhatsApp chatbots through a web dashboard without coding.
+**Ortam-SaaS** — SaaS WhatsApp Bot Builder for businesses (Hebrew + English, RTL support). Users create AI-powered WhatsApp chatbots through a web dashboard without coding.
 
-Built from a React/Vite boilerplate. Backend is fully serverless via **Supabase** (auth, DB, edge functions, storage). No Express server — the `Server/` directory is unused (only `Server/info.txt` remains as a placeholder).
-
-For the full architecture, database schema, edge functions, webhook mapping, and code patterns, see [`.claude/clix-backend-reference.md`](.claude/clix-backend-reference.md).
+Built with React/Vite frontend. Backend is fully serverless via **Supabase** (auth, DB, edge functions, storage). No Express server — the `Server/` directory is unused (only `Server/info.txt` remains as a placeholder).
 
 ## Commands
 
@@ -26,28 +24,27 @@ Only `Client/` has a package.json. Run `npm install` from there.
 - **Entry:** `src/main.tsx` → mounts `<App>` inside `<QueryClientProvider>`, `<ErrorBoundary>`, `<BrowserRouter>`, `<StrictMode>`
 - **Routing:** React Router v7 in `src/App.tsx` — add new routes here
 - **Pages:** `src/pages/` — page-level components (see Page Structure convention below)
-- **Components:** `src/components/` — reusable UI (includes `ErrorBoundary`)
+- **Components:** `src/components/` — reusable UI (includes `ErrorBoundary`, flow builder nodes, form components)
 - **Services:**
   - `src/services/supabase.ts` — typed Supabase client (`createClient<Database>`)
-  - `src/services/edge-functions.ts` — 7 typed wrappers for Supabase edge functions (auto-adds auth headers)
-- **Hooks:** `src/hooks/useAuth.ts` — auth hook (signUp, signIn, signOut, resetPassword, profile)
+  - `src/services/edge-functions.ts` — typed wrappers for Supabase edge functions (auto-adds auth headers)
+- **Hooks:** `src/hooks/` — 9 custom hooks (useAuth, useFlowBuilder, useFlowHistory, useFormFields, useFileUpload, useRagUpload, useGoogleSheet, useFormData, useAutoPublish)
 - **Store:** `src/store/auth.store.ts` — Zustand auth state (user, session, loading)
-- **Types:** `src/types/database.ts` — auto-generated Supabase types (20 tables, RPCs, enums)
+- **Types:** `src/types/database.ts` — auto-generated Supabase types (25+ tables, 40+ RPCs, enums)
 - **Styling:** Tailwind CSS 4.x via `@tailwindcss/vite` plugin
 - **Path aliases:** `@/*` maps to `./src/*` (configured in tsconfig.app.json + vite.config.ts)
 
 ### Backend (Supabase — no local server)
 - **Auth:** Supabase Auth with `handle_new_user()` trigger → auto-creates `profiles` row
-- **Database:** 20 tables in Supabase PostgreSQL (see `clix-backend-reference.md` for schema)
-- **Edge Functions:** 10 at `https://gctijcljpjtmpyuzaohm.supabase.co/functions/v1/`
-  - form-submission, form-update, bot-demo, bot-edit, wclixapi-connect, flow-webhook, flow-demo, scrape-trigger, scrape-status, inngest
-  - **Shared modules:** `_shared/llm-engine.ts` (single LLM calling logic + `classifyTrigger()` semantic trigger matcher), `_shared/wa-messaging.ts` (WhatsApp via WClixAPI), `_shared/cors.ts`
-- **RPC Functions:** 19 PostgreSQL functions (admin operations, profile, product search, draft/publish bot, etc.)
+- **Database:** 25+ tables in Supabase PostgreSQL
+- **Edge Functions:** 19 deployed at `https://wkjinyqkvfszgbttmbit.supabase.co/functions/v1/`
+  - bot-demo, bot-edit, flow-demo, flow-webhook, flow-assistant, form-submission, form-update, wa-connect, scrape-trigger, scrape-status, rag-upload, rag-delete, sheets-sync, inngest, gateway-admin, admin-api, quick-endpoint, test-integration, upload-media-batch
+  - **Shared modules:** `_shared/llm-engine.ts` (LLM calling + `classifyTrigger()`), `_shared/wa-messaging.ts` (WhatsApp via WClixAPI gateway), `_shared/cors.ts`, `_shared/auth.ts`, `_shared/embeddings.ts`, `_shared/chunking.ts`, `_shared/sheets-helpers.ts`, `_shared/integration-catalog.ts`
+- **RPC Functions:** 40+ PostgreSQL functions (admin operations, profile, product search, draft/publish bot, session management, etc.)
 
 ### Environment Variables
-- **Client/.env:** Supabase credentials, API keys (Anthropic, Gemini, OpenRouter, Firecrawl), 7 edge function URLs
+- **Client/.env:** Supabase credentials, API keys (Anthropic, Gemini, OpenRouter, Firecrawl), edge function URLs
 - **Client/.env.sample:** Template with all keys (no values)
-- See `clix-backend-reference.md` → "Edge Function Mapping" for which env var maps to which endpoint
 
 ## Key Conventions
 - ES modules (`"type": "module"` in package.json)
@@ -61,6 +58,7 @@ Only `Client/` has a package.json. Run `npm install` from there.
 - State: Zustand for client state (`src/store/`), React Query for server state
 - Database types: import from `@/types/database` (e.g., `Tables<"profiles">`, `TablesInsert<"form_responses">`)
 - External operations (Supabase, APIs, third-party services): always read `Client/.env` first to get credentials/URLs before asking the user for access details (includes `SUPABASE_ACCESS_TOKEN` for CLI deploys)
+- **Supabase debugging:** When asked to check anything Supabase-related (logs, functions, DB state, etc.), always use the credentials from `Client/.env` to query the Supabase Management API or DB directly. Do NOT read the local `supabase/` folder code — check the live deployed state instead.
 
 ### Page Structure (`src/pages/`)
 - **Naming:** pages are `{Name}Page.tsx`, sections are `{Name}Section.tsx`
@@ -77,39 +75,44 @@ Only `Client/` has a package.json. Run `npm install` from there.
   - All section components go inside a `Sections/` subfolder
   - The main page imports and composes its sections
 
+## Routes
+
+```
+/                          → HomePage (landing)
+/auth                      → AuthPage (login, signup, forgot-password)
+/create-bot                → CreateBotPage (3-step wizard, protected)
+/dashboard                 → UserLayout (protected, nested routes)
+  /dashboard               → DashboardPage (conversations, demo chat, knowledge base)
+  /dashboard/edit-bot      → EditBotPage
+  /dashboard/flow-builder  → FlowBuilderPage (visual flow editor)
+  /dashboard/profile       → ProfilePage
+```
+
 ## What's Ready
 
-### Backend Connections
+### Backend
 - Supabase client with typed Database generics
-- Auth flow (signUp → pending → admin approval → approved)
-- 7 edge function wrappers in `edge-functions.ts` with auto-auth
-  - `callWClixAPIConnect()` is wired to ConnectSection (QR code flow)
-- All 20 DB tables exist and are queryable
-- All 8 edge functions deployed and responding
-- 13/19 RPC functions used from frontend (6 unused — see `migration-status.md`)
-- **Draft/Publish system:** `form_responses.draft_bot_prompt` column separates preview from live bot. Edits go to draft, published on WhatsApp connect or via "Publish Changes" button in dashboard
-- **Google Sheets Knowledge Base:** Users paste a public Google Sheet URL → data is fetched via Google Sheets API, chunked, embedded, and added to the RAG pipeline. Auto-syncs every 10 min via Inngest cron. Manual refresh also available. Edge function: `sheets-sync`. Shared helpers: `_shared/sheets-helpers.ts`, `_shared/chunking.ts`.
+- Auth flow (signUp → admin approval → approved)
+- Edge function wrappers in `edge-functions.ts` with auto-auth
+- All 19 edge functions deployed and responding
+- 40+ RPC functions
+- **Draft/Publish system:** `form_responses.draft_bot_prompt` column separates preview from live bot
+- **Google Sheets Knowledge Base:** RAG pipeline with auto-sync every 10 min via Inngest cron
+- **Visual Flow Builder:** 8 node types (start, text, image, buttons, collect_input, delay, api_call, open_bot, language) with smart LLM-based trigger matching
+- **Auto-Follow-Up System:** LLM-generated re-engagement messages via Inngest cron jobs
 
-### Frontend Pages Built
-- **HomePage** — full landing page with 6 sections (Hero, ProductPreview, Features, FAQ, CTA, Footer)
-- **AuthPage** — login, signup, forgot-password modes (wired to Supabase Auth)
-- **PendingPage** — approval waiting screen with 30s auto-refresh (wired to `get_my_profile` RPC)
-- **CreateBotPage** — multi-step 3-section wizard: FormSection (`callFormSubmission()` + `callScrapeStatus()`), PreviewSection (`callBotDemo()` + `callBotEditRequest()`), ConnectSection (`callWClixAPIConnect()`). All wired to backend.
-- **AdminPage** — 3 working sections:
-  - Approvals — approve/reject users (wired to RPCs)
-  - Users — list + search + filter (wired to RPCs)
-  - FormBuilder — drag-drop field editor (wired to 7 RPCs)
-- **FlowBuilderPage** — visual @xyflow/react flow editor at `/dashboard/flow-builder`. 3-panel layout (editor sidebar, canvas, node palette) + toolbar + preview simulator. 8 node types (start, text, image, buttons, collect_input, delay, follow_up, condition). 1 workflow per account (auto-created). Default template: single Start node. LLM works implicitly behind the scenes — no AI Agent node. **Smart triggers:** LLM-based semantic matching via `classifyTrigger()` in `_shared/llm-engine.ts` (e.g., "hi" matches a "hello" trigger). **workflow_record:** auto-generated Hebrew summary of flow paths, stored in `workflows.workflow_record` on publish, passed to LLM as context for fallback responses. Legacy ai_agent nodes are auto-stripped on load (frontend) and treated as pass-through (backend). Dashboard demo chat unified with flow preview (both use `callFlowDemo()`).
-- **Auto-Follow-Up System** — LLM-generated re-engagement messages when customers stop replying during active funnels. Configurable delay (15-1440 min) and max count (1-2) in FlowSettingsModal. Stage classification via hidden `<!-- stage:engaging/closed -->` LLM tags. Background job executor via Inngest cron (`process-delayed-jobs`, every 2 min). Also fixes existing broken `delay` and `follow_up` node executors. DB: `subscriber_sessions.conversation_stage`, `subscriber_sessions.follow_up_count`, `flow_delayed_jobs.job_type`, `claim_pending_delayed_jobs` RPC.
-- **AdminGuard** — route protection for admin pages
-- **i18n** — 15 namespaces (including `flow`), Hebrew + English, RTL support via i18next
+### Frontend Pages
+- **HomePage** — 6 sections (Hero, ProductPreview, Features, FAQ, CTA, Footer)
+- **AuthPage** — login, signup, forgot-password (wired to Supabase Auth)
+- **CreateBotPage** — 3-step wizard: FormSection, PreviewSection, ConnectSection
+- **DashboardPage** — conversations, demo chat, knowledge base, FAQ, business content, blocked numbers
+- **FlowBuilderPage** — visual @xyflow/react flow editor with node palette, editor sidebar, toolbar, preview
+- **ProfilePage** — user profile settings
+- **UserLayout** — sidebar + layout for authenticated routes
 
-### Frontend Not Yet Built
-See [`.claude/migration-status.md`](.claude/migration-status.md) for the full gap analysis with checklists.
-
-**Key missing items:**
-- 2 user pages (Settings, NotFound)
-- 3 admin pages (UserDetails, Tickets, FlowManager)
+### i18n
+- 11 namespaces: common, auth, landing, createBot, dashboard, flow, rag, profile, faq, sidebar, support
+- Languages: English (`en`) + Hebrew (`he`) with RTL support
 
 ## Implementation Workflow
 
@@ -125,11 +128,3 @@ See [`.claude/migration-status.md`](.claude/migration-status.md) for the full ga
 **Do NOT automatically run code-simplifier, browser-tester, or /simplify agents after each feature.** Only run them when the user explicitly asks for it.
 
 **Never batch-implement multiple features. Each feature must pass the build before starting the next.**
-
-## Maintenance Rule
-
-**After each feature is confirmed working, check if docs need updating:**
-1. Update `.claude/migration-status.md` to mark the feature as complete (change `[ ]` to `[x]`)
-2. Update webhook/RPC usage tables if you wire new backend calls
-3. Update this file's "What's Ready" section if a major feature is added
-4. Update `.claude/clix-backend-reference.md` if new backend patterns, services, or integrations are added

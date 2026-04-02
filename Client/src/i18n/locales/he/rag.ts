@@ -25,6 +25,8 @@ const rag = {
   errorUpload: "ההעלאה נכשלה. נסה שוב.",
   errorProcessing: "העיבוד נכשל. נסה שוב.",
   errorDelete: "המחיקה נכשלה. נסה שוב.",
+  removing: "מסיר מסמך...",
+  disconnecting: "מנתק גיליון...",
   retry: "נסה שוב",
 
   // Google Sheets
@@ -33,8 +35,8 @@ const rag = {
     "חבר גיליון Google ציבורי כמקור ידע. הבוט ישתמש בנתונים האלה כשיענה ללקוחות.",
   sheetsPlaceholder: "הדבק קישור ל-Google Sheet ציבורי",
   sheetsConnect: "חבר",
-  sheetsDisconnect: "נתק",
-  sheetsDisconnectConfirm: "האם אתה בטוח? כל הנתונים מהגיליון יימחקו.",
+  sheetsDisconnect: "נתק גיליון",
+  sheetsDisconnectConfirm: "האם אתה בטוח? כל הנתונים יימחקו.",
   sheetsSync: "רענן",
   sheetsSyncing: "מסנכרן...",
   sheetsConnecting: "מתחבר...",

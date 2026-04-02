@@ -111,9 +111,8 @@ const flow = {
   settingsAutoFollowUp: "Auto Follow-Up",
   settingsAutoFollowUpHint: "Send a smart follow-up message when a customer stops replying",
   settingsAutoFollowUpDelay: "Wait time before follow-up (minutes)",
-  settingsAutoFollowUpPreset30: "30 min",
-  settingsAutoFollowUpPreset60: "1 hour",
-  settingsAutoFollowUpPreset120: "2 hours",
+  settingsAutoFollowUpPreset10: "10 min",
+  settingsAutoFollowUpPreset20: "20 min",
   settingsAutoFollowUpMaxCount: "Max follow-up messages",
   settingsAutoFollowUpMaxCountHint: "How many follow-ups to send before stopping",
   settingsAutoFollowUpMode: "Message Type",
@@ -130,6 +129,7 @@ const flow = {
   settingsSessionResetPreset60: "1 hour",
   settingsSessionResetPreset360: "6 hours",
   settingsSessionResetPreset1440: "24 hours",
+  settingsCustom: "Custom",
   settingsDone: "Done",
 
   // Auto-save & lock

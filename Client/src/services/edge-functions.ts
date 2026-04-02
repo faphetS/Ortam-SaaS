@@ -67,8 +67,8 @@ export function callBotEditRequest(data: Record<string, unknown>) {
   return callEdgeFn("VITE_EDGE_FN_BOT_EDIT_REQUEST", data);
 }
 
-export function callWClixAPIConnect(data: Record<string, unknown>) {
-  return callEdgeFn("VITE_EDGE_FN_WCLIXAPI_CONNECT", data);
+export function callWaConnect(data: Record<string, unknown>) {
+  return callEdgeFn("VITE_EDGE_FN_WA_CONNECT", data);
 }
 
 export function callScrapeStatus(data: Record<string, unknown>) {
@@ -97,8 +97,4 @@ export function callTestIntegration(data: Record<string, unknown>) {
 
 export function callSheetsSync(data: Record<string, unknown>) {
   return callEdgeFn("VITE_EDGE_FN_SHEETS_SYNC", data);
-}
-
-export function callGatewayAdmin(data: Record<string, unknown>) {
-  return callEdgeFn("VITE_EDGE_FN_GATEWAY_ADMIN", data);
 }

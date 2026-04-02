@@ -14,19 +14,15 @@ interface FormFieldRow {
   allow_other: boolean;
 }
 
-interface FormSettingsRow {
-  opening_title?: string;
-  opening_text?: string;
-  closing_title?: string;
-  closing_text?: string;
-}
-
-/** Shared hook: fetch form fields from admin_list_form_fields RPC */
+/** Shared hook: fetch form fields directly from form_fields table */
 export function useFormFieldsQuery() {
   return useQuery({
     queryKey: ["form_fields"],
     queryFn: async () => {
-      const { data, error } = await supabase.rpc("admin_list_form_fields");
+      const { data, error } = await supabase
+        .from("form_fields")
+        .select("*")
+        .order("sort_order", { ascending: true });
       if (error) throw error;
       return ((data as FormFieldRow[]) ?? []).map((f) => ({
         ...f,
@@ -36,21 +32,23 @@ export function useFormFieldsQuery() {
   });
 }
 
-/** Shared hook: fetch form settings from admin_get_form_settings RPC */
+/** Shared hook: fetch form settings directly from form_settings table */
 export function useFormSettingsQuery() {
   return useQuery({
     queryKey: ["form_settings"],
     queryFn: async () => {
-      const { data, error } = await supabase.rpc("admin_get_form_settings");
+      const { data, error } = await supabase
+        .from("form_settings")
+        .select("*")
+        .limit(1)
+        .maybeSingle();
       if (error) throw error;
-      const rows = data as FormSettingsRow[] | null;
-      const row = rows?.[0];
-      if (row) {
+      if (data) {
         return {
-          opening_title: row.opening_title ?? "",
-          opening_text: row.opening_text ?? "",
-          closing_title: row.closing_title ?? "",
-          closing_text: row.closing_text ?? "",
+          opening_title: data.opening_title ?? "",
+          opening_text: data.opening_text ?? "",
+          closing_title: data.closing_title ?? "",
+          closing_text: data.closing_text ?? "",
         } as FormSettings;
       }
       return null;

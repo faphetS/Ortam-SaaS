@@ -37,12 +37,13 @@ const auth = {
   errorPasswordRequired: "Password is required",
   errorPasswordMin: "Password must be at least 6 characters",
   errorPasswordMismatch: "Passwords don't match",
+  errorEmailExists: "This email is already registered. Try logging in instead.",
   errorNameRequired: "Full name is required",
   errorPhoneRequired: "Phone number is required",
   errorLoginFailed: "Invalid email or password",
 
   // Email confirmation
-  signupConfirmEmail: "Account created! Check your email to confirm, then log in.",
+  signupConfirmEmail: "Account created! You can now log in.",
 
   // Illustration panel
   illustrationTitle: "Your WhatsApp,\nWorking for You",

@@ -37,12 +37,13 @@ const auth = {
   errorPasswordRequired: "סיסמה נדרשת",
   errorPasswordMin: "הסיסמה חייבת להכיל לפחות 6 תווים",
   errorPasswordMismatch: "הסיסמאות לא תואמות",
+  errorEmailExists: "האימייל הזה כבר רשום. נסה להתחבר.",
   errorNameRequired: "שם מלא נדרש",
   errorPhoneRequired: "מספר טלפון נדרש",
   errorLoginFailed: "אימייל או סיסמה שגויים",
 
   // Email confirmation
-  signupConfirmEmail: "החשבון נוצר! בדוק את האימייל שלך לאישור, ואז התחבר.",
+  signupConfirmEmail: "החשבון נוצר! אפשר להתחבר עכשיו.",
 
   // Illustration panel
   illustrationTitle: "הווטסאפ שלך,\nעובד בשבילך",

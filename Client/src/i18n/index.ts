@@ -12,8 +12,6 @@ const ns = [
   "createBot",
   "faq",
   "sidebar",
-  "admin",
-  "pending",
   "dashboard",
   "flow",
   "rag",

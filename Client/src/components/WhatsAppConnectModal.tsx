@@ -11,7 +11,7 @@ import {
   ChevronRight,
   X,
 } from "lucide-react";
-import { callWClixAPIConnect } from "@/services/edge-functions";
+import { callWaConnect } from "@/services/edge-functions";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -114,7 +114,7 @@ export default function WhatsAppConnectModal({
   /* ── Poll for connection status ── */
   const pollStatus = useCallback(async () => {
     if (!userId) return;
-    const result = await callWClixAPIConnect({ user_id: userId, action: "status" });
+    const result = await callWaConnect({ user_id: userId, action: "status" });
     if (result.data && (result.data as { status: string }).status === "connected") {
       setIsPolling(false);
       setConnectStatus("success");
@@ -147,7 +147,7 @@ export default function WhatsAppConnectModal({
     setQrCode(null);
 
     try {
-      const result = await callWClixAPIConnect({ user_id: userId });
+      const result = await callWaConnect({ user_id: userId });
       if (result.error) throw new Error(result.error);
 
       const data = result.data as { status: string; qr?: string };

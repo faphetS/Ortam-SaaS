@@ -25,6 +25,7 @@ export function useGoogleSheet() {
 
   const [isConnecting, setIsConnecting] = useState(false);
   const [isSyncing, setIsSyncing] = useState(false);
+  const [isDisconnecting, setIsDisconnecting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
@@ -163,6 +164,7 @@ export function useGoogleSheet() {
     if (!user?.id || !sheetDocument) return;
 
     setError(null);
+    setIsDisconnecting(true);
 
     try {
       const { error: fnError } = await callRagDelete({
@@ -179,6 +181,7 @@ export function useGoogleSheet() {
       await queryClient.refetchQueries({
         queryKey: ["google-sheet-document", user?.id],
       });
+      setIsDisconnecting(false);
     }
   }, [user?.id, sheetDocument, t, queryClient]);
 
@@ -190,6 +193,7 @@ export function useGoogleSheet() {
     isLoading,
     isConnecting,
     isSyncing,
+    isDisconnecting,
     connectSheet,
     syncSheet,
     disconnectSheet,

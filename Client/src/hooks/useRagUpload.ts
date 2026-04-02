@@ -31,6 +31,7 @@ export function useRagUpload() {
   const queryClient = useQueryClient();
 
   const [isUploading, setIsUploading] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [uploadProgress, setUploadProgress] = useState("");
   const [error, setError] = useState<string | null>(null);
 
@@ -140,6 +141,7 @@ export function useRagUpload() {
     if (!user?.id) return;
 
     setError(null);
+    setIsDeleting(true);
 
     try {
       const { error: fnError } = await callRagDelete({ user_id: user.id });
@@ -153,6 +155,8 @@ export function useRagUpload() {
       });
     } catch {
       setError(t("errorDelete"));
+    } finally {
+      setIsDeleting(false);
     }
   }, [user?.id, t, queryClient]);
 
@@ -160,6 +164,7 @@ export function useRagUpload() {
     document,
     isLoading,
     isUploading,
+    isDeleting,
     uploadProgress,
     uploadFile,
     deleteDocument,

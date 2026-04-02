@@ -33,6 +33,7 @@ function FileUploadCard() {
     document,
     isLoading,
     isUploading,
+    isDeleting,
     uploadProgress,
     uploadFile,
     deleteDocument,
@@ -91,6 +92,13 @@ function FileUploadCard() {
         <div className="flex items-center justify-center py-12">
           <Loader2 className="w-6 h-6 text-[#22D3EE] animate-spin" />
         </div>
+      ) : isDeleting ? (
+        <div className="flex flex-col items-center justify-center py-12 gap-4">
+          <Loader2 className="w-10 h-10 text-red-400 animate-spin" />
+          <p className="text-sm text-[#6B7280] font-medium">
+            {t("removing")}
+          </p>
+        </div>
       ) : isUploading || document?.status === "processing" ? (
         <div className="flex flex-col items-center justify-center py-12 gap-4">
           <Loader2 className="w-10 h-10 text-[#22D3EE] animate-spin" />
@@ -100,6 +108,12 @@ function FileUploadCard() {
         </div>
       ) : document?.status === "ready" ? (
         <div className="space-y-4">
+          {error && (
+            <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-red-50 border border-red-200">
+              <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
+              <span className="text-xs text-red-700">{error}</span>
+            </div>
+          )}
           <div className="bg-[#F9FAFB] rounded-xl p-4 border border-[#E5E7EB]/60">
             <div className="flex items-start gap-3">
               <div className="p-2 bg-[#22D3EE]/10 rounded-lg shrink-0">
@@ -144,17 +158,22 @@ function FileUploadCard() {
             </button>
             <button
               type="button"
+              disabled={isDeleting}
               onClick={() =>
                 confirmDelete ? handleDelete() : setConfirmDelete(true)
               }
               className={cn(
-                "flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors",
+                "flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors disabled:opacity-50",
                 confirmDelete
                   ? "text-white bg-red-500 hover:bg-red-600"
                   : "text-red-500 bg-red-50 hover:bg-red-100",
               )}
             >
-              <Trash2 className="w-4 h-4" />
+              {isDeleting ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <Trash2 className="w-4 h-4" />
+              )}
               {confirmDelete ? t("removeConfirm") : t("removeFile")}
             </button>
           </div>
@@ -231,6 +250,7 @@ function GoogleSheetCard() {
     isLoading,
     isConnecting,
     isSyncing,
+    isDisconnecting,
     connectSheet,
     syncSheet,
     disconnectSheet,
@@ -268,6 +288,13 @@ function GoogleSheetCard() {
       {isLoading ? (
         <div className="flex items-center justify-center py-12">
           <Loader2 className="w-6 h-6 text-emerald-600 animate-spin" />
+        </div>
+      ) : isDisconnecting ? (
+        <div className="flex flex-col items-center justify-center py-12 gap-4">
+          <Loader2 className="w-10 h-10 text-red-400 animate-spin" />
+          <p className="text-sm text-[#6B7280] font-medium">
+            {t("disconnecting")}
+          </p>
         </div>
       ) : isConnecting || sheetDocument?.status === "processing" ? (
         /* Connecting / Processing */
@@ -361,19 +388,24 @@ function GoogleSheetCard() {
             </button>
             <button
               type="button"
+              disabled={isDisconnecting}
               onClick={() =>
                 confirmDisconnect
                   ? handleDisconnect()
                   : setConfirmDisconnect(true)
               }
               className={cn(
-                "flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors",
+                "flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors disabled:opacity-50",
                 confirmDisconnect
                   ? "text-white bg-red-500 hover:bg-red-600"
                   : "text-red-500 bg-red-50 hover:bg-red-100",
               )}
             >
-              <Trash2 className="w-4 h-4" />
+              {isDisconnecting ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <Trash2 className="w-4 h-4" />
+              )}
               {confirmDisconnect
                 ? t("sheetsDisconnectConfirm")
                 : t("sheetsDisconnect")}
